@@ -3,7 +3,7 @@ Make A New Directory
 As a user, when I execute the command mkdir, a new directory
 should be made within the directory I am currently in. Alternatively
 I should be able to make directories given a location starting
-from the directory I am currently in. This will not take long to impliment as
+from the directory I am currently in. This will not take long to implement as
 we will be adding a directory object to target location defaulted at where
 the command is entered.
 
@@ -11,11 +11,12 @@ Change The Current Directory
 As a user, when I execute the command cd, the current directory I reside in
 should be changed to the location given after cd. There should be some
 shortcuts when this command is called, such as ".." and "-". This will be a
-quick impliment as the current node will just change to target location.
+quick implement as the current node will just change to target location.
 
 Listing The Contents Of A Directory
-As a user, when I execue the command ls, the contents of the directory I
+As a user, when I execute the command ls, the contents of the directory I
 am currently in should be displayed. The ls command should also be able to
 display the contents of another directory given the file location, starting
-from the directory I am currently in. This command wont take long to impliment
-as it would just require a call to the getter of a diectory object.
+from the directory I am currently in. This command will not take long to
+implement as it would just require a call to the getter of a directory object.
+

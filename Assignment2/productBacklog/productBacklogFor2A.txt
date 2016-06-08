@@ -22,11 +22,11 @@ from the directory I am currently in. This command will not take long to
 implement as it would just require a call to the getter of a directory object. (2 hours)
 
 
-As a user, I should be able to see all the commands I have used during the session. 2 Hours.
+As a user, I should be able to see all the commands I have used during the session. (2 Hours.)
 
-As a user, I should be able to see the last n commands I have used. 1 hour.
+As a user, I should be able to see the last n commands I have used. (1 hour.)
 
-As a user, I should be able to output the contents of one or more files to the shell. 3 hours.
+As a user, I should be able to output the contents of one or more files to the shell. (3 hours.)
 
 As a user, I should be able to exit the program as I wish. (2 hours)
 
@@ -39,3 +39,9 @@ As a user, I should be able to see the path of the current working directory. (1
 As a user, I should be able to save the current working directory onto the directory stack and then change to a new working directory. (2 days)
 
 As a user, I should be able to remove the top entry from the directory stack and make it the working directory. (2 hours)
+
+As a user, I should be able to write a string to a new file. (5 hours)
+
+As a user, I should be able to overwrite a file with a string (2 hours)
+
+As a user, I should be able to append a string to a file (3 hours)

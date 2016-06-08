@@ -1,24 +1,26 @@
 User Stories:
+
 Make A New Directory
 As a user, when I execute the command mkdir, a new directory
 should be made within the directory I am currently in. Alternatively
 I should be able to make directories given a location starting
 from the directory I am currently in. This will not take long to implement as
 we will be adding a directory object to target location defaulted at where
-the command is entered.
+the command is entered. (3 hours)
 
 Change The Current Directory
 As a user, when I execute the command cd, the current directory I reside in
 should be changed to the location given after cd. There should be some
 shortcuts when this command is called, such as ".." and "-". This will be a
-quick implement as the current node will just change to target location.
+quick implement as the current node will just change to target location. (3 hours)
 
 Listing The Contents Of A Directory
 As a user, when I execute the command ls, the contents of the directory I
 am currently in should be displayed. The ls command should also be able to
 display the contents of another directory given the file location, starting
 from the directory I am currently in. This command will not take long to
-implement as it would just require a call to the getter of a directory object.
+implement as it would just require a call to the getter of a directory object. (2 hours)
+
 
 As a user, I should be able to see all the commands I have used during the session. 2 Hours.
 
@@ -31,3 +33,9 @@ As a user, I should be able to exit the program as I wish. (2 hours)
 As a user, I should have access to see what a command does (documentation). (1 day)
 
 As a user, I should be able to standard output (display) a line of text. (1 day)
+
+As a user, I should be able to see the path of the current working direcotory. (1 day)
+
+As a user, I should be able to save the current working directory onto the directory stack and then change to a new working directory. (2 days)
+
+As a user, I should be able to reomve the top entry from the directory stack and make it the working directory. (2 hours)

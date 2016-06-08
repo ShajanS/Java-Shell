@@ -26,8 +26,8 @@ As a user, I should be able to see the last n commands I have used. 1 hour.
 
 As a user, I should be able to output the contents of one or more files to the shell. 3 hours.
 
-As a user, I should be able to exit the program as I wish. (1)
+As a user, I should be able to exit the program as I wish. (2 hours)
 
-As a user, I should have access to see what a command does (documentation) (2)
+As a user, I should have access to see what a command does (documentation). (1 day)
 
-As a user, I should be able to standard output (display) a line of text. (1)
+As a user, I should be able to standard output (display) a line of text. (1 day)

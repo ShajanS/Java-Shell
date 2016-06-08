@@ -20,3 +20,8 @@ display the contents of another directory given the file location, starting
 from the directory I am currently in. This command will not take long to
 implement as it would just require a call to the getter of a directory object.
 
+As a user, I should be able to see all the commands I have used during the session. 2 Hours.
+
+As a user, I should be able to see the last n commands I have used. 1 hour.
+
+As a user, I should be able to output the contents of one or more files to the shell. 3 hours.

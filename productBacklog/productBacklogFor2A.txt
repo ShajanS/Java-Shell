@@ -42,6 +42,8 @@ As a user, I should be able to remove the top entry from the directory stack and
 
 As a user, I should be able to write a string to a new file. (5 hours)
 
-As a user, I should be able to overwrite a file with a string (2 hours)
+As a user, I should be able to overwrite a file with a string. (2 hours)
 
-As a user, I should be able to append a string to a file (3 hours)
+As a user, I should be able to append a string to a file. (3 hours)
+
+As a user, I should be able to input commands with 1+ spaces between the parts (arguments/commands). (2 hours)

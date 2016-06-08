@@ -34,8 +34,8 @@ As a user, I should have access to see what a command does (documentation). (1 d
 
 As a user, I should be able to standard output (display) a line of text. (1 day)
 
-As a user, I should be able to see the path of the current working direcotory. (1 day)
+As a user, I should be able to see the path of the current working directory. (1 day)
 
 As a user, I should be able to save the current working directory onto the directory stack and then change to a new working directory. (2 days)
 
-As a user, I should be able to reomve the top entry from the directory stack and make it the working directory. (2 hours)
+As a user, I should be able to remove the top entry from the directory stack and make it the working directory. (2 hours)

@@ -22,8 +22,8 @@ e-1. (JShell) Output strings given by the user when 'echo' is given with no outp
 
 These tasks are assigned as follows:
 
-User:
-Tasks:
+User: Shajan Sivarajah (sivara57)
+Tasks: a-4, b-1
 
 User:
 Tasks:

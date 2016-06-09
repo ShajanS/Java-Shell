@@ -1,0 +1,35 @@
+Sprint 1 Backlog
+June 8 to June 13
+
+User Stories from Product Backlog that we will address in this sprint:
+a) As a user, I should be able to input commands with 1+ spaces between the parts (arguments/commands). (2 hours)
+b) As a user, I should be able to exit the program as I wish. (2 hours)
+c) As a user, I should be able to see all the commands I have used during the session. (2 Hours.)
+d) As a user, I should be able to see the last n commands I have used. (1 hour.)
+e) As a user, I should have access to see what a command does (documentation). (1 day)
+f) As a user, I should be able to standard output (display) a line of text. (1 day)
+
+Specific tasks to be accomplished:
+a-1. (JShell) Allow the user to continuously enter commands
+a-2. (JShell) Parse input for commands and arguments
+a-3. (JShell) Pass commands to relevant objects and methods
+a-4. (JShell) Display an error message when an incorrect command has been entered
+b-1. (JShell) Implement the exit command to terminate the program
+c-1. (JShell) Store commands entered by the user
+c-2. (JShell) Output a nicely formatted list of the above commands when 'history' is given with no arguments
+d-1. (JShell) Output a nicely formatted list of the last n commands given when 'history' is given with a single natural number argument
+e-1. (JShell) Output strings given by the user when 'echo' is given with no output redirection
+
+These tasks are assigned as follows:
+
+User:
+Tasks:
+
+User:
+Tasks:
+
+User:
+Tasks:
+
+User:
+Tasks:

@@ -28,8 +28,8 @@ Tasks: a-4, b-1
 User: Sai Oduri (odurilak)
 Tasks: a-1, c-1
 
-User:
-Tasks:
+User: Kirill Lossev (lossevki)
+Tasks: a-2, a-3, e-1
 
 User:
 Tasks:

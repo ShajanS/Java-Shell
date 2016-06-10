@@ -25,8 +25,8 @@ These tasks are assigned as follows:
 User: Shajan Sivarajah (sivara57)
 Tasks: a-4, b-1
 
-User:
-Tasks:
+User: Sai Oduri (odurilak)
+Tasks: a-1, c-1
 
 User:
 Tasks:

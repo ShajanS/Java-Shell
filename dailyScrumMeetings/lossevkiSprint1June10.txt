@@ -1,0 +1,11 @@
+What did I do last time?
+	-Wrote sprint backlog and assigned tasks
+	-JShell can now read user input
+	-Implemented echo command without output redirection
+	
+What do I plan to do now?
+	-Implement history command
+	-Begin writing tests for existing methods
+	
+Am I blocked on anything?
+	-JShell currently does not remember user commands

@@ -1,0 +1,9 @@
+What did I do last time?
+	-Wrote sprint backlog tasks
+	
+What do I plan to do now?
+	-Begin writing pwd, pushd and popd functions
+	
+Am I blocked on anything?
+	-JShell currently does not remember user commands
+	-JShell curreently does not have a way to create paths

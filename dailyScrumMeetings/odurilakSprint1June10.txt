@@ -1,0 +1,9 @@
+What did I do last time?
+	-Wrote sprint backlog tasks
+
+What do I plan to do now?
+	-Begin writing mkdir, cd and ls functions
+	
+Am I blocked on anything?
+	-JShell currently does not remember user commands
+	-JShell currently does not have a way to create paths

@@ -1,0 +1,46 @@
+Sprint 2 Backlog
+June 14 to June 19
+
+User stories carried over from sprint 1:
+a) As a user, I should be able to exit the program as I wish. (2 hours)
+b) As a user, I should have access to see what a command does (documentation). (1 day)
+
+User stories we will address in this sprint:
+c) As a user, I should be able to make a new directory
+d) As a user, I should be able to change directories
+e) As a user, I should be able to see the contents of a directory
+f) As a user, I should be able to write a string to a new file. (5 hours)
+g) As a user, I should be able to overwrite a file with a string. (2 hours)
+h) As a user, I should be able to append a string to a file. (3 hours)
+
+Specific tasks to be accomplished:
+a-1. (JShell) Continuous loop for user input
+a-2. (JShell) Have exit command break above loop
+b-1. (man) Write documentation for commands
+b-2. (man) Map commands to above documentation
+b-3. (man) Output contents of documentation
+c-1. (Directory) Create base of directory class, should be able to store directories and files
+c-2. (Directory) Ability to create directories and store them within another directory
+d-1. (Directory) Ability to access a specific subdirectory
+e-1. (Directory) Output names of all files and directories
+f-1. (echo) Check for > or >> in params
+f-2. (File) Create base of file class, should hold a string and be able to append or overwrite its text
+f-3. (echo) Add file to current directory if it does not currently exist
+g-1. (echo) Overwrite specified file with rest of parameters
+h-1. (echo) Append rest of parameter to specified file
+i-1. (JShell) Refactor JShell to more efficiently interpret commands
+j-1. Begin unit testing on existing command implementations
+
+These tasks are assigned as follows:
+
+User:
+Tasks:
+
+User: 
+Tasks:
+
+User:
+Tasks:
+
+User:
+Tasks: 

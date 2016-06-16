@@ -53,7 +53,9 @@ public class JShell {
     // parameter and store its output.
     if (inputString.startsWith("echo")) {
       outputString = echo(inputString.substring("echo".length()));
-    } else if (inputString.startsWith("history")) {
+    } 
+
+    else if (inputString.startsWith("history")) {
       outputString = history(inputString.substring("history".length()));
     }
     // If not, output an error message

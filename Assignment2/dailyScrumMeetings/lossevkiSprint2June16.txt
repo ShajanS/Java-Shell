@@ -1,0 +1,9 @@
+What did I do last time?
+-Started on Directory class
+
+What will I work on next?
+-Finishing Directory class
+-Integrating Directory class with JShell
+
+What am I stuck on?
+-File class does not exist

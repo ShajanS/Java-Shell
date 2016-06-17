@@ -39,8 +39,8 @@ Tasks: a-1, a-2
 User: Shajan Sivarajah (sivara57)
 Tasks: f-1, f-2, f-3
 
-User:
-Tasks:
+User: Kirill Lossev (lossevki)
+Tasks: c-1, c-2, d-1, e-1
 
 User:
 Tasks: 

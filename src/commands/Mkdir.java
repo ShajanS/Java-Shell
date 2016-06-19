@@ -22,11 +22,11 @@ public class Mkdir implements Command{
         pwd = shell.currDir;
       }
       //Try to navigate to the directory immediately above the name in the token
-      data.Directory parent = shell.rootDir.navigateToParent(currArg);
+      data.Directory parent = pwd.navigateToParent(currArg);
       //If this is not possible (result is null), return an error message
       if (parent == null){
         noErrors = false;
-        result = "Error - Specified path is unreachable";
+        result = "Error - Specified path is unreachable\n";
       } else{
       //Otherwise,
         //Get the name of the directory to make. This will be all the
@@ -36,10 +36,10 @@ public class Mkdir implements Command{
         //If a directory being made already exists, return an error
         if (pwd.getDirectory(name) != null){
           noErrors = false;
-          result = "Error - This directory already exists";
+          result = "Error - This directory already exists\n";
         } else{
-        //If not, create the directory.    
-          pwd.createDirectory(name);
+        //If not, create the directory in the appropriate parent.
+          parent.createDirectory(name);
         }
       }
     }

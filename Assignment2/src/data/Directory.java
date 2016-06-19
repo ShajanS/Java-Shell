@@ -46,9 +46,9 @@ public class Directory {
     
   //Creates a new directory with the given name inside of this one
   public void createDirectory(String name){
-    //Make the new directory, with this directory as its parent
-    Directory newDir = new Directory(this);
-    //Insert the new directory
+    //Make the new directory
+    Directory newDir = new Directory();
+    //Insert the new directory with the given name
     insertDirectory(newDir, name);
   }
   
@@ -82,7 +82,7 @@ public class Directory {
       Directory nextDir = getDirectory(nextDirName);
       //If it exists, search for the rest of the path starting with that dir
       if (nextDir != null){
-        result = nextDir.navigateToParent(dest.substring(dest.indexOf('/')));
+        result = nextDir.navigateToParent(dest.substring(dest.indexOf('/')+1));
       } else {
       //If it does not, return null.
         result = null;

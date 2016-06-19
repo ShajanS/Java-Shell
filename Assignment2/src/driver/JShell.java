@@ -40,9 +40,14 @@ public class JShell {
    */
 
   // An arraylist to hold command history
-  java.util.ArrayList<String> commands = new java.util.ArrayList<String>();
+  public java.util.ArrayList<String> commands;
+  // The current working directory
+  public data.Directory currDir;
+  public data.Directory rootDir;
 
   private JShell() {
+    commands = new java.util.ArrayList<String>();
+    
     String outputString;
     // Get input from the user
     // Trim the input string

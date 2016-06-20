@@ -37,7 +37,7 @@ User: Sai Oduri (odurilak)
 Tasks: a-1, a-2
 
 User: Shajan Sivarajah (sivara57)
-Tasks: f-1, f-2, f-3
+Tasks: b-1, b-2, b-3
 
 User: Kirill Lossev (lossevki)
 Tasks: c-1, c-2, d-1, e-1

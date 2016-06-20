@@ -1,0 +1,12 @@
+What did I do last time?
+-Implemented mkdir command
+-Refactored JShell
+-Refactored echo command
+
+What will I do next?
+-Finish echo command
+-Implement File class
+-Implement other commands
+
+What am I stuck on?
+-mkdir has some buggy behaviour

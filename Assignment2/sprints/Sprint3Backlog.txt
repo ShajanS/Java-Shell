@@ -43,8 +43,8 @@ These tasks are assigned as follows:
 User: Kirill Lossev (lossevki)
 Tasks: a-1, c-1, d-1, f-1, g-1, i-1, i-2, i-3, l-1
 
-User: 
-Tasks:
+User: Shajan Sivarajah (sivara57)	
+Tasks: b-1, b-2, b3
 
 User: 
 Tasks:

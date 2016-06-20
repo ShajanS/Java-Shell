@@ -1,0 +1,53 @@
+Sprint 3 Backlog
+June 20 to June 27
+
+User stories carried over from sprint 2:
+a) As a user, I should be able to exit the program as I wish. (2 hours)
+b) As a user, I should have access to see what a command does (documentation). (1 day)
+c) As a user, I should be able to change directories (3 hours)
+d) As a user, I should be able to see the contents of a directory (2 hours)
+e) As a user, I should be able to write a string to a new file. (5 hours)
+f) As a user, I should be able to overwrite a file with a string. (2 hours)
+g) As a user, I should be able to append a string to a file. (3 hours)
+
+User stories we will address in this sprint
+h) As a user, I should be able to output the contents of one or more files to the shell. (3 hours.)
+i) As a user, I should be able to see the path of the current working directory. (1 day)
+j) As a user, I should be able to save the current working directory onto the directory stack and then change to a new working directory. (2 days)
+k) As a user, I should be able to remove the top entry from the directory stack and make it the working directory. (2 hours)
+
+Specific tasks to be accomplished:
+a-1. (Exit) Have exit command break input loop
+b-1. (man) Write documentation for commands
+b-2. (man) Map commands to above documentation
+b-3. (man) Output contents of documentation
+c-1. (cd) Ability to change to a specific subdirectory
+d-1. (Directory) Output names of all files and directories
+e-1. (File) Create base of file class, should hold a string and be able to append or overwrite its text
+e-3. (echo) Add file to current directory if it does not currently exist
+f-1. (echo) Overwrite specified file with rest of parameters
+g-1. (echo) Append rest of parameter to specified file
+h-1. (cat) Get text from files
+h-2. (cat) Concatenate and return text from files
+i-1. (pwd) Get the name of a directory
+i-2. (pwd) Get the path of its parent directory
+i-3. (pwd) Concatenate the two and return the result
+j-1. (JShell) Implement directory stack
+j-2. (pushd) Push the current directory onto the stack and change to the specified directory
+k-1. (popd) Get the top directory from the stack and move to it
+l-1. (History) Refactor history command to use new JShell mechanics
+m-1. Write unit tests for existing commands
+
+These tasks are assigned as follows:
+
+User: Kirill Lossev (lossevki)
+Tasks: a-1, c-1, d-1, f-1, g-1, i-1, i-2, i-3, l-1
+
+User: 
+Tasks:
+
+User: 
+Tasks:
+
+User: 
+Tasks:

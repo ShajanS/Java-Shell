@@ -68,37 +68,74 @@ public class Directory {
     }
   }
   
-  //Returns the parent directory of the specified relative path, raises an
-  //error if it cannot be found
-  public Directory navigateToParent(String dest){
+  //Returns the absolute path corresponding to a relative path
+  //from this directory
+  public String absolutePath(String relativePath){
+	String result;
+	//Start in the current directory
+	Directory curr= this;
+	//If the relative path starts with a /, it is the absolute path
+	//It should have a slash at the end, add one if it is not there
+	if (relativePath.startsWith("/")){
+		result = relativePath;
+		if (!relativePath.endsWith("/")){
+			result += "/";
+		}
+	} else{
+		//Otherwise, while the relative path starts with ./ or ../,
+		while (relativePath.startsWith("./") || relativePath.startsWith("../")){
+		  //If it starts with 2 dots and slash, move to the parent directory
+		  // if it exists and remove these characters
+		  if (relativePath.startsWith("../")){
+		    if (curr.parent != null){
+		      curr = curr.parent;
+		    }
+		    relativePath = relativePath.substring(3);
+		  } else{
+			//If it starts with one dot and a slash, remove these 
+			relativePath = relativePath.substring(2);
+		  }
+		}
+		//Return the relavant directory's absolute path plus what remains of
+		//the relative path
+		return curr.getPath() + relativePath + "/";
+	}
+  return result;
+  }
+  
+  //Returns the parent directory of the specified absolute path starting at
+  //root, or throws an exception if it does not exist
+  public static Directory navigateToParent(String dest, Directory root)
+    throws InvalidPathException{
     Directory result;
-    //If the destination contains no slashes, the starting directory is the
+    //If the destination contains only two slashes, the starting directory is the
     //parent.
-    if (!dest.contains("/")){
-      result = this;
-   //If the destination starts with ../, search for the rest of the path
-   //starting from this directory's parent
-    } else if (dest.startsWith("../")){
-      result = parent.navigateToParent(dest.substring(3));
-    //If the destination starts with ./, search for the rest of the path
-    //starting from this directory
-    } else if (dest.startsWith("./")){
-      result = navigateToParent(dest.substring(2));
-    } else{
-    //Otherwise, look for the directory with the name matching the the
-    //substring from the start of the destination to the first slash.
-      String nextDirName = dest.substring(0, dest.indexOf('/'));
-      Directory nextDir = getDirectory(nextDirName);
-      //If it exists, search for the rest of the path starting with that dir
-      if (nextDir != null){
-        result = nextDir.navigateToParent(dest.substring(dest.indexOf('/')+1));
-      } else {
-      //If it does not, return null.
-        result = null;
-      }
-    }
-    //Return the resulting directory
-    return result;
+    if (dest.indexOf("/", 1) == dest.lastIndexOf("/")){
+      result = root;
+   } else{
+   //Otherwise, get the string between the first slash and the second, or the
+   //end of the string, if there isn't one
+   int slashIndex = dest.indexOf('/', 1);
+   if (slashIndex == -1){
+	   slashIndex = dest.length();
+   }
+   String nextLevelName = dest.substring(1, slashIndex);
+   //Look for the directory with this name in root
+   Directory nextLevel = root.getDirectory(nextLevelName);
+   //If it exists, look for the rest of the path starting in that directory
+   if (nextLevel != null){
+	   try{
+	     result = navigateToParent(dest.substring(slashIndex+1), nextLevel);
+   } catch(InvalidPathException e){
+	   throw e;
+   }
+   } else{
+   //If not, throw an exception
+     throw new InvalidPathException("This path could not be found");
+   }
+   }
+   //Return the resulting directory
+   return result;
   }
   
   //Returns this directory's absolute path

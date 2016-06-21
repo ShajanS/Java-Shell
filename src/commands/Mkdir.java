@@ -4,43 +4,36 @@ public class Mkdir implements Command{
 
   public String execute(driver.JShell shell, String params){
     String result = "\n";
-    boolean noErrors = true;
-    //Grab the current working directory
-    data.Directory pwd;
+    boolean noErrors = true; 
     //Get the list of directory names to make
     java.util.ArrayList<String> args = names(params);
     //Loop over the length of the list as long as there are no errors,
     for (int i = 0; i < args.size() && noErrors; i++){
+	  data.Directory parent;
       //Get the next dir to make
       String currArg = args.get(i);
-      //If the first char is a slash, remove it and start in the shell's root
-      //dir
-      if (currArg.charAt(0) == '/'){
-        pwd = shell.rootDir;
-      } else{
-      //If not, start in its current dir
-        pwd = shell.currDir;
-      }
-      //Try to navigate to the directory immediately above the name in the token
-      data.Directory parent = pwd.navigateToParent(currArg);
-      //If this is not possible (result is null), return an error message
-      if (parent == null){
-        noErrors = false;
-        result = "Error - Specified path is unreachable\n";
-      } else{
+      //Convert it to an absolute path
+      String fullArg = shell.currDir.absolutePath(currArg);
+      //Try to navigate to the directory immediately above the desired path
+      //If this is not possible, return an error message
+      try{
+        parent = data.Directory.navigateToParent(fullArg,
+          shell.rootDir);
+	  } catch (data.InvalidPathException e){
+		return "Error - path " + currArg + " is unreachable\n";
+	  }
       //Otherwise,
-        //Get the name of the directory to make. This will be all the
-        //chars after the last / (the whole thing if there are none)
-        int nameStart = currArg.lastIndexOf('/') + 1;
-        String name = currArg.substring(nameStart);
-        //If a directory being made already exists, return an error
-        if (pwd.getDirectory(name) != null){
-          noErrors = false;
-          result = "Error - This directory already exists\n";
-        } else{
-        //If not, create the directory in the appropriate parent.
-          parent.createDirectory(name);
-        }
+      //Get the name of the directory to make. This will be all the
+      //chars after the last / (the whole thing if there are none)
+      int nameStart = currArg.lastIndexOf('/') + 1;
+      String name = currArg.substring(nameStart);
+      //If a directory being made already exists, return an error
+      if (parent.getDirectory(name) != null){
+        noErrors = false;
+        result = "Error - This directory already exists\n";
+      } else{
+      //If not, create the directory in the appropriate parent.
+       parent.createDirectory(name);
       }
     }
     return result;

@@ -118,7 +118,7 @@ public class JShell {
       } else {
         // If not, return an error message.
         outputString =
-            "Error Invalid Command Name: " + "'" + inputString + "'" + "\n";
+            "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n";
       }
       // Print the string returned by the method.
       System.out.print(outputString);

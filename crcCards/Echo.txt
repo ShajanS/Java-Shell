@@ -1,0 +1,11 @@
+Class name: Echo
+-Implements: Command 
+
+Responsibilities:
+-Return a string given by a user
+-Append a string to a file
+-Overwrite a file with a string
+
+Collaborators:
+-JShell
+-File

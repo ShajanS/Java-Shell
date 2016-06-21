@@ -1,0 +1,7 @@
+Class name: Command
+
+Responsibilities:
+-Return desired output given a JShell and parameters
+
+Collaborators:
+-JShell

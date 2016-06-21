@@ -34,7 +34,7 @@ import java.util.Scanner;
 import commands.Command;
 
 public class JShell {
-  
+
   // A hashmap to map commands to the names of the classes that run them
   java.util.HashMap<String, String> commandMap;
   // An arraylist to hold command history
@@ -42,7 +42,7 @@ public class JShell {
   // The current working directory
   public data.Directory currDir;
   public data.Directory rootDir;
-  
+
   public boolean continueLoop;
 
   private JShell() {
@@ -53,15 +53,14 @@ public class JShell {
     continueLoop = true;
     Scanner in = new Scanner(System.in);
     // Populate the command map
-    commandMap =
-        new java.util.HashMap<String, String>();
+    commandMap = new java.util.HashMap<String, String>();
     commandMap.put("echo", "commands.Echo");
-    commandMap.put("mkdir","commands.Mkdir");
+    commandMap.put("mkdir", "commands.Mkdir");
     commandMap.put("history", "commands.History");
-    
+
     String outputString = "";
     // Until the exit command is used,
-    while (continueLoop){
+    while (continueLoop) {
       // Get input from the user
       // Trim the input string
       String inputString = in.nextLine().trim();
@@ -73,18 +72,18 @@ public class JShell {
       // first space, or an empty string if there isn't one
       int firstSpaceIndex = inputString.indexOf(' ');
       int paramStart = firstSpaceIndex + 1;
-      if (firstSpaceIndex == -1){
+      if (firstSpaceIndex == -1) {
         firstSpaceIndex = inputString.length();
         paramStart = inputString.length();
       }
       String firstToken = inputString.substring(0, firstSpaceIndex);
       String params = inputString.substring(paramStart);
-      
+
       // If this substring is in the command map, return its output with the
       // rest of the string as its parameter
-      if (commandMap.containsKey(firstToken)){
-         String commandName = commandMap.get(firstToken);
-         commands.Command commObj;
+      if (commandMap.containsKey(firstToken)) {
+        String commandName = commandMap.get(firstToken);
+        commands.Command commObj;
         try {
           commObj = (Command) Class.forName(commandName).newInstance();
           outputString = commObj.execute(this, params);
@@ -99,27 +98,27 @@ public class JShell {
           e.printStackTrace();
         }
       }
-      // If the substring starts with exit 
-      // ask user if they wanted to exit 
+      // If the substring starts with exit
+      // ask user if they wanted to exit
       // end loop for searching for users input and terminate if yes
       // continue search if no
-      else if (inputString.equals("exit")){
+      else if (inputString.equals("exit")) {
         Scanner exit = new Scanner(System.in);
-        System.out.print("Are you sure you want to terminate this session? [Y/N]\n");
+        System.out
+            .print("Are you sure you want to terminate this session? [Y/N]\n");
         String exitString = exit.nextLine().trim();
-        if (exitString.equals("Y") || exitString.equals("y")){
+        if (exitString.equals("Y") || exitString.equals("y")) {
           outputString = "Terminated";
           continueLoop = false;
-        }
-        else{
+        } else {
           continue;
         }
         exit.close();
-        
-      }
-      else {
-      // If not, return an error message.
-        outputString = "Error - Invalid Command\n";
+
+      } else {
+        // If not, return an error message.
+        outputString =
+            "Error Invalid Command Name: " + "'" + inputString + "'" + "\n";
       }
       // Print the string returned by the method.
       System.out.print(outputString);

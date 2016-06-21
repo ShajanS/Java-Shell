@@ -48,7 +48,7 @@ public class JShell {
   private JShell() {
     // Initializing instance attributes
     commands = new java.util.ArrayList<String>();
-    rootDir = new data.Directory();
+    rootDir = new data.Directory("");
     currDir = rootDir;
     continueLoop = true;
     Scanner in = new Scanner(System.in);
@@ -57,7 +57,9 @@ public class JShell {
     commandMap.put("echo", "commands.Echo");
     commandMap.put("mkdir", "commands.Mkdir");
     commandMap.put("history", "commands.History");
-
+    commandMap.put("pwd", "commands.Pwd");
+    commandMap.put("cd", "commands.Cd");
+    
     String outputString = "";
     // Until the exit command is used,
     while (continueLoop) {

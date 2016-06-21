@@ -79,6 +79,7 @@ public class JShell {
       }
       String firstToken = inputString.substring(0, firstSpaceIndex);
       String params = inputString.substring(paramStart);
+      
       // If this substring is in the command map, return its output with the
       // rest of the string as its parameter
       if (commandMap.containsKey(firstToken)){
@@ -97,7 +98,25 @@ public class JShell {
           // TODO Auto-generated catch block
           e.printStackTrace();
         }
-      } else {
+      }
+      // If the substring starts with exit 
+      // ask user if they wanted to exit 
+      // end loop for searching for users input and terminate if yes
+      // continue search if no
+      else if (inputString.equals("exit")){
+        Scanner exit = new Scanner(System.in);
+        System.out.print("Are you sure you want to terminate this session? [Y/N]\n");
+        String exitString = exit.nextLine().trim();
+        if (exitString.equals("Y") || exitString.equals("y")){
+          outputString = "Terminated";
+          continueLoop = false;
+        }
+        else{
+          continue;
+        }
+        
+      }
+      else {
       // If not, return an error message.
         outputString = "Error - Invalid Command\n";
       }

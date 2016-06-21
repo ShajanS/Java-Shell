@@ -57,6 +57,7 @@ public class JShell {
         new java.util.HashMap<String, String>();
     commandMap.put("echo", "commands.Echo");
     commandMap.put("mkdir","commands.Mkdir");
+    commandMap.put("history", "commands.History");
     
     String outputString = "";
     // Until the exit command is used,
@@ -64,6 +65,8 @@ public class JShell {
       // Get input from the user
       // Trim the input string
       String inputString = in.nextLine().trim();
+      // Add the input to the command history
+      commands.add(inputString);
       // Get the substring from the start of the input to the 1st space,
       // or the whole string if there are no spaces
       // Also, get the string of parameters. This is everything after the

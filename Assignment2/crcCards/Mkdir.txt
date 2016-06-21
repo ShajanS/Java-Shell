@@ -1,0 +1,10 @@
+Class name: Mkdir
+-Implements: Command
+
+Responsibilities:
+-Create one or more directories at the specified path
+-Ensure that the desired directories can actually be created
+
+Collaborators:
+-JShell
+-Directory

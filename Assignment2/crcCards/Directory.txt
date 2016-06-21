@@ -6,5 +6,6 @@ Responsibilities:
 -Return a directory at a given path
 -Create a new subdirectory
 -Take a directory and make it a subdirectory
+-Return the directory's name and absolute path
 
 Collaborators:

@@ -24,15 +24,15 @@ public class Man implements Command{
   private Hashtable<String, String> cmdman = new Hashtable<String, String>();
   
   public Man() {
-    cmdman.put("exit", " sample output.");
-    cmdman.put("cd", " sample output.");
-    cmdman.put("echo", " sample output.");
-    cmdman.put("history", " sample output.");
-    cmdman.put("mkdir", " sample output.");
-    cmdman.put("pwd", " sample output.");
-    cmdman.put("ls", " sample output.");
-    cmdman.put("cat", " sample output.");
-    cmdman.put("man", " sample output.");
+    cmdman.put("exit", ": sample output.");
+    cmdman.put("cd", ": sample output.");
+    cmdman.put("echo", ": sample output.");
+    cmdman.put("history", ": sample output.");
+    cmdman.put("mkdir", ": sample output.");
+    cmdman.put("pwd", ": sample output.");
+    cmdman.put("ls", ": sample output.");
+    cmdman.put("cat", ": sample output.");
+    cmdman.put("man", ": sample output.");
     
   }
   

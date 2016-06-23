@@ -1,0 +1,13 @@
+What did I do last time?
+-Refactored echo, mkdir, history commands
+-Implemented cd command
+-Refactored JShell
+-Updated directory class
+
+What will I work on next?
+-Implement writing to files with echo
+-Refactoring JShell and commands
+-Testing
+
+What am I stuck on?
+-./ and ../ in paths

@@ -1,0 +1,9 @@
+What did I do last time?
+	-Wrote sprint backlog and assigned tasks
+	-Decided how to implement the user input loop in JShell
+
+What do I plan to do now?
+	-Start proper documentation
+
+Am I blocked on anything?
+	-Not right now

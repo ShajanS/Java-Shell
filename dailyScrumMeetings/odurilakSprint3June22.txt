@@ -1,0 +1,8 @@
+What did I do last time?
+	- Added and completed the File class
+
+What do I plan to do now?
+	- Work on the push and pop functions
+	
+Am I blocked on anything?
+	- not right now

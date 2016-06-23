@@ -1,0 +1,8 @@
+What did I do last time?
+	- Researched on input loop of JShell
+
+What do I plan to do now?
+	- Assign tasks for sprint 2
+	
+Am I blocked on anything?
+	- not right now

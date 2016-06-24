@@ -1,0 +1,11 @@
+Class name: File
+
+Responsibilities:
+-Stores data
+-Return the current information it holds
+-Able to append to it's current information
+-Able to overwrite it's current information
+-Return the File's name and absolute path
+
+Collaborators:
+-Directory

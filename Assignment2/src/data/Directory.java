@@ -1,5 +1,6 @@
 package data;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Directory {
@@ -18,14 +19,13 @@ public class Directory {
   //Map of directory names to subdirectories
   private HashMap<String, Directory> subdirs;
   //Map of filenames to files in this directory
-  //TODO: Implement file class. Decomment this when this is done.
-  //private HashMap<String, File> files;
+  private HashMap<String, File> files;
   
   //Create a new directory which is not within another directory
   public Directory(String name){
     this.name = name;
     subdirs = new HashMap<String, Directory>();
-    //files = new HashMap<String, File>();
+    files = new HashMap<String, File>();
   }
   
   //Create a new directory having a parent directory
@@ -35,10 +35,29 @@ public class Directory {
   }
   
   //Adds a directory to this one as a subdirectory
-  public void insertDirectory(Directory dirToAdd, String name){
+  public void insertDirectory(Directory dirToAdd, String name)
+      throws InvalidPathException{
+    //Check if a file or directory with this name exists. If so, throw an
+    //exception
+    if (subdirs.containsKey(name)||files.containsKey(name)){
+      throw new InvalidPathException("A file or directory with "
+          + "this name already exists");
+    }
     subdirs.put(name, dirToAdd);
     //This directory will now be the parent of the new one
     dirToAdd.parent = this;
+  }
+  
+  //Creates a new directory with the given name inside of this one
+  public void createDirectory(String name) throws InvalidPathException{
+    //Make the new directory
+    Directory newDir = new Directory(name);
+    //Try to insert the directory. If this fails, throw the relevant exception
+    try{
+      insertDirectory(newDir, name);
+    } catch(InvalidPathException e){
+      throw e;
+    }
   }
   
   //Returns the subdirectory with the given name, null otherwise.
@@ -53,19 +72,48 @@ public class Directory {
     }
   }
     
-  //Creates a new directory with the given name inside of this one
-  public void createDirectory(String name){
-    //Make the new directory
-    Directory newDir = new Directory(name);
-    //Insert the new directory with the given name
-    insertDirectory(newDir, name);
-  }
-  
+    
   //Removes the specified directory if it exists
   public void removeDirectory(String name){
     if (subdirs.containsKey(name)){
       subdirs.remove(name);
     }
+  }
+  
+  //Inserts a file into this directory
+  public void insertFile(String name, File file) throws InvalidPathException{
+    //Check if a file or directory with this name already exists
+  //If not, add it to the file list. If so, throw an exception
+    if (files.containsKey(name)){
+      throw new InvalidPathException("A file or directory with this name"
+          + "already exists");
+    } else{
+      files.put(name, file);
+    } 
+  }
+  
+  //Removes a file from this directory
+  public void removeFile(String name) throws InvalidPathException{
+    //If this file exists, remove it. If not, throw an exception.
+    if (files.containsKey(name)){
+      files.remove(name);
+    } else{
+      throw new InvalidPathException("No such file.");
+    }
+  }
+  
+  //Returns this directory's absolute path
+  public String getPath(){
+    //Initialise the result string to an empty string
+    String result = "";
+    //If this directory has a parent, add its path to the result string
+    if (parent != null){
+      result += parent.getPath();
+    }
+    //Add this directory's name followed by a slash
+    result += name + "/";
+    
+    return result;
   }
   
   //Returns the absolute path corresponding to a relative path
@@ -138,18 +186,22 @@ public class Directory {
    return result;
   }
   
-  //Returns this directory's absolute path
-  public String getPath(){
-    //Initialise the result string to an empty string
-    String result = "";
-    //If this directory has a parent, add its path to the result string
-    if (parent != null){
-      result += parent.getPath();
+  //Returns an array of this directory's contents, sorted alphabetically
+  public String[] getContents(){
+    //Create a new array to hold the combined contents
+    int resultLength = subdirs.size() + files.size();
+    String[] result = new String[resultLength];
+    //Add the subdirectory and file names to this list
+    int i = 0;
+    for (String key : subdirs.keySet()){
+      result[i++] = key;
     }
-    //Add this directory's name followed by a slash
-    result += name + "/";
+    for (String key : files.keySet()){
+      result[i++] = key;
+    }
+    //Sort the list
+    Arrays.sort(result);
     
     return result;
   }
-  
 }

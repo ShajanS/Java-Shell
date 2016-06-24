@@ -1,0 +1,10 @@
+Class name: Ls
+- Implements: Command
+
+Responsibilities:
+- Has the ability to output file and directory names, in the current directory
+
+Collaborators:
+- JShell
+- Directory
+- File

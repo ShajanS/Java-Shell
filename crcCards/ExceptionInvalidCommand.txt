@@ -1,0 +1,8 @@
+Class name: InvalidCommandException
+- Extends: Console Exceptions 
+
+Responsibilities:
+- Outputs and error message to the user regarding invalid command usage 
+
+Collaborators:
+- N/a

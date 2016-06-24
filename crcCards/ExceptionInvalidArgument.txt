@@ -1,0 +1,8 @@
+Class name: InvalidArgumentException
+- Extends: Console Exceptions 
+
+Responsibilities:
+- Outputs and error message to the user regarding invalid argument usage 
+
+Collaborators:
+- N/a

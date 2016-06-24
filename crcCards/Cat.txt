@@ -1,0 +1,11 @@
+Class name: Cat
+- Implements: Command
+
+Responsibilities:
+- Accepts one argument (File)
+- Displays content of the File 
+
+Collaborators:
+- JShell
+- Directory
+- File 

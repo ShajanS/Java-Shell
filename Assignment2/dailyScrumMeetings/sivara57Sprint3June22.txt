@@ -1,0 +1,9 @@
+What did I do last time?
+	- Created the man command and fixed the exit function
+
+What do I plan to do now?
+	- Add the specific documentation for man pages
+	- Implement the cat command 
+	
+Am I blocked on anything?
+	- File system is not fully complete 

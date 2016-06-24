@@ -16,8 +16,8 @@ public class File {
   }
  
   //This File's contents
-  private String contents;
-  public String getContents(){
+  private static String contents;
+  public static String getContents(){
 	  return contents;
   }
 

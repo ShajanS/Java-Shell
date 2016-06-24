@@ -29,6 +29,7 @@
 // *********************************************************
 package driver;
 
+import java.util.List;
 import java.util.Scanner;
 
 import commands.Command;
@@ -42,7 +43,8 @@ public class JShell {
   // The current working directory
   public data.Directory currDir;
   public data.Directory rootDir;
-
+  // The directory Stack
+  public List<String> stack = new ArrayList<String>();
   public boolean continueLoop;
 
   private JShell() {

@@ -44,7 +44,7 @@ User: Kirill Lossev (lossevki)
 Tasks: a-1, c-1, d-1, f-1, g-1, i-1, i-2, i-3, l-1
 
 User: Shajan Sivarajah (sivara57)	
-Tasks: b-1, b-2, b3
+Tasks: a-1, b-1, b-2, b-3, h-1, h-2
 
 User: 
 Tasks:

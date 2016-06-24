@@ -1,0 +1,8 @@
+Class name: Man
+- Implements: Command
+
+Responsibilities:
+- Display the man pages (documentation) for the requested command
+
+Collaborators:
+- JShell

@@ -1,0 +1,8 @@
+Class name: InvalidPathException
+- Extends: Console Exceptions 
+
+Responsibilities:
+- Outputs and error message to the user regarding invalid path usage 
+
+Collaborators:
+- N/a

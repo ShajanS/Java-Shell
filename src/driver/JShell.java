@@ -29,6 +29,7 @@
 // *********************************************************
 package driver;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -61,6 +62,7 @@ public class JShell {
     commandMap.put("history", "commands.History");
     commandMap.put("pwd", "commands.Pwd");
     commandMap.put("cd", "commands.Cd");
+    commandMap.put("man","commands.Man");
     
     String outputString = "";
     // Until the exit command is used,
@@ -114,8 +116,15 @@ public class JShell {
         if (exitString.equals("Y") || exitString.equals("y")) {
           outputString = "Terminated";
           continueLoop = false;
-        } else {
+        } 
+        
+        else if (exitString.equals("N") || exitString.equals("n")){
           continue;
+        }
+        else{
+          System.out.print("Command Cancelled\n");
+          continue;
+          
         }
         exit.close();
 

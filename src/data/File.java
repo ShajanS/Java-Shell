@@ -1,6 +1,5 @@
 package data;
 
-import java.util.HashMap;
 
 public class File {
   
@@ -16,8 +15,8 @@ public class File {
   }
  
   //This File's contents
-  private static String contents;
-  public static String getContents(){
+  private String contents;
+  public String getContents(){
 	  return contents;
   }
 

@@ -2,8 +2,8 @@ Class name: Pwd
 -Implements: Command
 
 Responsibilities:
--Return the path of the directory the shell is currently in
+-Return the path of the filesystem's current working directory
 
 Collaborators:
--JShell
+-FileSystem
 -Directory

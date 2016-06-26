@@ -4,7 +4,7 @@ package data;
 public class File {
   
   //This Files's parent directory
-  private static Directory parent;
+  private Directory parent;
   public Directory getParent() {
     return parent;
   }
@@ -15,8 +15,8 @@ public class File {
   }
  
   //This File's contents
-  private static String contents;
-  public static String getContents(){
+  private String contents;
+  public  String getContents(){
 	  return contents;
   }
 
@@ -36,12 +36,12 @@ public class File {
   public File(String name, Directory parent, String contents){
     new File(name);
     this.parent = parent;
-    File.contents = contents;
+    this.contents = contents;
   }
   
   //Overwrites File's contents
   public void overwriteContents(String contents){
-	  File.contents = contents;
+	  this.contents = contents;
   }
 
   //Changes a File's name
@@ -51,11 +51,11 @@ public class File {
 
   //Adds contents to a current File's contents
   public void appendContents(String contents){
-	  File.contents = (File.contents + " " + contents);
+	  this.contents = (this.contents + " " + contents);
   }
 
   //Returns this File's absolute path
-  public static String getPath(){
+  public String getPath(){
     //Initialise the result string to an empty string
     String result = "";
     //If this File has a parent directory, add its path to the result string

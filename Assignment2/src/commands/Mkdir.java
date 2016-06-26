@@ -2,6 +2,13 @@ package commands;
 
 public class Mkdir implements Command{
 
+  /** 
+   * Creates a directory at the desired (relative or absolute) path
+   * @param fs     The filesystem in which to make the directory
+   * @param params The list of directories to create
+   * @return       An error if a directory cannot be created, a newline
+   *               otherwise
+   */
   public String execute(data.FileSystem fs, String params){ 
     //Get the list of directory names to make
     java.util.ArrayList<String> args = names(params);
@@ -32,7 +39,11 @@ public class Mkdir implements Command{
     return "\n";
   }
   
-  //Converts parameters to an arraylist of directory names to be created
+  /**
+   * Converts parameters to an arraylist of directory names to be created
+   * @param params The parameters given to the command
+   * @return       A list of the paths of directories to create
+   */
   private java.util.ArrayList<String> names (String params){
     //Create the result list
     java.util.ArrayList<String> result = new java.util.ArrayList<String>();

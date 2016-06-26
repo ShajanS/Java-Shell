@@ -5,5 +5,5 @@ Responsibilities:
 -Set the shell's current directory to the specified directory
 
 Collaborators:
--JShell
+-FileSystem
 -Directory

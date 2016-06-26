@@ -57,6 +57,7 @@ public class JShell {
     commandMap.put("pwd", "commands.Pwd");
     commandMap.put("cd", "commands.Cd");
     commandMap.put("man","commands.Man");
+    commandMap.put("cat", "commands.Cat");
     
     String outputString = "";
     // Until the exit command is used,

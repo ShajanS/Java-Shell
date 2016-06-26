@@ -1,0 +1,10 @@
+What did I do last time?
+	- started to implement the cat command
+	- added some man pages to each command
+
+What do I plan to do now?
+	- finish the cat command 
+	- look into ls command
+	
+Am I blocked on anything?
+	- File system is not fully implemented into echo

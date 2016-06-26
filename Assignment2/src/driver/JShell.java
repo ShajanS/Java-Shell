@@ -6,9 +6,9 @@
 // Author: Kirill Lossev
 //
 // Student2:
-// UTORID user_name:
-// UT Student #:
-// Author:
+// UTORID user_name: sivara57
+// UT Student #: 1001732002
+// Author: Shajan Sivarajah
 //
 // Student3:
 // UTORID user_name:

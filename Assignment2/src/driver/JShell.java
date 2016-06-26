@@ -1,9 +1,9 @@
 // **********************************************************
 // Assignment2:
 // Student1:
-// UTORID user_name:
-// UT Student #:
-// Author:
+// UTORID user_name: lossevki
+// UT Student #: 1002475001
+// Author: Kirill Lossev
 //
 // Student2:
 // UTORID user_name:
@@ -29,32 +29,25 @@
 // *********************************************************
 package driver;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import commands.Command;
 
 public class JShell {
 
+  // The filesystem to use
+  private data.FileSystem fs;
   // A hashmap to map commands to the names of the classes that run them
   java.util.HashMap<String, String> commandMap;
-  // An arraylist to hold command history
-  public java.util.ArrayList<String> commands;
-  // The current working directory
-  public data.Directory currDir;
-  public data.Directory rootDir;
-  // The directory Stack
-  public List<String> stack = new ArrayList<String>();
+  
   public boolean continueLoop;
 
   private JShell() {
-    // Initializing instance attributes
-    commands = new java.util.ArrayList<String>();
-    rootDir = new data.Directory("");
-    currDir = rootDir;
-    continueLoop = true;
     Scanner in = new Scanner(System.in);
+    
+    //Get the filesystem
+    fs = data.JFileSystem.getFileSysReference();
+    
     // Populate the command map
     commandMap = new java.util.HashMap<String, String>();
     commandMap.put("echo", "commands.Echo");
@@ -71,7 +64,7 @@ public class JShell {
       // Trim the input string
       String inputString = in.nextLine().trim();
       // Add the input to the command history
-      commands.add(inputString);
+      fs.addCommandToHistory(inputString);
       // Get the substring from the start of the input to the 1st space,
       // or the whole string if there are no spaces
       // Also, get the string of parameters. This is everything after the
@@ -92,7 +85,7 @@ public class JShell {
         commands.Command commObj;
         try {
           commObj = (Command) Class.forName(commandName).newInstance();
-          outputString = commObj.execute(this, params);
+          outputString = commObj.execute(fs, params);
         } catch (InstantiationException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();

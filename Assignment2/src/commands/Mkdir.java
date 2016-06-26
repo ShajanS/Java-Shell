@@ -2,41 +2,34 @@ package commands;
 
 public class Mkdir implements Command{
 
-  public String execute(driver.JShell shell, String params){
-    String result = "\n";
-    boolean noErrors = true; 
+  public String execute(data.FileSystem fs, String params){ 
     //Get the list of directory names to make
     java.util.ArrayList<String> args = names(params);
-    //Loop over the length of the list as long as there are no errors,
-    for (int i = 0; i < args.size() && noErrors; i++){
-	  data.Directory parent;
-      //Get the next dir to make
-      String currArg = args.get(i);
-      //Convert it to an absolute path
-      String fullArg = shell.currDir.absolutePath(currArg);
-      //Try to navigate to the directory immediately above the desired path
-      //If this is not possible, return an error message
-      try{
-        parent = data.Directory.navigateToParent(fullArg,
-          shell.rootDir);
-	  } catch (data.InvalidPathException e){
-		return "Error - path " + currArg + " is unreachable\n";
-	  }
-      //Otherwise,
-      //Get the name of the directory to make. This will be all the
-      //chars after the last / (the whole thing if there are none)
-      int nameStart = currArg.lastIndexOf('/') + 1;
-      String name = currArg.substring(nameStart);
-      //If a directory being made already exists, return an error
-      if (parent.getDirectory(name) != null){
-        noErrors = false;
-        result = "Error - This directory already exists\n";
-      } else{
-      //If not, create the directory in the appropriate parent.
-       parent.createDirectory(name);
-      }
+    //Loop over the elements of the list,
+    try{
+      for (String dirToMake : args){
+        //If the string contains a slash, get the substring up to the last one
+        //This is the parent directory
+        String parentName;
+        if (dirToMake.contains("/")){
+          parentName = dirToMake.substring(0, dirToMake.lastIndexOf('/'));
+        } else {
+        //If not, the parent directory will be the current one (empty string)
+          parentName = "";
+        }
+        //Everything after the last slash is the name of the new dir
+        String dirName = dirToMake.substring(dirToMake.lastIndexOf('/')+1);
+        //Get the parent directory if possible
+        data.Directory parentDir = fs.getDirectory(parentName);
+        //Create a new directory with the given name inside it
+        parentDir.createDirectory(dirName);
+              }
+    } catch(data.InvalidPathException e){
+    //If an exception is thrown, return an error
+      return "Error - invalid path\n";
     }
-    return result;
+    //If everything goes smoothly, return a newline
+    return "\n";
   }
   
   //Converts parameters to an arraylist of directory names to be created

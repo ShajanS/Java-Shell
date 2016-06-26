@@ -42,8 +42,8 @@ public class JFileSystem implements FileSystem {
     String[] pathArray = path.split("/");
     //For each string in the resulting array,
     for (String nextDir : pathArray){
-      //If the next dir is ., do nothing.
-      if (!nextDir.equals(".")){
+      //If the next dir is . or empty, do nothing.
+      if (!nextDir.equals(".") && !nextDir.isEmpty()){
       //If it is .., move to the parent if possible, or throw an exception
         if (nextDir.equals("..")){
           resultDir = resultDir.getParent();

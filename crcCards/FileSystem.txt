@@ -1,0 +1,13 @@
+Class name: FileSystem
+
+Responsibilities:
+-Get the directory at the specified path
+-Make the directory at the specified path the current one
+-Get the contents of a file in the system
+-Modify the contents of a file in the system
+-Add commands to the command history
+-Get the command history
+
+Collaborators:
+-Directory
+-File

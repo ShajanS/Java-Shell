@@ -60,15 +60,13 @@ public class Directory {
     }
   }
   
-  //Returns the subdirectory with the given name, null otherwise.
+  //Returns the subdirectory with the given name, throws an exception otherwise
   //An empty string means this directory.
-  public Directory getDirectory(String name){
-    if (name.equals(" ")){
-      return this;
-    }else if (subdirs.containsKey(name)){
+  public Directory getDirectory(String name) throws InvalidPathException{
+    if (subdirs.containsKey(name)){
       return subdirs.get(name);
     } else {
-      return null;
+      throw new InvalidPathException("No such directory");
     }
   }
     
@@ -99,6 +97,17 @@ public class Directory {
       files.remove(name);
     } else{
       throw new InvalidPathException("No such file.");
+    }
+  }
+  
+  //Returns a file from this directory
+  public File getFile(String name) throws InvalidPathException{
+    //If there is a file with this name, return it.
+    if (files.containsKey(name)){
+      return files.get(name);
+    } else{
+    //If not, throw an exception.
+      throw new InvalidPathException("No such file");
     }
   }
   

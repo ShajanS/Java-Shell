@@ -32,7 +32,7 @@ public class File {
   }
   
 
-  //Create a new File having a prent directory and contents
+  //Create a new File having a parent directory and contents
   public File(String name, Directory parent, String contents){
     new File(name);
     this.parent = parent;
@@ -40,17 +40,17 @@ public class File {
   }
   
   //Overwrites File's contents
-  public void OverwriteContents(String contents){
+  public void overwriteContents(String contents){
 	  this.contents = contents;
   }
 
   //Changes a File's name
-  public void RenameFile(String newname){
+  public void renameFile(String newname){
 	  this.name = newname;
   }
 
   //Adds contents to a current File's contents
-  public void AppendContents(String contents){
+  public void appendContents(String contents){
 	  this.contents = (this.contents + " " + contents);
   }
 

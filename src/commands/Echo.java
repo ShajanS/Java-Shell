@@ -6,7 +6,15 @@ import data.InvalidArgumentException;
 
 public class Echo implements Command{
 
-   public String execute(data.FileSystem fs, String params){
+   /**
+   * Outputs a string either to the console or to a file
+   * 
+   * @param fs     The filesystem on which the command is executed
+   * @param params The parameters for the command, including the string
+   *               to output and the file to output to
+   * @return       The string to output if it is not output into a file
+   */
+  public String execute(data.FileSystem fs, String params){
      String result = "\n";
      params = params.trim();
      //If the (trimmed) parameters contain a >, handle them
@@ -15,7 +23,7 @@ public class Echo implements Command{
        try {
         echoToFile(fs, params);
       } catch (InvalidArgumentException e) {
-        result = "Error - Invalid path";
+        result = "Error - Invalid path\n";
       }
      } else{
      //Otherwise, the parameters themselves will be returned (+ a newline)
@@ -24,8 +32,14 @@ public class Echo implements Command{
      return result;
    }
    
-   //Handles echoing to files
-   private void echoToFile(data.FileSystem fs, String params)
+   /**
+   * Handles echoing to files
+   * @param fs     The filesystem to use
+   * @param params The parameters given to the command
+   * @throws InvalidArgumentException
+   * @see execute
+   */
+  private void echoToFile(data.FileSystem fs, String params)
        throws InvalidArgumentException{
      //Get the index of the first >
      int redirectIndex = params.indexOf('>');

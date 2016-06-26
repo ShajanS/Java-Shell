@@ -1,7 +1,7 @@
 Class name: Command
 
 Responsibilities:
--Return desired output given a JShell and parameters
+-Return desired output given a FileSystem and parameters
 
 Collaborators:
--JShell
+-FileSystem

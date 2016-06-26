@@ -7,6 +7,7 @@ Responsibilities:
 -Modify the contents of a file in the system
 -Add commands to the command history
 -Get the command history
+-Push and pop from the directory stack
 
 Collaborators:
 -Directory

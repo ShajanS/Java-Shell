@@ -2,6 +2,15 @@ package commands;
 
 public class History implements Command{
   
+  /**
+   *  Returns a list of the last n commands given to the filesystem, where n
+   *  is given by the user.
+   *  
+   *  @param fs     The filesystem whose commands will be returned
+   *  @param params How many commands to return, or all of them if this is
+   *                empty
+   *  @return       A list of the last n commands given to the filesystem
+   */
   public String execute(data.FileSystem fs, String params){
     //Create the result string
     String result = "";
@@ -28,7 +37,13 @@ public class History implements Command{
   }
   
   
-  //Returns the start index specified by the parameter, or -1 if invalid
+  /**
+   * Returns the start index specified by the parameter, or -1 if invalid
+   * @param param     The parameter given to the history command
+   * @param arraySize How large the list of commands given is
+   * @return          The index in the command list to start at in order to
+   *                  output as many commands as desired
+   */
   private int startIndexFromParam(String param, int arraySize){
     int startIndex;
     //If the string is empty, the start index is 0

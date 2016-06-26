@@ -19,6 +19,10 @@ public class JFileSystem implements FileSystem {
     currDir = rootDir;
     dirStack = new Stack<String>();
   }
+  /**
+   * Returns a reference to an instance of this class, as a singleton
+   * @return An instance of this class
+   */
   public static JFileSystem getFileSysReference(){
     if (fileSysRef == null){
       fileSysRef = new JFileSystem();
@@ -26,6 +30,9 @@ public class JFileSystem implements FileSystem {
     return fileSysRef;
   }
   
+  /**
+   * @see FileSystem#getDirectory(String)
+   */
   @Override
   public Directory getDirectory(String path) throws InvalidPathException {
     Directory resultDir;
@@ -65,6 +72,9 @@ public class JFileSystem implements FileSystem {
     return resultDir;
   }
 
+  /**
+   * @see FileSystem#makeCurrentDirectory(String)
+   */
   @Override
   public void makeCurrentDirectory(String path) throws InvalidPathException {
     //Try to get the directory specified by the path
@@ -78,13 +88,21 @@ public class JFileSystem implements FileSystem {
     }
   }
   
+  /**
+   * @see FileSystem#getCurrentDirectoryPath()
+   */
   @Override
   public String getCurrentDirectoryPath() {
     // Return the path of the current directory
     return currDir.getPath();
   }
 
-  //Gets the file object with the given name
+  /**
+   * Gets the file object with the given name
+   * @param path  The path to the desired file
+   * @return      The file at this path
+   * @throws InvalidPathException if the file is unreachable
+   */
   private File getFile(String path) throws InvalidPathException{
     Directory dirToCheck;
     //If there are slashes in the path, get the dir the file should be in
@@ -105,6 +123,9 @@ public class JFileSystem implements FileSystem {
     }
   }
   
+  /**
+   * @see FileSystem#getFileContents(String)
+   */
   @Override
   public String getFileContents(String path) throws InvalidPathException {
     //Get the file with the given name if possible, and return its contents
@@ -117,6 +138,9 @@ public class JFileSystem implements FileSystem {
     }
   }
 
+  /**
+   * @see FileSystem#overwriteFile(String, String)
+   */
   @Override
   public void overwriteFile(String path, String newContents)
       throws InvalidPathException {
@@ -147,6 +171,9 @@ public class JFileSystem implements FileSystem {
     }
   }
 
+  /**
+   * @see FileSystem#appendToFile(String, String)
+   */
   @Override
   public void appendToFile(String path, String newContents)
       throws InvalidPathException {
@@ -177,12 +204,18 @@ public class JFileSystem implements FileSystem {
     }
   }
 
+  /**
+   * @see FileSystem#addCommandToHistory(String)
+   */
   @Override
   public void addCommandToHistory(String command) {
     //Add the command to the history list
     commandHistory.add(command);
   }
 
+  /**
+   * @see FileSystem#getCommandHistory()
+   */
   @Override
   public ArrayList<String> getCommandHistory() {
     //Return a copy of the history list, so that this class's does not
@@ -194,10 +227,16 @@ public class JFileSystem implements FileSystem {
     return result;
   }
   
+  /**
+   * @see FileSystem#pushToDirStack(String)
+   */
   @Override
   public void pushToDirStack(String path) {
     dirStack.push(path);
   }
+  /**
+   * @see FileSystem#popFromDirStack()
+   */
   @Override
   public String popFromDirStack() {
     return dirStack.pop();

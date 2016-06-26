@@ -43,6 +43,7 @@ public class JShell {
   public boolean continueLoop;
 
   private JShell() {
+    continueLoop = true;
     Scanner in = new Scanner(System.in);
     
     //Get the filesystem

@@ -2,7 +2,7 @@ package commands;
 
 public class Popd implements Command{
 
-  public String execute(driver.JShell shell){
+  public String execute(data.FileSystem fs, String params){
     String result = "\n";
     //Get the absolute path of the parameter if possible
     String absPath = stack.get(0);

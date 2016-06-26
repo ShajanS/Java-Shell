@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Pushd implements Command{
 
-  public String execute(driver.JShell shell, String params){
+  public String execute(data.FileSystem fs, String params){
     String result = "\n";
     //Get the absolute path of the parameter if possible
     String absPath = shell.currDir.absolutePath(params);

@@ -2,11 +2,11 @@ package commands;
 
 public class History implements Command{
   
-  public String execute(driver.JShell shell, String params){
+  public String execute(data.FileSystem fs, String params){
     //Create the result string
     String result = "";
     //Get the command history from the shell
-    java.util.ArrayList<String> hist = shell.commands;
+    java.util.ArrayList<String> hist = fs.getCommandHistory();
     
     //Trim the parameter string and try to get the start index from it
     int startIndex = startIndexFromParam(params.trim(), hist.size());

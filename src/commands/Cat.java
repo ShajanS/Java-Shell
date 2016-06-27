@@ -5,13 +5,14 @@ import data.InvalidPathException;
 
 public class Cat implements Command {
   
-  private String emptyArgs = "File not indicated";
+  private String emptyArgs = "File not found";
   String result = "";
   String output = "";
   
   // still in development phase
   
   public String execute(data.FileSystem fs, String params) {
+
     if (params.length() == 0) {
       // raise error
       output = "Invalid";
@@ -27,8 +28,7 @@ public class Cat implements Command {
         result = emptyArgs;
       }
     }
-    return result;
-    
+    return result;    
   }
 
 }

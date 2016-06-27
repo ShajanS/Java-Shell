@@ -12,16 +12,28 @@ public class ManTest {
   
   @Before
   public void setUp(){
-    // Create a new mock file system
     fs = new MockFileSystem();
   }
   
   @Test
   public void testExecute() {
-    // With no > or >>, echo should return a trimmed version of its
-    // parameters plus a newline
     String testOutput = man.execute(fs, "exit");
-    assertEquals("\n\texits the program", testOutput);
+    String testActual = "exit" + ":" + "\n\texits the program" + "\n";
+    assertEquals(testActual , testOutput);
+  }
+  
+  @Test
+  public void testEmptyArgs() {
+    String testOutput = man.execute(fs, "");
+    String testActual = "Invalid\n";
+    assertEquals(testActual , testOutput);
+  }
+  
+  @Test
+  public void testInvalidCMD() {
+    String testOutput = man.execute(fs, "movedir");
+    String testActual = "Invalid\n";
+    assertEquals(testActual , testOutput);
   }
 }
 

@@ -1,0 +1,10 @@
+Class name: Pushd
+-Implements: Command
+
+Responsibilities:
+-Add the shell's current directory to a Stack object
+-Set the shell's current directory to the specified directory
+
+Collaborators:
+-FileSystem
+-Directory

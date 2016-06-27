@@ -87,6 +87,7 @@ public class JShell {
       // If the substring starts with exit
       // break the loop
       else if (inputString.equals("exit")) {
+        outputString = "";
         continueLoop = false;
         } else {
         // If not, return an error message.

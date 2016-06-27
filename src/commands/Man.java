@@ -42,7 +42,19 @@ public class Man implements Command{
         +"\n\t\t- If the OUTFILE does not exist it creates a new OUTFILE"
         +"\n\tIf If OUTFILE is given accompanied by >>, (>> OUTFILE): Same concept as (> OUTFILE) but appends instead of overwriting");
     
-    cmdman.put("history", "\n\tPrints out the recent commands a user has entered");
+    cmdman.put("history", "\n\tPrints out the recent commands a user has entered"
+        + "\n\tIf command is followed by a number, the output is truncated accordingly"
+        + "\n\n\tSample Output: history"
+        + "\n\t\t1. cd .."
+        + "\n\t\t2. mkdir textfolder"
+        + "\n\t\t3. echo \"hello world\""
+        + "\n\t\t4. echo \"hello world\" > textfile"
+        + "\n\t\t5. history"
+        + "\n\n\tSample Output: history 4"
+        + "\n\t\t3. echo \"hello world\""
+        + "\n\t\t4. echo \"hello world\" > textfile"
+        + "\n\t\t5. history"
+        + "\n\t\t6. hisotry 4");
     
     cmdman.put("mkdir", "\n\tCreates directories named as the given arguments");
     

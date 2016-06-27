@@ -1,0 +1,9 @@
+Class name: JFileSystem
+-Implements: FileSystem
+
+Responsibilities:
+-Implementing the responsibilities of the FileSystem interface
+
+Collaborators:
+-Directory
+-File

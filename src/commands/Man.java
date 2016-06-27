@@ -15,13 +15,13 @@ public class Man implements Command {
     params = params.trim();
     String result = "";
     // Formating of the output result
-    String n = cmdman.get(params);
-    if (n != null) {
-      result = (params + ":" + n + "\n");
+    String commandName = cmdman.get(params);
+    if (commandName != null) {
+      result = (params + ":" + commandName + "\n");
     }
     // if no arguments are given raise error
     else {
-      result = ("Invalid\n");
+      result = ("Invalid Arguments\n");
     }
 
     return result;

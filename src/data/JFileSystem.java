@@ -13,7 +13,7 @@ public class JFileSystem implements FileSystem {
   
   //This class is a singleton
   private static JFileSystem fileSysRef;
-  private JFileSystem(){
+  public JFileSystem(){
     commandHistory = new ArrayList<String>();
     rootDir = new Directory("");
     currDir = rootDir;

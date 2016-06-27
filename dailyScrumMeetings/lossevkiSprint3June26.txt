@@ -1,0 +1,12 @@
+What did I do last time?
+-Finished echo, cd, history, pwd, and mkdir commands
+-Reformatted documentation for these classes
+-Created FileSystem interface and JFileSystem implementation
+-Refactored Command interface to use these instead
+
+What will I do now?
+-Create mock filesystem for testing
+-Finish unit tests
+
+What am I stuck on?
+-Mock filesystem does not exist yet

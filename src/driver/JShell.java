@@ -42,22 +42,18 @@ public class JShell {
   
   public boolean continueLoop;
 
+  /**
+   * The constructor for the JShell
+   */
   private JShell() {
     continueLoop = true;
     Scanner in = new Scanner(System.in);
     
     //Get the filesystem
-    fs = data.JFileSystem.getFileSysReference();
+    fs = data.JFileSystem.getFileSysReference();  
     
     // Populate the command map
-    commandMap = new java.util.HashMap<String, String>();
-    commandMap.put("echo", "commands.Echo");
-    commandMap.put("mkdir", "commands.Mkdir");
-    commandMap.put("history", "commands.History");
-    commandMap.put("pwd", "commands.Pwd");
-    commandMap.put("cd", "commands.Cd");
-    commandMap.put("man","commands.Man");
-    commandMap.put("cat", "commands.Cat");
+    commandMap = populateCommandMap(); 
     
     String outputString = "";
     // Until the exit command is used,
@@ -67,27 +63,16 @@ public class JShell {
       String inputString = in.nextLine().trim();
       // Add the input to the command history
       fs.addCommandToHistory(inputString);
-      // Get the substring from the start of the input to the 1st space,
-      // or the whole string if there are no spaces
-      // Also, get the string of parameters. This is everything after the
-      // first space, or an empty string if there isn't one
-      int firstSpaceIndex = inputString.indexOf(' ');
-      int paramStart = firstSpaceIndex + 1;
-      if (firstSpaceIndex == -1) {
-        firstSpaceIndex = inputString.length();
-        paramStart = inputString.length();
-      }
-      String firstToken = inputString.substring(0, firstSpaceIndex);
-      String params = inputString.substring(paramStart);
-
-      // If this substring is in the command map, return its output with the
-      // rest of the string as its parameter
-      if (commandMap.containsKey(firstToken)) {
-        String commandName = commandMap.get(firstToken);
+      // Split the input into the command and parameters
+      String[] splitInput = splitInputIntoCommandAndParams(inputString);
+      // If the command is in the command map, return its output with the
+      // parameters given as its parameter
+      if (commandMap.containsKey(splitInput[0])) {
+        String commandName = commandMap.get(splitInput[0]);
         commands.Command commObj;
         try {
           commObj = (Command) Class.forName(commandName).newInstance();
-          outputString = commObj.execute(fs, params);
+          outputString = commObj.execute(fs, splitInput[1]);
         } catch (InstantiationException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
@@ -100,30 +85,10 @@ public class JShell {
         }
       }
       // If the substring starts with exit
-      // ask user if they wanted to exit
-      // end loop for searching for users input and terminate if yes
-      // continue search if no
+      // break the loop
       else if (inputString.equals("exit")) {
-        Scanner exit = new Scanner(System.in);
-        System.out
-            .print("Are you sure you want to terminate this session? [Y/N]\n");
-        String exitString = exit.nextLine().trim();
-        if (exitString.equals("Y") || exitString.equals("y")) {
-          outputString = "Terminated";
-          continueLoop = false;
-        } 
-        
-        else if (exitString.equals("N") || exitString.equals("n")){
-          continue;
-        }
-        else{
-          System.out.print("Command Cancelled\n");
-          continue;
-          
-        }
-        exit.close();
-
-      } else {
+        continueLoop = false;
+        } else {
         // If not, return an error message.
         outputString =
             "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n";
@@ -131,13 +96,59 @@ public class JShell {
       // Print the string returned by the method.
       System.out.print(outputString);
     }
-
     // Close the Scanner. Note: once the loop is implemented, this must be
     // outside of it.
     in.close();
   }
+  
+  /**
+   * Populates the map of command keywords to command classes
+   * @return The map from command keywords to classes
+   */
+  private java.util.HashMap<String, String> populateCommandMap(){
+    //Add all the mappings from command name to command class to
+    //a hashmap and return it
+    commandMap = new java.util.HashMap<String, String>();
+    commandMap.put("echo", "commands.Echo");
+    commandMap.put("mkdir", "commands.Mkdir");
+    commandMap.put("history", "commands.History");
+    commandMap.put("pwd", "commands.Pwd");
+    commandMap.put("cd", "commands.Cd");
+    commandMap.put("man","commands.Man");
+    commandMap.put("cat", "commands.Cat");
+    return commandMap;
+  }
+  
+  /**
+   * Splits the string entered by the user into the command keyword
+   * and the command parameters into an array of length 2
+   * @param input The user's input
+   * @return      The array containing the keyword and parameters
+   */
+  private String[] splitInputIntoCommandAndParams(String input){
+    // Get the substring from the start of the input to the 1st space,
+    // or the whole string if there are no spaces
+    // Also, get the string of parameters. This is everything after the
+    // first space, or an empty string if there isn't one
+    int firstSpaceIndex = input.indexOf(' ');
+    int paramStart = firstSpaceIndex + 1;
+    if (firstSpaceIndex == -1) {
+      firstSpaceIndex = input.length();
+      paramStart = input.length();
+    }
+    String firstToken = input.substring(0, firstSpaceIndex);
+    String params = input.substring(paramStart);
+    //Put these pieces in an array and return them
+    String[] result = {firstToken, params};
+    return result;
+  }
+  
 
-
+  /**
+   * The main function for JShell and the entry point into the program,
+   * simply creates a new JShell.
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) {
     new JShell();
 

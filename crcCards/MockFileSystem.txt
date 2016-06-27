@@ -1,0 +1,9 @@
+Class Name: MockFileSystem
+-Implements: FileSystem
+
+Responsibilities:
+-Implement FileSystem in a way that makes it easy to test commands
+-i.e. simple structure with public attributes
+
+Collaborators:
+-Directory

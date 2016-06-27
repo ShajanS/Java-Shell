@@ -6,8 +6,6 @@ public class Popd implements Command{
     String result = "\n";
     //Get the absolute path of the parameter if possible
     fs.popFromDirStack();
-    String absPath = stack.get(0);
-    stack.remove(0);
     //Navigate to the parent directory of the param if possible
     try{
       data.Directory parent = data.Directory.navigateToParent(absPath,

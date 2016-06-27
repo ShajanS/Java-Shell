@@ -1,24 +1,34 @@
 package commands;
 
-import data.File;
-import data.InvalidArgumentException;
+
+import data.InvalidPathException;
 
 public class Cat implements Command {
   
   private String emptyArgs = "File not indicated";
   String result = "";
+  String output = "";
   
   // still in development phase
   
-  public String execute(data.FileSystem fs, String params){
+  public String execute(data.FileSystem fs, String params) {
     if (params.length() == 0) {
       // raise error
+      output = "Invalid";
     }
-    if (File.getPath() != null) {
+    else {
       // Obtain the object under path in fileSystem
       // If it's null then it would fall into the else block
-      result = File.getContents();
+      String current = fs.getCurrentDirectoryPath();
+      try {
+        result = fs.getFileContents(current) + "\n";
+      } catch (InvalidPathException e) {
+        // TODO Auto-generated catch block
+        result = emptyArgs;
+      }
     }
     return result;
+    
   }
+
 }

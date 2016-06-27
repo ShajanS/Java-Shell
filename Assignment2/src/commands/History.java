@@ -30,7 +30,7 @@ public class History implements Command{
       }
     } else{
       //Otherwise, return an error message
-      result = "Error - Invalid Parameter";
+      result = "Error - Invalid Parameter\n";
     }
     return result;
      

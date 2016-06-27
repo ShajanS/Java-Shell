@@ -19,7 +19,7 @@ public class Cd implements Command{
       fs.makeCurrentDirectory(params);
     } catch (InvalidPathException e) {
     //If it cannot be found, return an error message
-      result = "Error - Directory does not exist";
+      result = "Error - Directory does not exist\n";
     }
     return result;
   }

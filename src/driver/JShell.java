@@ -120,6 +120,7 @@ public class JShell {
     commandMap.put("cat", "commands.Cat");
     commandMap.put("pushd", "commands.Pushd");
     commandMap.put("popd", "commands.Popd");
+    commandMap.put("ls", "commands.Ls");
     return commandMap;
   }
 

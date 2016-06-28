@@ -25,14 +25,14 @@ public class ManTest {
   @Test
   public void testEmptyArgs() {
     String testOutput = man.execute(fs, "");
-    String testActual = "Invalid\n";
+    String testActual = "Invalid Arguments\n";
     assertEquals(testActual, testOutput);
   }
 
   @Test
   public void testInvalidCMD() {
     String testOutput = man.execute(fs, "movedir");
-    String testActual = "Invalid\n";
+    String testActual = "Invalid Arguments\n";
     assertEquals(testActual, testOutput);
   }
 }

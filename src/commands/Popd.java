@@ -18,7 +18,7 @@ public class Popd implements Command {
     // Pop from the directory stack and store the path
     String path = new String();
     try{
-    	String path = fs.popFromDirStack();
+    	path = fs.popFromDirStack();
     } catch (EmptyStackException e){
     	// If popping from the stack fails, return an error message
     	result = "Error - Cannot pop from Empty Stack\n";

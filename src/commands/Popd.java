@@ -1,7 +1,7 @@
 package commands;
 
 import data.InvalidPathException;
-import java.util.EmptyStackException
+import java.util.EmptyStackException;
 
 public class Popd implements Command {
 

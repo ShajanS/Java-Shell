@@ -38,8 +38,8 @@ public class Man implements Command {
     // exit command
     cmdman.put("exit", "\n\texits the program");
     // cd command
-    cmdman.put("cd", "\n\tChange directory to a requested directory" +
-    "\n\n\tArgument REQ: cd[DIR]");
+    cmdman.put("cd", "\n\tChange directory to a requested directory"
+        + "\n\n\tArgument REQ: cd[DIR]");
     // echo command
     cmdman.put("echo",
         "\n\tIf OUTFILE is not given: Prints the provided string on the "
@@ -74,12 +74,13 @@ public class Man implements Command {
             + "allocated in the current directory. "
             + "\n\t\t- If P(PATH) is a file: Prints the path"
             + "\n\t\t- If P(PATH) is a directory: Prints a the path "
-            + "followed by the contents allocated to that directory"+
-            "\n\n\tArgument REQ: ls[PATH...]");
+            + "followed by the contents allocated to that directory"
+            + "\n\n\tArgument REQ: ls[PATH...]");
     // cat command
-    cmdman.put("cat", "\n\tOutputs the contents of desired file(s) in series"
-        + "\n\n\tArgument REQ: cat[FILE1]" 
-        + "\n\tArgument REQ (File(s)): cat[FILE1][FILE2]...");
+    cmdman.put("cat",
+        "\n\tOutputs the contents of desired file(s) in series"
+            + "\n\n\tArgument REQ: cat[FILE1]"
+            + "\n\tArgument REQ (File(s)): cat[FILE1][FILE2]...");
     // pushd command
     cmdman.put("pushd",
         "\n\tSaves the current working directory by +"
@@ -88,7 +89,7 @@ public class Man implements Command {
     // pop command
     cmdman.put("popd",
         ": Remove the top entry from the directory stack, and cd into it."
-        + "\n\n\tArgument REQ: popd[DIR]");
+            + "\n\n\tArgument REQ: popd[DIR]");
     // man command
     cmdman.put("man", "\n\tPrints the man pages(documentation) for commands"
         + "\n\n\tArgument REQ: man[CMD]");

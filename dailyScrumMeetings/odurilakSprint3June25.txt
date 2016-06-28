@@ -1,0 +1,11 @@
+What did I do last time?
+-Finished the pushd command
+-Started off the popd command
+-Added CRC card for pushd
+-Added javadocs and started working on tests for pushd
+
+What will I do now?
+-Finish up unit tests
+
+What am I stuck on?
+-Not right now

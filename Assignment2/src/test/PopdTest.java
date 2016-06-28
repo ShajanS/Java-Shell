@@ -44,6 +44,6 @@ public class PopdTest {
   public void testPopAfterNoPushes(){
 	  // Result should be an error if Stack is Empty
 	  String result = "Error - Cannot pop from Empty Stack\n";
-	  assertEquals(result, popd.execute(fs, ""))
+	  assertEquals(result, popd.execute(fs, ""));
   }
 }

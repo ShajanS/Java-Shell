@@ -32,9 +32,10 @@ public class PushdTest {
   @Test
   public void testAddDirectoryToStack() {
 	// pushd should be able to add the current directory to the DirStack
-	pushd.execute(fs, "testdir");
+	String result = fs.currDir;
+	pushd.execute(fs, "parent");
 	// The popped directory should be the same as the current directory
-	assertEquals(fs.currDir, fs.popFromDirStack());
+	assertEquals(result, fs.popFromDirStack());
   }
   
   @Test
@@ -42,7 +43,7 @@ public class PushdTest {
 	// pushd should be able to add multiple directories to the DirStack
 	pushd.execute(fs, "parent");
 	// store the current directory before pushing again
-	result = fs.currDir;
+	String result = fs.currDir;
 	pushd.execute(fs, "testdir");
 	// The popped directory should be the same as the previous directory
 	assertEquals(result, fs.popFromDirStack());

@@ -8,7 +8,6 @@ import data.InvalidPathException;
 
 public class MockFileSystem implements FileSystem {
   
-  public java.util.HashMap<String, String> files;
   public java.util.HashMap<String, Directory> directories;
   public ArrayList<String> commandHistory;
   public java.util.Stack<String> dirStack;
@@ -20,8 +19,9 @@ public class MockFileSystem implements FileSystem {
    */
   public MockFileSystem(){
     // Initialize the attributes
-    files = new java.util.HashMap<String, String>();
     directories = new java.util.HashMap<String, Directory>();
+    // There should be a directory with a blank name, acting as the root dir
+    directories.put("", new data.Directory(""));
     commandHistory = new ArrayList<String>();
     dirStack = new java.util.Stack<String>();
     currDir = "";
@@ -32,6 +32,15 @@ public class MockFileSystem implements FileSystem {
    */
   @Override
   public Directory getDirectory(String path) throws InvalidPathException {
+    //If the path starts with .., replace it with the path of currDir's parent
+    if (path.startsWith("..")){
+      path = currDir.substring(0, currDir.lastIndexOf('/')+1) + 
+          path.substring(2);
+    }
+    //If it starts with ., remove it
+    if (path.startsWith(".")){
+      path = path.substring(1);
+    }
     //Get the directory with the given name if it exists, otherwise throw an
     //exception.
     if (directories.containsKey(path)){

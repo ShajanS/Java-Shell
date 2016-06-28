@@ -42,7 +42,7 @@ public class Man implements Command {
     // echo command
     cmdman.put("echo",
         "\n\tIf OUTFILE is not given: Prints the provided string on the "
-        + "JavaShell"
+            + "JavaShell"
             + "\n\tIf OUTFILE is given accompanied by >, (> OUTFILE): "
             + "Exports the provided string to the OUTFILE"
             + "\n\t\t- If the OUTFILE already exist it erases the old contents"
@@ -54,9 +54,9 @@ public class Man implements Command {
     cmdman.put("history",
         "\n\tPrints out the recent commands a user has entered"
             + "\n\tIf command is followed by a number, the "
-            + "output is truncated accordingly"
-            + "\n\n\tSample Output: history" + "\n\t\t1. cd .."
-            + "\n\t\t2. mkdir textfolder" + "\n\t\t3. echo \"hello world\""
+            + "output is truncated accordingly" + "\n\n\tSample Output: history"
+            + "\n\t\t1. cd .." + "\n\t\t2. mkdir textfolder"
+            + "\n\t\t3. echo \"hello world\""
             + "\n\t\t4. echo \"hello world\" > textfile" + "\n\t\t5. history"
             + "\n\n\tSample Output: history 4" + "\n\t\t3. echo \"hello world\""
             + "\n\t\t4. echo \"hello world\" > textfile" + "\n\t\t5. history"
@@ -68,7 +68,7 @@ public class Man implements Command {
     // ls command
     cmdman.put("ls",
         "\n\t If P(PATH) is not given: Prints the contents "
-        + "allocated in the current directory. "
+            + "allocated in the current directory. "
             + "\n\t\t- If P(PATH) is a file: Prints the path"
             + "\n\t\t- If P(PATH) is a directory: Prints a the path "
             + "followed by the contents allocated to that directory");

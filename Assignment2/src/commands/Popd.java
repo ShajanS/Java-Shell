@@ -18,17 +18,17 @@ public class Popd implements Command {
     // Pop from the directory stack and store the path
     String path = new String();
     try{
+    	// Make the stored path the current directory of the filesystem
     	path = fs.popFromDirStack();
+        try {
+        	fs.makeCurrentDirectory(path);
+        } catch (InvalidPathException e) {
+          // If it cannot be found, return an error message
+          result = "Error - Directory does not exist\n";
+        }
     } catch (EmptyStackException e){
     	// If popping from the stack fails, return an error message
     	result = "Error - Cannot pop from Empty Stack\n";
-    }
-    // Make the stored path the current directory of the filesystem
-    try {
-    	fs.makeCurrentDirectory(path);
-    } catch (InvalidPathException e) {
-      // If it cannot be found, return an error message
-      result = "Error - Directory does not exist\n";
     }
     return result;
   }

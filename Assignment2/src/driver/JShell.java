@@ -39,7 +39,7 @@ public class JShell {
   private data.FileSystem fs;
   // A hashmap to map commands to the names of the classes that run them
   java.util.HashMap<String, String> commandMap;
-  
+
   public boolean continueLoop;
 
   /**
@@ -48,13 +48,13 @@ public class JShell {
   private JShell() {
     continueLoop = true;
     Scanner in = new Scanner(System.in);
-    
-    //Get the filesystem
-    fs = data.JFileSystem.getFileSysReference();  
-    
+
+    // Get the filesystem
+    fs = data.JFileSystem.getFileSysReference();
+
     // Populate the command map
-    commandMap = populateCommandMap(); 
-    
+    commandMap = populateCommandMap();
+
     String outputString = "";
     // Until the exit command is used,
     while (continueLoop) {
@@ -89,7 +89,7 @@ public class JShell {
       else if (inputString.equals("exit")) {
         outputString = "";
         continueLoop = false;
-        } else {
+      } else {
         // If not, return an error message.
         outputString =
             "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n";
@@ -101,33 +101,35 @@ public class JShell {
     // outside of it.
     in.close();
   }
-  
+
   /**
    * Populates the map of command keywords to command classes
+   * 
    * @return The map from command keywords to classes
    */
-  private java.util.HashMap<String, String> populateCommandMap(){
-    //Add all the mappings from command name to command class to
-    //a hashmap and return it
+  private java.util.HashMap<String, String> populateCommandMap() {
+    // Add all the mappings from command name to command class to
+    // a hashmap and return it
     commandMap = new java.util.HashMap<String, String>();
     commandMap.put("echo", "commands.Echo");
     commandMap.put("mkdir", "commands.Mkdir");
     commandMap.put("history", "commands.History");
     commandMap.put("pwd", "commands.Pwd");
     commandMap.put("cd", "commands.Cd");
-    commandMap.put("man","commands.Man");
+    commandMap.put("man", "commands.Man");
     commandMap.put("cat", "commands.Cat");
     commandMap.put("pushd", "commands.Pushd");
     return commandMap;
   }
-  
+
   /**
-   * Splits the string entered by the user into the command keyword
-   * and the command parameters into an array of length 2
+   * Splits the string entered by the user into the command keyword and the
+   * command parameters into an array of length 2
+   * 
    * @param input The user's input
-   * @return      The array containing the keyword and parameters
+   * @return The array containing the keyword and parameters
    */
-  private String[] splitInputIntoCommandAndParams(String input){
+  private String[] splitInputIntoCommandAndParams(String input) {
     // Get the substring from the start of the input to the 1st space,
     // or the whole string if there are no spaces
     // Also, get the string of parameters. This is everything after the
@@ -140,15 +142,16 @@ public class JShell {
     }
     String firstToken = input.substring(0, firstSpaceIndex);
     String params = input.substring(paramStart);
-    //Put these pieces in an array and return them
+    // Put these pieces in an array and return them
     String[] result = {firstToken, params};
     return result;
   }
-  
+
 
   /**
-   * The main function for JShell and the entry point into the program,
-   * simply creates a new JShell.
+   * The main function for JShell and the entry point into the program, simply
+   * creates a new JShell.
+   * 
    * @param args Command-line arguments
    */
   public static void main(String[] args) {

@@ -6,13 +6,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class PwdTest {
-  
+
   commands.Pwd pwd = new commands.Pwd();
   MockFileSystem fs;
 
   @Before
   public void setUp() throws Exception {
-    //Initialize the MFS
+    // Initialize the MFS
     fs = new MockFileSystem();
   }
 

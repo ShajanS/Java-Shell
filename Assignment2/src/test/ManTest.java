@@ -9,31 +9,31 @@ public class ManTest {
 
   commands.Man man = new commands.Man();
   MockFileSystem fs;
-  
+
   @Before
-  public void setUp(){
+  public void setUp() {
     fs = new MockFileSystem();
   }
-  
+
   @Test
   public void testExecute() {
     String testOutput = man.execute(fs, "exit");
     String testActual = "exit" + ":" + "\n\texits the program" + "\n";
-    assertEquals(testActual , testOutput);
+    assertEquals(testActual, testOutput);
   }
-  
+
   @Test
   public void testEmptyArgs() {
     String testOutput = man.execute(fs, "");
     String testActual = "Invalid\n";
-    assertEquals(testActual , testOutput);
+    assertEquals(testActual, testOutput);
   }
-  
+
   @Test
   public void testInvalidCMD() {
     String testOutput = man.execute(fs, "movedir");
     String testActual = "Invalid\n";
-    assertEquals(testActual , testOutput);
+    assertEquals(testActual, testOutput);
   }
 }
 

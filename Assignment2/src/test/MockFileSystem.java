@@ -7,17 +7,17 @@ import data.FileSystem;
 import data.InvalidPathException;
 
 public class MockFileSystem implements FileSystem {
-  
+
   public java.util.HashMap<String, Directory> directories;
   public ArrayList<String> commandHistory;
   public java.util.Stack<String> dirStack;
-  
+
   public String currDir;
-  
+
   /**
    * The constructor, simply initializes the instance attributes
    */
-  public MockFileSystem(){
+  public MockFileSystem() {
     // Initialize the attributes
     directories = new java.util.HashMap<String, Directory>();
     // There should be a directory with a blank name, acting as the root dir
@@ -32,20 +32,20 @@ public class MockFileSystem implements FileSystem {
    */
   @Override
   public Directory getDirectory(String path) throws InvalidPathException {
-    //If the path starts with .., replace it with the path of currDir's parent
-    if (path.startsWith("..")){
-      path = currDir.substring(0, currDir.lastIndexOf('/')+1) + 
-          path.substring(2);
+    // If the path starts with .., replace it with the path of currDir's parent
+    if (path.startsWith("..")) {
+      path = currDir.substring(0, currDir.lastIndexOf('/') + 1)
+          + path.substring(2);
     }
-    //If it starts with ., remove it
-    if (path.startsWith(".")){
+    // If it starts with ., remove it
+    if (path.startsWith(".")) {
       path = path.substring(1);
     }
-    //Get the directory with the given name if it exists, otherwise throw an
-    //exception.
-    if (directories.containsKey(path)){
+    // Get the directory with the given name if it exists, otherwise throw an
+    // exception.
+    if (directories.containsKey(path)) {
       return directories.get(path);
-    } else{
+    } else {
       throw new InvalidPathException("No such directory");
     }
   }
@@ -55,20 +55,20 @@ public class MockFileSystem implements FileSystem {
    */
   @Override
   public void makeCurrentDirectory(String path) throws InvalidPathException {
-    //If the path starts with .., replace it with the path of currDir's parent
-    if (path.startsWith("..")){
-      path = currDir.substring(0, currDir.lastIndexOf('/')+1) + 
-          path.substring(2);
+    // If the path starts with .., replace it with the path of currDir's parent
+    if (path.startsWith("..")) {
+      path = currDir.substring(0, currDir.lastIndexOf('/') + 1)
+          + path.substring(2);
     }
-    //If it starts with ., remove it
-    if (path.startsWith(".")){
+    // If it starts with ., remove it
+    if (path.startsWith(".")) {
       path = path.substring(1);
     }
     // If this directory exists, make its name the current directory
-    if (directories.containsKey(path)){
+    if (directories.containsKey(path)) {
       currDir = path;
-    } else{
-    //If not, throw an exception
+    } else {
+      // If not, throw an exception
       throw new InvalidPathException("No such directory");
     }
 
@@ -79,7 +79,7 @@ public class MockFileSystem implements FileSystem {
    */
   @Override
   public String getCurrentDirectoryPath() {
-    //Return the current directory
+    // Return the current directory
     return currDir;
   }
 
@@ -89,10 +89,10 @@ public class MockFileSystem implements FileSystem {
   @Override
   public String getFileContents(String path) throws InvalidPathException {
     // If given a valid path (the string "VALID PATH"), return some sting
-    if (path.equals("VALID PATH")){
+    if (path.equals("VALID PATH")) {
       return "A winner is you!";
-    } else{
-    // Otherwise, throw an exception
+    } else {
+      // Otherwise, throw an exception
       throw new InvalidPathException("No such file");
     }
   }
@@ -105,7 +105,7 @@ public class MockFileSystem implements FileSystem {
       throws InvalidPathException {
     // If given an invalid path (i.e. not the string "VALID PATH"),
     // throw an exception
-    if (!path.equals("VALID PATH")){
+    if (!path.equals("VALID PATH")) {
       throw new InvalidPathException("Could not resolve path");
     }
   }

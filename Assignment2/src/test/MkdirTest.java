@@ -8,17 +8,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class MkdirTest {
-  
+
   commands.Mkdir mkdir = new commands.Mkdir();
   MockFileSystem fs;
 
   @Before
   public void setUp() throws Exception {
     // Create a new MFS and give it a new, empty directory whose parent is
-    // the root (empty named) directory 
+    // the root (empty named) directory
     fs = new MockFileSystem();
-    data.Directory testDir = new data.Directory("testdir",
-        fs.directories.get(""));
+    data.Directory testDir =
+        new data.Directory("testdir", fs.directories.get(""));
     fs.directories.put("testdir", testDir);
   }
 
@@ -28,7 +28,7 @@ public class MkdirTest {
     assertEquals(mkdir.execute(fs, "testA"), "\n");
     // The filesystem's current directory (root) should have a directory with
     // that name inside.
-    try{
+    try {
       data.Directory dirA = fs.directories.get("").getDirectory("testA");
       // Add an entry for that directory in the MFS
       fs.directories.put("testA", dirA);
@@ -37,25 +37,25 @@ public class MkdirTest {
       // It should return a newline, and there should be a directory with the
       // given name inside it
       assertEquals(mkdir.execute(fs, "testA/testB"), "\n");
-      try{
+      try {
         dirA.getDirectory("testB");
-      } catch (data.InvalidPathException e){
+      } catch (data.InvalidPathException e) {
         fail("Second test directory was not created");
       }
-    } catch (data.InvalidPathException e){
+    } catch (data.InvalidPathException e) {
       fail("First test directory was not created");
-    }    
+    }
   }
-  
+
   @Test
-  public void testMakeWithAbsolutePath(){
+  public void testMakeWithAbsolutePath() {
     // Set the current directory to one that is not root i.e. testdir
     fs.currDir = "testdir";
     // Try to have mkdir create a directory immediately inside root
     // It should return a newline, and there should be a directory
     // with the given name inside root
     assertEquals(mkdir.execute(fs, "/testA"), "\n");
-    try{
+    try {
       data.Directory dirA = fs.directories.get("").getDirectory("testA");
       // Add an entry for that directory in the MFS
       fs.directories.put("/testA", dirA);
@@ -63,19 +63,19 @@ public class MkdirTest {
       // made. It should return a newline, and there should be a directory
       // with the given name inside it
       assertEquals(mkdir.execute(fs, "/testA/testB"), "\n");
-      try{
+      try {
         dirA.getDirectory("testB");
-      } catch (data.InvalidPathException e){
+      } catch (data.InvalidPathException e) {
         fail("Second test directory was not created");
       }
-    } catch (data.InvalidPathException e){
+    } catch (data.InvalidPathException e) {
       fail("First test directory was not created");
     }
-    
+
   }
-  
+
   @Test
-  public void testMakeWithDotPath(){
+  public void testMakeWithDotPath() {
     // Set the current directory to one that is not root i.e. testdir
     fs.currDir = "testdir";
     // Try to have mkdir create a directory immediately inside root,
@@ -83,24 +83,25 @@ public class MkdirTest {
     // It should return a newline, and there should be a directory
     // with the given name inside root
     assertEquals(mkdir.execute(fs, "../testA"), "\n");
-    try{
+    try {
       fs.directories.get("").getDirectory("testA");
-    } catch (data.InvalidPathException e){
+    } catch (data.InvalidPathException e) {
       fail("Test directory was not created");
     }
-    
+
   }
-  
+
   @Test()
-  public void testImproperPath(){
+  public void testImproperPath() {
     // Try to create a directory inside a nonexistent directory
     // Mkdir should return an error message, and neither root nor
     // testdir should have any directories within them
     assertEquals(mkdir.execute(fs, "doesnt/exist"), "Error - invalid path\n");
-    assertTrue(Arrays.equals(fs.directories.get("").getContents(), new String[0]));
+    assertTrue(
+        Arrays.equals(fs.directories.get("").getContents(), new String[0]));
     assertTrue(Arrays.equals(fs.directories.get("testdir").getContents(),
         new String[0]));
-    
+
   }
 
 }

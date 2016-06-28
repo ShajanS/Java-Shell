@@ -10,17 +10,14 @@ import org.junit.Test;
 public class PushdTest {
   
   commands.Pushd pushd = new commands.Pushd();
-  commands.Cd cd = new commands.Cd();
   MockFileSystem fs;
   
   @Before
   public void setUp(){
     // Create a new mock filesystem with a directory named testdir
     fs = new MockFileSystem();
-    fs.directories.put("testdir", new data.Directory("testdir"));
-    fs.directories.put("testdir2", "testdir");
-    dirStack = new Stack<String>;
-  }
+    fs.directories.put("testdir", new data.Directory("testdir", "testdir2"));
+    }
 
   @Test
   public void testChangeToExistingDir() {
@@ -34,9 +31,9 @@ public class PushdTest {
   @Test
   public void testAddDirectoryToStack() {
 	// pushd should be able to add the current directory to the DirStack
-	pushd.execute(fs, "testdir")
+	pushd.execute(fs, "testdir");
 	// The popped directory should be the same as the current directory
-	assertEquals(fs.currDir(), fs.popFromDirStack());
+	assertEquals(fs.currDir, fs.popFromDirStack());
   }
   
   @Test
@@ -45,7 +42,7 @@ public class PushdTest {
 	pushd.execute(fs, "testdir");
 	pushd.execute(fs, "testdir2");
 	// The popped directory should be the same as the current directory
-	assertEquals(fs.currDir(), fs.popFromDirStack());
+	assertEquals(fs.currDir, fs.popFromDirStack());
   }
   
   @Test

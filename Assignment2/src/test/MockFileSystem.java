@@ -55,6 +55,15 @@ public class MockFileSystem implements FileSystem {
    */
   @Override
   public void makeCurrentDirectory(String path) throws InvalidPathException {
+    //If the path starts with .., replace it with the path of currDir's parent
+    if (path.startsWith("..")){
+      path = currDir.substring(0, currDir.lastIndexOf('/')+1) + 
+          path.substring(2);
+    }
+    //If it starts with ., remove it
+    if (path.startsWith(".")){
+      path = path.substring(1);
+    }
     // If this directory exists, make its name the current directory
     if (directories.containsKey(path)){
       currDir = path;

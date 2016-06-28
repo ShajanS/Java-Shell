@@ -49,5 +49,5 @@ Tasks: a-1, b-1, b-2, b-3, h-1, h-2
 User: Sai Oduri (odurilak) 
 Tasks: e-1, j-1, j-2
 
-User: 
-Tasks:
+User: Zain Kabani (kabaniza)
+Tasks: m-1, k-1

@@ -16,9 +16,9 @@
 // Author: Sai Oduri
 //
 // Student4:
-// UTORID user_name:
-// UT Student #:
-// Author:
+// UTORID user_name: kabaniza
+// UT Student #: 1002343092
+// Author: Zain Kabani
 //
 //
 // Honor Code: I pledge that this program represents my own

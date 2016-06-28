@@ -1,29 +1,33 @@
 package commands;
 
+import data.InvalidPathException;
+
 public class Popd implements Command {
 
-  public String execute(data.FileSystem fs, String params) {
+  /**
+   * Changes the current working directory of the filesystem to the directory
+   * that is at the top of the Directory Stack
+   * 
+   * @param fs The filesystem whose current directory to change
+   * @return An error if the directory cannot be found or the directory stack
+   * is empty, a newline otherwise
+   */
+  public String execute(data.FileSystem fs) {
     String result = "\n";
-    // Get the absolute path of the parameter if possible
-    fs.popFromDirStack();
-    // Navigate to the parent directory of the param if possible
-    try {
-      data.Directory parent =
-          data.Directory.navigateToParent(absPath, shell.rootDir);
-      // Look for the specified dir
-      // If it exists, set the shell's current dir to that one
-      String deepest = params.substring(params.lastIndexOf('/') + 1);
-      if (parent.getDirectory(deepest) != null) {
-        shell.currDir = parent.getDirectory(deepest);
-      } else {
-        // If not, return an error message
-        result = "Error - No such directory\n";
-      }
-    } catch (data.InvalidPathException e) {
-      // If this is not possible, return an error message
-      result = "Error - no such directory\n";
+    // Pop from the directory stack and store the path
+    try{
+    	String path = fs.popFromDirStack();
+    } catch{
+    	// If popping from the stack fails, return an error message
+    	result = "Error - Cannot pop from Empty Stack\n"
     }
-
+    // Make the stored path the current directory of the filesystem
+    try {
+    	fs.makeCurrentDirectory(path);
+    } catch (InvalidPathException e) {
+      // If it cannot be found, return an error message
+      result = "Error - Directory does not exist\n";
+    }
     return result;
   }
 }

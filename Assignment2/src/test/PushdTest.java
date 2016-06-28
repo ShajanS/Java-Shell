@@ -16,7 +16,7 @@ public class PushdTest {
   public void setUp(){
     // Create a new mock filesystem with a directory named testdir
     fs = new MockFileSystem();
-    data.Directory("parent");
+    data.Directory parent = new data.Directory("parent");
     fs.directories.put("testdir", new data.Directory("testdir", parent));
     }
 
@@ -41,9 +41,11 @@ public class PushdTest {
   public void testAddTwoDirectoriesToStack() {
 	// pushd should be able to add multiple directories to the DirStack
 	pushd.execute(fs, "parent");
+	// store the current directory before pushing again
+	result = fs.currDir;
 	pushd.execute(fs, "testdir");
-	// The popped directory should be the same as the current directory
-	assertEquals(fs.currDir, fs.popFromDirStack());
+	// The popped directory should be the same as the previous directory
+	assertEquals(result, fs.popFromDirStack());
   }
   
   @Test

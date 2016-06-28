@@ -11,6 +11,7 @@ public class Cat implements Command {
 
   /**
    * Outputs the contents of desired text files in the current directory
+   * (absolute path)
    * 
    * @param fs The filesystem in which to make the directory
    * @param params The list of file names to output

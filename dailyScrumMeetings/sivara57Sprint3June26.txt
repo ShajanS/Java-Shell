@@ -1,0 +1,15 @@
+What did I do last time?
+	- Finished Cat, Man, Exit
+	- reimplemented the functions to work with the new filesystem design
+	- suppressed the warnings for exceptions
+	- added JUnit4 for the files for testing 
+	
+What do I plan to do now?
+	- finish unit testings for commands  
+	- Format files to the required google doc format
+	- tweak the java docs for the commands
+	- fine tune commands and search for bugs
+	
+Am I blocked on anything?
+	- New mockFileSystem is being implemented, 
+	can not progress with unit testing until finished 

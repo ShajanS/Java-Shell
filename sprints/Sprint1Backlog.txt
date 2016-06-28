@@ -31,5 +31,5 @@ Tasks: a-1, c-1
 User: Kirill Lossev (lossevki)
 Tasks: a-2, a-3, e-1
 
-User:
-Tasks:
+User: Zain Kabani (kabaniza)
+Tasks: c-2, d-1

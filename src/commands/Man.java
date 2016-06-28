@@ -38,7 +38,8 @@ public class Man implements Command {
     // exit command
     cmdman.put("exit", "\n\texits the program");
     // cd command
-    cmdman.put("cd", "\n\tChange directory to a requested directory");
+    cmdman.put("cd", "\n\tChange directory to a requested directory" +
+    "\n\n\tArgument REQ: cd[DIR]");
     // echo command
     cmdman.put("echo",
         "\n\tIf OUTFILE is not given: Prints the provided string on the "
@@ -49,7 +50,8 @@ public class Man implements Command {
             + " and adds the new"
             + "\n\t\t- If the OUTFILE does not exist it creates a new OUTFILE"
             + "\n\tIf If OUTFILE is given accompanied by >>, (>> OUTFILE): "
-            + "Same concept as (> OUTFILE) but appends instead of overwriting");
+            + "Same concept as (> OUTFILE) but appends instead of overwriting"
+            + "\n\n\tArgument REQ: echo[STRING] || echo[STRING][OUTFILE] ");
     // history command
     cmdman.put("history",
         "\n\tPrints out the recent commands a user has entered"
@@ -62,7 +64,8 @@ public class Man implements Command {
             + "\n\t\t4. echo \"hello world\" > textfile" + "\n\t\t5. history"
             + "\n\t\t6. hisotry 4");
     // mkdir command
-    cmdman.put("mkdir", "\n\tCreates directories named as the given arguments");
+    cmdman.put("mkdir", "\n\tCreates directories named as the given arguments"
+        + "\n\n\tArgument REQ: mkdir[DIR]");
     // pwd command
     cmdman.put("pwd", "\n\tPrints the current working direcotry");
     // ls command
@@ -71,19 +74,24 @@ public class Man implements Command {
             + "allocated in the current directory. "
             + "\n\t\t- If P(PATH) is a file: Prints the path"
             + "\n\t\t- If P(PATH) is a directory: Prints a the path "
-            + "followed by the contents allocated to that directory");
+            + "followed by the contents allocated to that directory"+
+            "\n\n\tArgument REQ: ls[PATH...]");
     // cat command
-    cmdman.put("cat", "Outputs the contents of desired file(s) in series");
+    cmdman.put("cat", "\n\tOutputs the contents of desired file(s) in series"
+        + "\n\n\tArgument REQ: cat[FILE1]" 
+        + "\n\tArgument REQ (File(s)): cat[FILE1][FILE2]...");
     // pushd command
     cmdman.put("pushd",
         "\n\tSaves the current working directory by +"
             + "pushing onto directory stack and then changes the new current "
-            + "working directory to DIR. ");
+            + "working directory to DIR. " + "\n\n\tArgument REQ: pushd[DIR]");
     // pop command
     cmdman.put("popd",
-        ": Remove the top entry from the directory stack, and cd into it.");
+        ": Remove the top entry from the directory stack, and cd into it."
+        + "\n\n\tArgument REQ: popd[DIR]");
     // man command
-    cmdman.put("man", "\n\tPrints the man pages(documentation) for commands");
+    cmdman.put("man", "\n\tPrints the man pages(documentation) for commands"
+        + "\n\n\tArgument REQ: man[CMD]");
 
   }
 

@@ -46,5 +46,14 @@ public class CatTest {
     // in the directory, and error message should be displayed accordingly 
     assertEquals(cat.execute(sys, ""), "File(s) not found\n");
   }
+  
+  @Test
+  public void testExecuteNewAppendedFile() {
+    // passing the command to retrieve a file which is present but also
+    // has been appended new content to add to the file
+    echo.execute(sys, "New line Hello World >> file.txt");
+    assertEquals(cat.execute(sys, "file.txt"), 
+        "Contents in file  New line Hello World \n");
+  }
 
 }

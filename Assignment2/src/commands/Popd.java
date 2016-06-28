@@ -1,29 +1,29 @@
 package commands;
 
-public class Popd implements Command{
+public class Popd implements Command {
 
-  public String execute(data.FileSystem fs, String params){
+  public String execute(data.FileSystem fs, String params) {
     String result = "\n";
-    //Get the absolute path of the parameter if possible
+    // Get the absolute path of the parameter if possible
     fs.popFromDirStack();
-    //Navigate to the parent directory of the param if possible
-    try{
-      data.Directory parent = data.Directory.navigateToParent(absPath,
-        shell.rootDir);
-      //Look for the specified dir
-      //If it exists, set the shell's current dir to that one
-      String deepest = params.substring(params.lastIndexOf('/')+1);
-      if (parent.getDirectory(deepest) != null){
+    // Navigate to the parent directory of the param if possible
+    try {
+      data.Directory parent =
+          data.Directory.navigateToParent(absPath, shell.rootDir);
+      // Look for the specified dir
+      // If it exists, set the shell's current dir to that one
+      String deepest = params.substring(params.lastIndexOf('/') + 1);
+      if (parent.getDirectory(deepest) != null) {
         shell.currDir = parent.getDirectory(deepest);
-      } else{
-      //If not, return an error message
+      } else {
+        // If not, return an error message
         result = "Error - No such directory\n";
       }
-	} catch (data.InvalidPathException e){
-	  // If this is not possible, return an error message
-	  result = "Error - no such directory\n";
-	}
-    
+    } catch (data.InvalidPathException e) {
+      // If this is not possible, return an error message
+      result = "Error - no such directory\n";
+    }
+
     return result;
   }
 }

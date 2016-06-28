@@ -18,7 +18,7 @@ public class ManTest {
 
   @Test
   public void testExecute() {
-    // test a valid command to check if proper documentation gets returned 
+    // test a valid command to check if proper documentation gets returned
     String testOutput = man.execute(fs, "exit");
     String testActual = "exit" + ":" + "\n\texits the program" + "\n";
     assertEquals(testActual, testOutput);

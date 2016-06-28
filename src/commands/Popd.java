@@ -13,9 +13,10 @@ public class Popd implements Command {
    * @return An error if the directory cannot be found or the directory stack
    * is empty, a newline otherwise
    */
-  public String execute(data.FileSystem fs) {
+  public String execute(data.FileSystem fs, String params){
     String result = "\n";
     // Pop from the directory stack and store the path
+    String path = new String();
     try{
     	String path = fs.popFromDirStack();
     } catch (EmptyStackException e){

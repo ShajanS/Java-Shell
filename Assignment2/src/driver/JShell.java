@@ -119,6 +119,7 @@ public class JShell {
     commandMap.put("man", "commands.Man");
     commandMap.put("cat", "commands.Cat");
     commandMap.put("pushd", "commands.Pushd");
+    commandMap.put("ls", "commands.ls");
     commandMap.put("popd", "commands.Popd");
     commandMap.put("ls", "commands.Ls");
     return commandMap;

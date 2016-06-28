@@ -16,7 +16,7 @@ public class PushdTest {
   public void setUp(){
     // Create a new mock filesystem with a directory named testdir
     fs = new MockFileSystem();
-    Directory parent = new data.Directory("parent");
+    data.Directory("parent");
     fs.directories.put("testdir", new data.Directory("testdir", parent));
     }
 

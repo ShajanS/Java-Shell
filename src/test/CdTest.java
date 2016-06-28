@@ -12,9 +12,11 @@ public class CdTest {
   
   @Before
   public void setUp(){
-    // Create a new mock filesystem with a directory named testdir
+    // Create a new mock filesystem with a directory named testdir,
+    // whose parent is the root directory 
     fs = new MockFileSystem();
-    fs.directories.put("testdir", new data.Directory("testdir"));
+    fs.directories.put("testdir", new data.Directory("testdir", 
+        fs.directories.get("")));
   }
 
   @Test
@@ -24,6 +26,16 @@ public class CdTest {
     assertEquals(result, "\n");
     // The new current directory should reflect the change
     assertEquals(fs.currDir, "testdir");
+  }
+  
+  @Test
+  public void testDotPath(){
+    // Set the current directory to testdir
+    fs.currDir = "testdir";
+    // cd should be able to change to the root dir and return a newline
+    assertEquals(cd.execute(fs, ".."), "\n");
+    // The new current directory should reflect the change
+    assertEquals(fs.currDir, "");
   }
   
   @Test

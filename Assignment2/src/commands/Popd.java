@@ -1,6 +1,7 @@
 package commands;
 
 import data.InvalidPathException;
+import java.util.EmptyStackException
 
 public class Popd implements Command {
 
@@ -17,9 +18,9 @@ public class Popd implements Command {
     // Pop from the directory stack and store the path
     try{
     	String path = fs.popFromDirStack();
-    } catch{
+    } catch (EmptyStackException e){
     	// If popping from the stack fails, return an error message
-    	result = "Error - Cannot pop from Empty Stack\n"
+    	result = "Error - Cannot pop from Empty Stack\n";
     }
     // Make the stored path the current directory of the filesystem
     try {

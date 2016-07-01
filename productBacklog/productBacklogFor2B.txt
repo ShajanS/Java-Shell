@@ -1,0 +1,19 @@
+I should be able to recursively list the contents of one or more directories (5 hours)
+
+I should be able to move an item into a different folder (3 hours)
+
+I should be able to rename a file (3 hours)
+
+I should be able to make a copy of an item (5 hours)
+
+I should be able to output the contents of multiple files to the console (2 hours)
+
+I should be able to retrieve a file from the internet (5 hours)
+
+I should be able to use !n to run the nth command run this session (2 hours)
+
+I should be able to get all the lines in a file matching a regex (5 hours)
+
+I should be able to get all the files having lines which match a regex (4 hours)
+
+I should be able to redirect the output of a command into a file. (3 hours)

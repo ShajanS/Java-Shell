@@ -1,0 +1,34 @@
+Sprint 4 Backlog
+July 2 - July 8
+
+User stories we will address in this sprint:
+a) I should be able to use !n to run the nth command run this session (2 hours)
+b) I should be able to get all the lines in a file matching a regex (5 hours)
+c) I should be able to get all the files having lines which match a regex (4 hours)
+d) 
+e) 
+f) 
+
+Specific tasks to be accomplished:
+a-1. Find what the nth command to be entered was
+a-2. Process the command
+b-1. Break the contents of a file into lines
+b-2. Check if regexes are valid
+b-3. Check each line against the regex
+b-4. Keep track of which lines match the regex
+c-1. Check if grep was given the proper flag
+c-2. Do the above for each file, and keep track of which files have matching lines
+
+These tasks are assigned as follows:
+
+User:
+Tasks:
+
+User:
+Tasks:
+
+User:
+Tasks:
+
+User:
+Tasks:

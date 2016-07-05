@@ -1,0 +1,9 @@
+What did I do last time?
+-Assigned Sprint 4 tasks
+
+What will I do next time?
+-Break the file's contents into lines
+-Figure out a way to track which lines matched the regex
+
+What am I stuck on?
+-Nothing yet.

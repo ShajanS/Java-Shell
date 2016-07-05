@@ -24,11 +24,11 @@ These tasks are assigned as follows:
 User: sivara57
 Tasks: a-1, a-2 
 
+User: lossevki
+Tasks: b-2, b-3, c-1, c-2
+
 User: odurilak
 Tasks: b-1, b-4
-
-User:
-Tasks:
 
 User:
 Tasks:

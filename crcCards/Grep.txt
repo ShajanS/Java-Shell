@@ -1,0 +1,9 @@
+Class name: Grep
+-Implements: Command
+
+Responsibilities:
+-Return lines in a file which match a regex
+-For any file in a directory which has a line matching a regex, return the filename and the relevant line
+
+Collaborators:
+-FileSystem 

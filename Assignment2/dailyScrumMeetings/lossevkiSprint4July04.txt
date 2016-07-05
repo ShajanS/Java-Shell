@@ -1,0 +1,10 @@
+What did I do last time?
+-Started on grep command
+
+What will I do next time?
+-Finish grep command for files and directories
+-Allow all commands to output to files
+-Unit testing
+
+What am I stuck on?
+-Regex handling

@@ -24,8 +24,8 @@ These tasks are assigned as follows:
 User: sivara57
 Tasks: a-1, a-2 
 
-User:
-Tasks:
+User: odurilak
+Tasks: b-1, b-4
 
 User:
 Tasks:

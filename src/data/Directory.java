@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -231,6 +232,28 @@ public class Directory {
     return result;
   }
 
+
+  /**
+   * @return The subdirectories in this directory
+   */
+  public ArrayList<String> getSubdirNames() {
+    ArrayList<String> result = new ArrayList<String>();
+    for (String name : subdirs.keySet()){
+      result.add(name);
+    }
+    return result;
+  }
+
+  /**
+   * @return The files in this directory
+   */
+  public ArrayList<String> getFiles() {
+    ArrayList<String> result = new ArrayList<String>();
+    for (String name : files.keySet()){
+      result.add(name);
+    }
+    return result;
+  }
 
   /**
    * Returns an array of this directory's contents, sorted alphabetically

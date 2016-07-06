@@ -45,7 +45,7 @@ public class Echo implements Command {
     // Get the index of the first >
     int redirectIndex = params.indexOf('>');
     // Everything up to it is the string to be echoed (trim it as well)
-    String strToEcho = params.substring(0, redirectIndex);
+    String strToEcho = params.substring(0, redirectIndex).trim();
     // Store the substring starting with it as well.
     String redirectInfo = params.substring(redirectIndex);
     // If this last string starts with >>, we will append to the file.

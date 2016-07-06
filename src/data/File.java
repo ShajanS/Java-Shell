@@ -55,7 +55,7 @@ public class File {
 
   // Adds contents to a current File's contents
   public void appendContents(String contents) {
-    this.contents = (this.contents + " " + contents);
+    this.contents = (this.contents + "\n" + contents);
   }
 
   // Returns this File's absolute path

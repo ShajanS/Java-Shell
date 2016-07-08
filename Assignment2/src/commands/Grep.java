@@ -61,12 +61,14 @@ public class Grep implements Command {
         // Split this by newlines
         String[] lines = contents.split("\n");
         // For each line,
+        int lineNum = 1;
         for (String line : lines){
           // See if the line matches the regex. If so,
           // add it to the result string + a newline
+          // along with its line number
           Matcher matcher = pattern.matcher(line);
           if (matcher.matches()){
-            result += line + "\n";
+            result += "[" + lineNum++ + "] " + line + "\n";
           }
         }
       } catch (data.InvalidPathException e){        
@@ -100,16 +102,25 @@ public class Grep implements Command {
           // Split it by newlines
           String[] lines = fileContents.split("\n");
           // For each line, if it matches the regex,
-          // Add the file path, the line, and a newline of the result string
+          // Add the file path, line number, the line, and a newline
+          // of the result string
+          int lineNum = 1;
           for (String line : lines){
             Matcher matcher = pattern.matcher(line);
             if (matcher.matches()){
-              result += fullPath + ": " + line + "\n";
+              result += "[" + lineNum++ + "] " + fullPath + ": " + line + "\n";
             }
           }
           // Run this method on the list of subdirectories and append the
           // output to the result string
-          result += grepDirectories(fs, currDir.getSubdirNames(), pattern);
+          // Prefix the paths with that of this directory so that they
+          // can be found in the filesystem
+          ArrayList<String> rawPaths = currDir.getSubdirNames();
+          ArrayList<String> fullPaths = new ArrayList<String>();
+          for (String rawPath : rawPaths){
+            fullPaths.add(path + rawPath);
+          }
+          result += grepDirectories(fs, fullPaths, pattern);
         }
       
       } catch(data.InvalidPathException e){

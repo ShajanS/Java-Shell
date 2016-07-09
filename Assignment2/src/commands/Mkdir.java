@@ -11,7 +11,7 @@ public class Mkdir implements Command {
    */
   public String execute(data.FileSystem fs, String params) {
     // Get the list of directory names to make
-    java.util.ArrayList<String> args = names(params);
+    java.util.ArrayList<String> args = CommandHandler.getPaths(params);
     // Loop over the elements of the list,
     try {
       for (String dirToMake : args) {
@@ -37,43 +37,6 @@ public class Mkdir implements Command {
     }
     // If everything goes smoothly, return a newline
     return "\n";
-  }
-
-  /**
-   * Converts parameters to an arraylist of directory names to be created
-   * 
-   * @param params The parameters given to the command
-   * @return A list of the paths of directories to create
-   */
-  private java.util.ArrayList<String> names(String params) {
-    // Create the result list
-    java.util.ArrayList<String> result = new java.util.ArrayList<String>();
-    // Loop until the parameters are empty
-    while (!params.isEmpty()) {
-      // If the first character is a quote, look for the next quote.
-      if (params.startsWith("\"")) {
-        int nextQuote = params.indexOf('"', 1);
-        // If there is one, add the substring between them to the list
-        if (nextQuote != -1) {
-          result.add(params.substring(1, nextQuote));
-          // Remove this substing + the quotes and trim the string
-          params = params.substring(nextQuote + 1).trim();
-        }
-      }
-      // Look for the next space
-      int nextSpace = params.indexOf(' ');
-      // If there is one, add everything up to it to the list
-      if (nextSpace != -1) {
-        result.add(params.substring(0, nextSpace));
-        // Remove what was just added from the params and trim them
-        params = params.substring(nextSpace + 1).trim();
-      } else {
-        // If not, add the remainder of params to the list and clear the params
-        result.add(params);
-        params = "";
-      }
-    }
-    return result;
   }
 
 }

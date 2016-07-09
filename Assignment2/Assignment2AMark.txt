@@ -1,0 +1,118 @@
+==== A2 phase I marking ====
+
+Group number: 0309
+UTORID usernames of members: kabaniza, lossevki, odurilak, sivara57
+TA: Akshay Nair <akshay.nair@mail.utoronto.ca>
+
+Total deductions: 7 (Grade: C)
+Instructor bonus: +2
+Final deductions: 5 (Grade: B-)
+
+Mark distribution:
+kabaniza: (Grade: B-)
+lossevki: (Grade: C+)
+odurilak: -1 (not completing CATME) (Grade: C+)
+sivara57: -1 (not completing CATME) (Grade: C+)
+
+
+============================
+
+Your team's Phase II grade is based on this scale:
+
+    http://www.artsandscience.utoronto.ca/ofr/calendar/rules.htm#grading
+
+The way we graded is as follows: your team starts with an A+. When errors and
+problems are found, you will lose 0, 1, 2, or 3 letter steps, depending on the
+severity. As an example, if you lost two steps, your team would earn an A-:
+
+     A+ -> A
+     A -> A-
+
+==== Product and Sprint backlogs ==== [up to -6]
+
+Mark: -0.5
+
+Mark reductions:
+- PB is inconsistent. Some of the items on PB are far too detailed. However the majority of PB is well done so I assume you know how to properly word the PB. (-0.5)
+
+Other comments:
+- Try keeping time units on PB consistent (hours vs. days)
+
+==== Java Style ==== [up to -6]
+
+Mark: 0
+
+Mark reductions: None
+
+Positive feedback:
+- I like how you split up the packages.
+
+==== Design ==== [up to -6]
+
+Mark: -1.5
+
+Mark reductions:
+- You should not use Scanner in the CONSTRUCTOR of JShell. This is bad design as it couples a constructor with more code than "constructing an object". It also makes it so you can't ever instantiate JShell more than once. You also have a public instance variable in JShell which is further bad design. (-1)
+- Public instance variables for test cases. (-0.5)
+
+Positive feedback:
+- Good use of singleton for JFileSystem. Also the interface design and naming (JFileSystem implements FileSystem)
+- Good use of reflection and hash tables.
+- You handle your own exceptions which is good.
+- Inheritance is overall very well done here.
+- Good use of Maps for Directory.
+- Good use of Mock objects for test cases.
+
+Other comments:
+- Instead of <String, String> perhaps you could make the hashtable <String, Command> (storing instances of Command) which would take advantage of the fact that you used Command as a superclass.
+
+- Perhaps you could've used inheritance with File and Directory. (they share "parent" and "name")
+
+- Avoid putting in static strings into Exception-subclass constructors. This sort of defeats the purpose. You should just put in variables (such as directory names) into the constructor, and then override the appropriate method in the subclass to return the static error message with the variables in them. This makes it so you don't have to repeat the static strings everywhere in your code. (e.g. having "A file or directory with this name already exists" multiple places in your code)
+
+==== Javadoc ==== [up to -3]
+
+Mark: -3
+
+Mark reductions:
+- Missing Javadoc on classes (-1)
+- Many methods are missing Javadoc (-2)
+
+Other comments:
+- Missing Javadoc on test cases.
+
+==== Testing ==== [up to -6] 
+
+Mark: -1
+
+Mark reductions:
+- Test cases are often not thorough enough. (-1)
+
+==== Correctness ==== [up to -6]
+
+Mark: -1
+
+Test cases failed (-0.25 * 4 = -1):
+1) Making a directory with invalid name
+    >mkdir “Hello” Hello$ .
+    >ls
+    Expected: “Hello”, Hello$ and . should not be created since they use special characters.
+    Actual: Creates all of them.
+
+2) Echoing with quotes
+    >echo “Hello World”
+    Expected: It should echo Hello World without quotes
+    Actual: Displays it with quotes.
+
+3) Echoing with invalid quotes
+    >echo Hello World “
+    Expected: It shouldn’t echo Hello World, since it is not enclosed in double quotes (as stated in the handout).
+    Actual: Outputs it.
+
+4) Listing multiple files
+    >ls file.txt . newFolder 
+    Expected: It should print file.txt, the current directory contents and the contents of newFolder.
+    Actual: "No such path exists"
+
+Other comments:
+- One wrong thing I've noticed in your code is your attempt at constructor overloading. (e.g. File class) -- this is NOT done by invoking the constructor (e.g. new File(name)). Instead you use "this" as the constructor (e.g. this(name)).

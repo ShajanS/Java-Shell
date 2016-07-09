@@ -1,0 +1,785 @@
++++ASSIGNMENT2 TEAM MEMBER CONTRIBUTION+++
+
+
+
+PART 1) +++SVN CHECKOUT ON YOUR ASSIGNMENT1+++
+A    Assignment2/crcCards
+A    Assignment2/crcCards/MockFileSystem.txt
+A    Assignment2/crcCards/JFileSystem.txt
+A    Assignment2/crcCards/History.txt
+A    Assignment2/crcCards/Directory.txt
+A    Assignment2/crcCards/ExceptionInvalidCommand.txt
+A    Assignment2/crcCards/Mkdir.txt
+A    Assignment2/crcCards/Cat.txt
+A    Assignment2/crcCards/ExceptionInvalidArgument.txt
+A    Assignment2/crcCards/readMeForCrcCards.txt
+A    Assignment2/crcCards/Man.txt
+A    Assignment2/crcCards/Command.txt
+A    Assignment2/crcCards/Echo.txt
+A    Assignment2/crcCards/Ls.txt
+A    Assignment2/crcCards/File.txt
+A    Assignment2/crcCards/ExceptionInvalidPath.txt
+A    Assignment2/crcCards/Pushd.txt
+A    Assignment2/crcCards/FileSystem.txt
+A    Assignment2/crcCards/Cd.txt
+A    Assignment2/crcCards/Pwd.txt
+A    Assignment2/readMeAssignment2A.txt
+A    Assignment2/src
+A    Assignment2/src/test
+A    Assignment2/src/test/PwdTest.java
+A    Assignment2/src/test/ManTest.java
+A    Assignment2/src/test/EchoTest.java
+A    Assignment2/src/test/LsTest.java
+A    Assignment2/src/test/MockFileSystem.java
+A    Assignment2/src/test/HistoryTest.java
+A    Assignment2/src/test/PopdTest.java
+A    Assignment2/src/test/PushdTest.java
+A    Assignment2/src/test/CdTest.java
+A    Assignment2/src/test/MkdirTest.java
+A    Assignment2/src/test/CatTest.java
+A    Assignment2/src/commands
+A    Assignment2/src/commands/Cd.java
+A    Assignment2/src/commands/Mkdir.java
+A    Assignment2/src/commands/Cat.java
+A    Assignment2/src/commands/Pwd.java
+A    Assignment2/src/commands/Man.java
+A    Assignment2/src/commands/Command.java
+A    Assignment2/src/commands/Echo.java
+A    Assignment2/src/commands/Ls.java
+A    Assignment2/src/commands/History.java
+A    Assignment2/src/commands/Popd.java
+A    Assignment2/src/commands/Pushd.java
+A    Assignment2/src/data
+A    Assignment2/src/data/InvalidArgumentException.java
+A    Assignment2/src/data/JFileSystem.java
+A    Assignment2/src/data/File.java
+A    Assignment2/src/data/InvalidPathException.java
+A    Assignment2/src/data/Directory.java
+A    Assignment2/src/data/FileSystem.java
+A    Assignment2/src/data/InvalidCommandException.java
+A    Assignment2/src/driver
+A    Assignment2/src/driver/JShell.java
+A    Assignment2/dailyScrumMeetings
+A    Assignment2/dailyScrumMeetings/sivara57Sprint3June25.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint2June19.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint3June26.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint1June10.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint2June19.txt
+A    Assignment2/dailyScrumMeetings/kabanizaSprinjune10.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint1June13.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint3June22.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint2June16.txt
+A    Assignment2/dailyScrumMeetings/readMeDailyScrumMeetings.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint3June25.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint2June19.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint1June10.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint1June10.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint1June13.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint3June22.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint1June13.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint3June22.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint2June16.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint3June26.txt
+A    Assignment2/sprints
+A    Assignment2/sprints/readMeSprints.txt
+A    Assignment2/sprints/Sprint1Backlog.txt
+A    Assignment2/sprints/Sprint2Backlog.txt
+A    Assignment2/sprints/Sprint3Backlog.txt
+A    Assignment2/productBacklog
+A    Assignment2/productBacklog/productBacklogFor2A.txt
+A    Assignment2/productBacklog/readMeProductBacklog.txt
+Checked out revision 152.
+
+
+
+PART 2) +++SVN COMMIT LOGS ARE+++
+Marks Deductions here (-.5 max): 
+------------------------------------------------------------------------
+r152 | kabaniza@UTORONTO.CA | 2016-06-27 23:55:53 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added my jobs for sprints
+------------------------------------------------------------------------
+r151 | lossevki@UTORONTO.CA | 2016-06-27 23:54:38 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Test cases for ls
+------------------------------------------------------------------------
+r150 | sivara57@UTORONTO.CA | 2016-06-27 23:48:00 -0400 (Mon, 27 Jun 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r149 | kabaniza@UTORONTO.CA | 2016-06-27 23:47:57 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Commented and debugged the ls command
+------------------------------------------------------------------------
+r148 | sivara57@UTORONTO.CA | 2016-06-27 23:47:51 -0400 (Mon, 27 Jun 2016) | 1 line
+
+formated to google code
+------------------------------------------------------------------------
+r147 | kabaniza@UTORONTO.CA | 2016-06-27 23:20:04 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added honor code for myself
+------------------------------------------------------------------------
+r146 | kabaniza@UTORONTO.CA | 2016-06-27 23:18:48 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added ls to command map
+------------------------------------------------------------------------
+r145 | sivara57@UTORONTO.CA | 2016-06-27 23:18:07 -0400 (Mon, 27 Jun 2016) | 1 line
+
+uploaded ls command to hastable(commands)
+------------------------------------------------------------------------
+r144 | sivara57@UTORONTO.CA | 2016-06-27 23:16:30 -0400 (Mon, 27 Jun 2016) | 1 line
+
+removed useless import popdtest
+------------------------------------------------------------------------
+r143 | kabaniza@UTORONTO.CA | 2016-06-27 23:16:10 -0400 (Mon, 27 Jun 2016) | 1 line
+
+implemented ls command
+------------------------------------------------------------------------
+r142 | odurilak@UTORONTO.CA | 2016-06-27 23:14:26 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed syntax on PopdTest.java, Sai
+------------------------------------------------------------------------
+r141 | odurilak@UTORONTO.CA | 2016-06-27 23:10:28 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Completed test cases for Popd.java, Sai
+------------------------------------------------------------------------
+r140 | sivara57@UTORONTO.CA | 2016-06-27 22:54:11 -0400 (Mon, 27 Jun 2016) | 1 line
+
+removed un used import for pushdtest
+------------------------------------------------------------------------
+r139 | odurilak@UTORONTO.CA | 2016-06-27 22:53:19 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added popd to commandMap, Sai
+------------------------------------------------------------------------
+r138 | odurilak@UTORONTO.CA | 2016-06-27 22:50:14 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed syntax in Popd.java, Sai
+------------------------------------------------------------------------
+r137 | odurilak@UTORONTO.CA | 2016-06-27 22:48:17 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Put second try inside the first try in Popd.java, Sai
+------------------------------------------------------------------------
+r136 | odurilak@UTORONTO.CA | 2016-06-27 22:45:51 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed syntax errors in Popd.java, Sai
+------------------------------------------------------------------------
+r135 | odurilak@UTORONTO.CA | 2016-06-27 22:44:14 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed syntax errors for Popd.java, Sai
+------------------------------------------------------------------------
+r134 | odurilak@UTORONTO.CA | 2016-06-27 22:36:42 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed syntax errors in Pushd.java, Sai
+------------------------------------------------------------------------
+r133 | odurilak@UTORONTO.CA | 2016-06-27 22:30:41 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Completed Popd.java, Sai
+------------------------------------------------------------------------
+r132 | odurilak@UTORONTO.CA | 2016-06-27 22:07:39 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Changed the expected value of two test cases (AddDirectoryToStack and AddTwoDirectoriesToStack), Sai
+------------------------------------------------------------------------
+r131 | sivara57@UTORONTO.CA | 2016-06-27 22:04:49 -0400 (Mon, 27 Jun 2016) | 1 line
+
+formated to google req
+------------------------------------------------------------------------
+r130 | sivara57@UTORONTO.CA | 2016-06-27 22:00:02 -0400 (Mon, 27 Jun 2016) | 1 line
+
+fixed java doc for cat
+------------------------------------------------------------------------
+r129 | odurilak@UTORONTO.CA | 2016-06-27 21:59:32 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed test case for adding two directories to DirStack, Sai
+------------------------------------------------------------------------
+r128 | sivara57@UTORONTO.CA | 2016-06-27 21:58:05 -0400 (Mon, 27 Jun 2016) | 2 lines
+
+added argument reqs to documentation for man pages
+
+------------------------------------------------------------------------
+r127 | odurilak@UTORONTO.CA | 2016-06-27 21:52:32 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added scrum meeting for June25th, Sai
+------------------------------------------------------------------------
+r126 | odurilak@UTORONTO.CA | 2016-06-27 21:40:17 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed more syntax errors in PushdTest.java, Sai
+------------------------------------------------------------------------
+r125 | odurilak@UTORONTO.CA | 2016-06-27 21:37:40 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed more syntax errors, Sai
+------------------------------------------------------------------------
+r124 | sivara57@UTORONTO.CA | 2016-06-27 21:36:00 -0400 (Mon, 27 Jun 2016) | 2 lines
+
+daily scrum meeting
+
+------------------------------------------------------------------------
+r123 | odurilak@UTORONTO.CA | 2016-06-27 21:33:35 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed syntax errors in pushdtest.java, Sai
+------------------------------------------------------------------------
+r122 | odurilak@UTORONTO.CA | 2016-06-27 21:24:56 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed syntax errors in PushdTest.java, Sai
+------------------------------------------------------------------------
+r121 | sivara57@UTORONTO.CA | 2016-06-27 21:24:42 -0400 (Mon, 27 Jun 2016) | 1 line
+
+added another test case for cat
+------------------------------------------------------------------------
+r120 | sivara57@UTORONTO.CA | 2016-06-27 21:16:53 -0400 (Mon, 27 Jun 2016) | 1 line
+
+added more comments to each test case for man and cat
+------------------------------------------------------------------------
+r119 | sivara57@UTORONTO.CA | 2016-06-27 20:54:01 -0400 (Mon, 27 Jun 2016) | 1 line
+
+fixed a bug in man 
+------------------------------------------------------------------------
+r118 | lossevki@UTORONTO.CA | 2016-06-27 20:47:59 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed formatting for multiple files
+------------------------------------------------------------------------
+r117 | sivara57@UTORONTO.CA | 2016-06-27 20:43:17 -0400 (Mon, 27 Jun 2016) | 1 line
+
+added more test cases for cat
+------------------------------------------------------------------------
+r116 | odurilak@UTORONTO.CA | 2016-06-27 20:39:51 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added pushd command to Jshell, Sai
+------------------------------------------------------------------------
+r115 | odurilak@UTORONTO.CA | 2016-06-27 20:39:03 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added test cases for Pushd.java, Sai
+------------------------------------------------------------------------
+r114 | lossevki@UTORONTO.CA | 2016-06-27 20:30:26 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added tests for cd, bug fixes in MockFileSystem
+------------------------------------------------------------------------
+r113 | lossevki@UTORONTO.CA | 2016-06-27 20:08:36 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Unit tests for mkdir and pwd commands, bug fixes in MockFileSystem and Directory
+------------------------------------------------------------------------
+r112 | odurilak@UTORONTO.CA | 2016-06-27 18:39:46 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added CRC card for pushd.java, Sai
+------------------------------------------------------------------------
+r111 | odurilak@UTORONTO.CA | 2016-06-27 18:31:00 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Completed Pushd.java with java docs and comments, Sai
+------------------------------------------------------------------------
+r110 | sivara57@UTORONTO.CA | 2016-06-27 17:53:56 -0400 (Mon, 27 Jun 2016) | 1 line
+
+fixed outputstring bug in jshell
+------------------------------------------------------------------------
+r109 | sivara57@UTORONTO.CA | 2016-06-27 17:53:31 -0400 (Mon, 27 Jun 2016) | 1 line
+
+fixed var name
+------------------------------------------------------------------------
+r108 | sivara57@UTORONTO.CA | 2016-06-27 17:45:46 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Changed privacy level on method
+------------------------------------------------------------------------
+r107 | sivara57@UTORONTO.CA | 2016-06-27 17:45:08 -0400 (Mon, 27 Jun 2016) | 1 line
+
+basic template for cat unit testing
+------------------------------------------------------------------------
+r106 | sivara57@UTORONTO.CA | 2016-06-27 16:09:22 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Finished Unit testing for Man
+------------------------------------------------------------------------
+r105 | sivara57@UTORONTO.CA | 2016-06-27 15:57:35 -0400 (Mon, 27 Jun 2016) | 1 line
+
+added junit4 to file and added junit test for man
+------------------------------------------------------------------------
+r104 | odurilak@UTORONTO.CA | 2016-06-27 14:12:54 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Removed stack object call because it now uses the File System interface, Sai
+------------------------------------------------------------------------
+r103 | odurilak@UTORONTO.CA | 2016-06-27 14:12:24 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Removed call on stack object because it now uses the File System interface, Sai
+------------------------------------------------------------------------
+r102 | odurilak@UTORONTO.CA | 2016-06-27 13:59:03 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Now popd.java is using the FileSystem class, Sai
+------------------------------------------------------------------------
+r101 | odurilak@UTORONTO.CA | 2016-06-27 13:58:40 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Now pushd.java uses the FileSystem class, Sai
+------------------------------------------------------------------------
+r100 | odurilak@UTORONTO.CA | 2016-06-27 12:33:29 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added name to honor code, Sai
+------------------------------------------------------------------------
+r99 | sivara57@UTORONTO.CA | 2016-06-27 12:14:47 -0400 (Mon, 27 Jun 2016) | 2 lines
+
+updatd format for cat and man
+
+------------------------------------------------------------------------
+r98 | sivara57@UTORONTO.CA | 2016-06-27 11:41:41 -0400 (Mon, 27 Jun 2016) | 1 line
+
+added suppress warning
+------------------------------------------------------------------------
+r97 | sivara57@UTORONTO.CA | 2016-06-27 10:39:01 -0400 (Mon, 27 Jun 2016) | 1 line
+
+man command tweaks
+------------------------------------------------------------------------
+r96 | sivara57@UTORONTO.CA | 2016-06-27 10:04:40 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Finished all the command documentation 
+------------------------------------------------------------------------
+r95 | lossevki@UTORONTO.CA | 2016-06-27 00:43:03 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added unit tests for cd, echo, and history; Bug fixes for cd and history.
+------------------------------------------------------------------------
+r94 | lossevki@UTORONTO.CA | 2016-06-27 00:00:42 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Created MockFileSystem to facilitate testing
+------------------------------------------------------------------------
+r93 | lossevki@UTORONTO.CA | 2016-06-26 23:34:49 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Refactored JShell, updated CRC cards
+------------------------------------------------------------------------
+r92 | sivara57@UTORONTO.CA | 2016-06-26 23:00:45 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added java doc
+------------------------------------------------------------------------
+r91 | sivara57@UTORONTO.CA | 2016-06-26 22:36:45 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated cat command (added cat reqs)
+------------------------------------------------------------------------
+r90 | sivara57@UTORONTO.CA | 2016-06-26 20:59:28 -0400 (Sun, 26 Jun 2016) | 1 line
+
+tweaks to cat
+------------------------------------------------------------------------
+r89 | sivara57@UTORONTO.CA | 2016-06-26 20:54:01 -0400 (Sun, 26 Jun 2016) | 1 line
+
+upgraded code to work with the new file system 
+------------------------------------------------------------------------
+r88 | lossevki@UTORONTO.CA | 2016-06-26 01:41:39 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Formatted documentation into javadoc format for: Cd, Command, Echo, History, Mkdir, Pwd, Directory, FileSystem, JFileSystem; Fixes for Directory and File classes; Updated CRC cards.
+------------------------------------------------------------------------
+r87 | lossevki@UTORONTO.CA | 2016-06-25 20:50:58 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Refactored mkdir command, fixed bug in JFileSystem
+------------------------------------------------------------------------
+r86 | sivara57@UTORONTO.CA | 2016-06-25 20:38:49 -0400 (Sat, 25 Jun 2016) | 1 line
+
+re implemented commands to new jfile system design and importing cat command
+------------------------------------------------------------------------
+r85 | lossevki@UTORONTO.CA | 2016-06-25 20:29:32 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Refactored cd, history, and pwd commands to match new design
+------------------------------------------------------------------------
+r84 | lossevki@UTORONTO.CA | 2016-06-25 20:21:28 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Refactored echo command
+------------------------------------------------------------------------
+r83 | sivara57@UTORONTO.CA | 2016-06-25 20:10:15 -0400 (Sat, 25 Jun 2016) | 1 line
+
+signed honor code
+------------------------------------------------------------------------
+r82 | lossevki@UTORONTO.CA | 2016-06-25 20:06:57 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Implemented FileSystem interface, implemented as JFileSystem, to handle most of JShell's previous responsibilities, updated Command interface to reflect this
+------------------------------------------------------------------------
+r81 | sivara57@UTORONTO.CA | 2016-06-25 20:05:52 -0400 (Sat, 25 Jun 2016) | 1 line
+
+dailyscrum
+------------------------------------------------------------------------
+r80 | sivara57@UTORONTO.CA | 2016-06-25 19:40:14 -0400 (Sat, 25 Jun 2016) | 1 line
+
+testing code in file to work with cat 
+------------------------------------------------------------------------
+r79 | sivara57@UTORONTO.CA | 2016-06-24 20:52:20 -0400 (Fri, 24 Jun 2016) | 1 line
+
+fixed import bug in jshell
+------------------------------------------------------------------------
+r78 | odurilak@UTORONTO.CA | 2016-06-24 15:20:00 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Added File as a collaborator to the Directory CRC Card, Sai
+------------------------------------------------------------------------
+r77 | odurilak@UTORONTO.CA | 2016-06-24 15:19:12 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Created a crcCard for the File class, Sai
+------------------------------------------------------------------------
+r76 | odurilak@UTORONTO.CA | 2016-06-24 15:10:54 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Now stores and removes the latest item in the directory stack however not complete, Sai
+------------------------------------------------------------------------
+r75 | odurilak@UTORONTO.CA | 2016-06-24 15:09:40 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Moved the directory stack initialization to JShell, Sai
+------------------------------------------------------------------------
+r74 | odurilak@UTORONTO.CA | 2016-06-24 15:08:04 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Added directory stack to JShell, Sai
+------------------------------------------------------------------------
+r73 | odurilak@UTORONTO.CA | 2016-06-24 15:01:16 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Added tasks, Sai
+------------------------------------------------------------------------
+r72 | odurilak@UTORONTO.CA | 2016-06-24 14:50:33 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Fixed incorrect statement on line 9, Sai
+------------------------------------------------------------------------
+r71 | odurilak@UTORONTO.CA | 2016-06-24 14:47:27 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Created Popd.java and added some code to it however it still needs to be completed, Sai
+------------------------------------------------------------------------
+r70 | odurilak@UTORONTO.CA | 2016-06-24 14:45:57 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Added and completed Pushd.java unless further change is required, Sai
+------------------------------------------------------------------------
+r69 | sivara57@UTORONTO.CA | 2016-06-24 10:36:45 -0400 (Fri, 24 Jun 2016) | 2 lines
+
+implemented exception into cat command and made a method in file to public
+(Cat command still in development phase)
+------------------------------------------------------------------------
+r68 | sivara57@UTORONTO.CA | 2016-06-24 10:12:37 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Crccards for the exceptions 
+------------------------------------------------------------------------
+r67 | sivara57@UTORONTO.CA | 2016-06-24 10:03:30 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Crccard for ls command 
+------------------------------------------------------------------------
+r66 | sivara57@UTORONTO.CA | 2016-06-24 09:59:26 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Uploading CRCCards for man and cat
+------------------------------------------------------------------------
+r65 | sivara57@UTORONTO.CA | 2016-06-24 09:50:45 -0400 (Fri, 24 Jun 2016) | 1 line
+
+commiting dailyscrummeeting for june 22 (late: forgot to commit it)
+------------------------------------------------------------------------
+r64 | sivara57@UTORONTO.CA | 2016-06-24 09:47:09 -0400 (Fri, 24 Jun 2016) | 1 line
+
+chose more tasks to do 
+------------------------------------------------------------------------
+r63 | sivara57@UTORONTO.CA | 2016-06-24 09:46:30 -0400 (Fri, 24 Jun 2016) | 1 line
+
+added some basic design code for cat command 
+------------------------------------------------------------------------
+r62 | sivara57@UTORONTO.CA | 2016-06-24 09:18:34 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Uploading cat command file
+------------------------------------------------------------------------
+r61 | lossevki@UTORONTO.CA | 2016-06-24 00:10:52 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Integrated File class into Directory class
+------------------------------------------------------------------------
+r60 | odurilak@UTORONTO.CA | 2016-06-23 02:38:34 -0400 (Thu, 23 Jun 2016) | 1 line
+
+Added Sprint2 June19, Sai
+------------------------------------------------------------------------
+r59 | odurilak@UTORONTO.CA | 2016-06-23 02:30:36 -0400 (Thu, 23 Jun 2016) | 1 line
+
+Added Sprint2 June16, Sai
+------------------------------------------------------------------------
+r58 | odurilak@UTORONTO.CA | 2016-06-23 02:23:53 -0400 (Thu, 23 Jun 2016) | 1 line
+
+Added sprint1 June13, Sai
+------------------------------------------------------------------------
+r57 | odurilak@UTORONTO.CA | 2016-06-23 02:05:11 -0400 (Thu, 23 Jun 2016) | 1 line
+
+Added Sprint3 June22, Sai
+------------------------------------------------------------------------
+r56 | lossevki@UTORONTO.CA | 2016-06-22 23:34:41 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Scrum meeting
+------------------------------------------------------------------------
+r55 | sivara57@UTORONTO.CA | 2016-06-22 11:23:55 -0400 (Wed, 22 Jun 2016) | 1 line
+
+updated format
+------------------------------------------------------------------------
+r54 | sivara57@UTORONTO.CA | 2016-06-22 11:21:45 -0400 (Wed, 22 Jun 2016) | 2 lines
+
+uploading man command function
+
+------------------------------------------------------------------------
+r53 | sivara57@UTORONTO.CA | 2016-06-22 10:27:50 -0400 (Wed, 22 Jun 2016) | 1 line
+
+uploading invalid argument exception 
+------------------------------------------------------------------------
+r52 | sivara57@UTORONTO.CA | 2016-06-22 10:24:00 -0400 (Wed, 22 Jun 2016) | 1 line
+
+invalid command exception
+------------------------------------------------------------------------
+r51 | lossevki@UTORONTO.CA | 2016-06-21 15:35:12 -0400 (Tue, 21 Jun 2016) | 1 line
+
+Refactored cd and mkdir commands, directory class
+------------------------------------------------------------------------
+r50 | odurilak@UTORONTO.CA | 2016-06-21 15:08:15 -0400 (Tue, 21 Jun 2016) | 1 line
+
+Created and completed File.java, Sai
+------------------------------------------------------------------------
+r49 | lossevki@UTORONTO.CA | 2016-06-21 00:13:43 -0400 (Tue, 21 Jun 2016) | 1 line
+
+Implemented cd and pwd commands, updated CRC cards
+------------------------------------------------------------------------
+r48 | sivara57@UTORONTO.CA | 2016-06-21 00:06:56 -0400 (Tue, 21 Jun 2016) | 1 line
+
+fixed error message 
+------------------------------------------------------------------------
+r47 | sivara57@UTORONTO.CA | 2016-06-21 00:03:26 -0400 (Tue, 21 Jun 2016) | 1 line
+
+Formatted JShell and updated command not found error
+------------------------------------------------------------------------
+r46 | sivara57@UTORONTO.CA | 2016-06-20 23:57:24 -0400 (Mon, 20 Jun 2016) | 1 line
+
+dailyscrum upload
+------------------------------------------------------------------------
+r45 | sivara57@UTORONTO.CA | 2016-06-20 23:34:43 -0400 (Mon, 20 Jun 2016) | 1 line
+
+fixed a scanner leak
+------------------------------------------------------------------------
+r44 | sivara57@UTORONTO.CA | 2016-06-20 23:32:46 -0400 (Mon, 20 Jun 2016) | 1 line
+
+Implemented the exit function 
+------------------------------------------------------------------------
+r43 | lossevki@UTORONTO.CA | 2016-06-20 23:17:21 -0400 (Mon, 20 Jun 2016) | 1 line
+
+Refactored history command, updated CRC cards
+------------------------------------------------------------------------
+r42 | sivara57@UTORONTO.CA | 2016-06-20 22:09:19 -0400 (Mon, 20 Jun 2016) | 1 line
+
+starting man command
+------------------------------------------------------------------------
+r41 | sivara57@UTORONTO.CA | 2016-06-20 19:23:56 -0400 (Mon, 20 Jun 2016) | 1 line
+
+picked tasks for this week
+------------------------------------------------------------------------
+r40 | lossevki@UTORONTO.CA | 2016-06-20 19:04:04 -0400 (Mon, 20 Jun 2016) | 1 line
+
+Sprint backlog for sprint 3
+------------------------------------------------------------------------
+r39 | sivara57@UTORONTO.CA | 2016-06-20 15:58:31 -0400 (Mon, 20 Jun 2016) | 1 line
+
+updated task choice 
+------------------------------------------------------------------------
+r38 | lossevki@UTORONTO.CA | 2016-06-19 21:26:34 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Scrum meeting for June 19
+------------------------------------------------------------------------
+r37 | lossevki@UTORONTO.CA | 2016-06-19 17:43:22 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Updated Directory class, implemented mkdir command, refactored echo command and JShell
+------------------------------------------------------------------------
+r36 | lossevki@UTORONTO.CA | 2016-06-19 14:44:57 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Updated directory class, created command interface and Mkdir command class, added data held by JShell
+------------------------------------------------------------------------
+r35 | lossevki@UTORONTO.CA | 2016-06-16 23:48:33 -0400 (Thu, 16 Jun 2016) | 1 line
+
+Assigned tasks for Kirill, Wrote base of Directory class, done scrum meeting.
+------------------------------------------------------------------------
+r34 | sivara57@UTORONTO.CA | 2016-06-16 11:15:48 -0400 (Thu, 16 Jun 2016) | 1 line
+
+formatted Jshell.java file to google req
+------------------------------------------------------------------------
+r33 | sivara57@UTORONTO.CA | 2016-06-16 11:13:49 -0400 (Thu, 16 Jun 2016) | 1 line
+
+updated invalid command error message 
+------------------------------------------------------------------------
+r32 | sivara57@UTORONTO.CA | 2016-06-16 11:04:40 -0400 (Thu, 16 Jun 2016) | 1 line
+
+sprint for June 13
+------------------------------------------------------------------------
+r31 | sivara57@UTORONTO.CA | 2016-06-15 09:48:10 -0400 (Wed, 15 Jun 2016) | 2 lines
+
+chose tasks to be done this week
+
+------------------------------------------------------------------------
+r30 | odurilak@UTORONTO.CA | 2016-06-14 23:26:32 -0400 (Tue, 14 Jun 2016) | 1 line
+
+Added Sprint 2 tasks, Sai
+------------------------------------------------------------------------
+r29 | lossevki@UTORONTO.CA | 2016-06-14 21:26:29 -0400 (Tue, 14 Jun 2016) | 1 line
+
+Sprint backlog for sprint 2
+------------------------------------------------------------------------
+r28 | lossevki@UTORONTO.CA | 2016-06-13 23:06:52 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Implemented history command, added scrum meeting info.
+------------------------------------------------------------------------
+r27 | sivara57@UTORONTO.CA | 2016-06-11 00:21:42 -0400 (Sat, 11 Jun 2016) | 1 line
+
+updated format, deleted old version
+------------------------------------------------------------------------
+r26 | sivara57@UTORONTO.CA | 2016-06-11 00:16:32 -0400 (Sat, 11 Jun 2016) | 1 line
+
+first sprint log June 10th
+------------------------------------------------------------------------
+r25 | odurilak@UTORONTO.CA | 2016-06-11 00:06:01 -0400 (Sat, 11 Jun 2016) | 1 line
+
+Added first scrum meeting, Sai
+------------------------------------------------------------------------
+r24 | kabaniza@UTORONTO.CA | 2016-06-11 00:00:48 -0400 (Sat, 11 Jun 2016) | 1 line
+
+Added sprint for June 10, Zain
+------------------------------------------------------------------------
+r23 | lossevki@UTORONTO.CA | 2016-06-10 22:35:28 -0400 (Fri, 10 Jun 2016) | 1 line
+
+Scrum Meeting June 10, Kirill
+------------------------------------------------------------------------
+r22 | lossevki@UTORONTO.CA | 2016-06-10 17:20:16 -0400 (Fri, 10 Jun 2016) | 1 line
+
+Implemented echo command with no input redirection, and ability to type commands into the shell.
+------------------------------------------------------------------------
+r21 | lossevki@UTORONTO.CA | 2016-06-09 23:07:36 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Assigned tasks for Kirill
+------------------------------------------------------------------------
+r20 | odurilak@UTORONTO.CA | 2016-06-09 20:01:47 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Added my tasks, Sai
+------------------------------------------------------------------------
+r19 | sivara57@UTORONTO.CA | 2016-06-09 18:25:23 -0400 (Thu, 09 Jun 2016) | 1 line
+
+chosen tasks
+------------------------------------------------------------------------
+r18 | lossevki@UTORONTO.CA | 2016-06-09 18:20:37 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Created sprint backlog for Sprint 1
+------------------------------------------------------------------------
+r17 | sivara57@UTORONTO.CA | 2016-06-07 23:15:59 -0400 (Tue, 07 Jun 2016) | 1 line
+
+added a new entry for white spaces 
+------------------------------------------------------------------------
+r16 | lossevki@UTORONTO.CA | 2016-06-07 23:00:17 -0400 (Tue, 07 Jun 2016) | 1 line
+
+Updated user stories to include variations of echo.
+------------------------------------------------------------------------
+r15 | sivara57@UTORONTO.CA | 2016-06-07 22:43:48 -0400 (Tue, 07 Jun 2016) | 1 line
+
+fixed spelling mistakes in entries 
+------------------------------------------------------------------------
+r14 | kabaniza@UTORONTO.CA | 2016-06-07 22:00:38 -0400 (Tue, 07 Jun 2016) | 1 line
+
+Added User story for pwd, pushd, and popd, Zain
+------------------------------------------------------------------------
+r13 | sivara57@UTORONTO.CA | 2016-06-07 20:58:20 -0400 (Tue, 07 Jun 2016) | 1 line
+
+updated time col
+------------------------------------------------------------------------
+r12 | sivara57@UTORONTO.CA | 2016-06-07 20:52:18 -0400 (Tue, 07 Jun 2016) | 1 line
+
+I have added 3 entries for the backlog (echo, man, exit)
+------------------------------------------------------------------------
+r11 | lossevki@UTORONTO.CA | 2016-06-07 20:20:02 -0400 (Tue, 07 Jun 2016) | 1 line
+
+Added user stories related to history and cat commands. -Kirill
+------------------------------------------------------------------------
+r10 | odurilak@UTORONTO.CA | 2016-06-07 14:43:42 -0400 (Tue, 07 Jun 2016) | 1 line
+
+Fixed all typos, Sai
+------------------------------------------------------------------------
+r9 | odurilak@UTORONTO.CA | 2016-06-07 14:40:41 -0400 (Tue, 07 Jun 2016) | 1 line
+
+Added mkdir, cd, and ls user stories, Sai
+------------------------------------------------------------------------
+r8 | odurilak@UTORONTO.CA | 2016-06-07 13:53:53 -0400 (Tue, 07 Jun 2016) | 1 line
+
+Crated productBacklogFor2A.txt, Sai
+------------------------------------------------------------------------
+r7 | attarwal@UTORONTO.CA | 2016-06-05 18:57:16 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r6 | attarwal@UTORONTO.CA | 2016-06-05 18:57:15 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r5 | attarwal@UTORONTO.CA | 2016-06-05 18:57:14 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r4 | attarwal@UTORONTO.CA | 2016-06-05 18:57:13 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r3 | attarwal@UTORONTO.CA | 2016-06-05 18:57:13 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r2 | attarwal@UTORONTO.CA | 2016-06-05 18:57:12 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r1 | markus | 2016-06-05 18:21:21 -0400 (Sun, 05 Jun 2016) | 1 line
+
+
+------------------------------------------------------------------------
+
+
+
+Part 3) +++Work Distribution of Team Members+++
++++ON ALL SOURCE FILES+++
+  26 attarwal@U
+ 102 kabaniza@U
+1532 lossevki@U
+ 227 odurilak@U
+ 304 sivara57@U
++++ON CRC CARDS+++
+   9 attarwal@U
+  96 lossevki@U
+  23 odurilak@U
+  53 sivara57@U
++++ON DAILYSCRUMMEETINGS+++
+  33 attarwal@U
+   9 kabaniza@U
+  67 lossevki@U
+  54 odurilak@U
+  59 sivara57@U
++++ON PRODUCT BACKLOG +++
+  11 attarwal@U
+   9 kabaniza@U
+   9 lossevki@U
+  19 odurilak@U
+  12 sivara57@U
++++ON SPRINTS+++
+  68 attarwal@U
+   6 kabaniza@U
+ 114 lossevki@U
+   8 odurilak@U
+   6 sivara57@U
+3595
+Part 4) SVN Commits
+
+
+On Sprints
+   1  attarwal@UTORONTO.CA 
+   1  kabaniza@UTORONTO.CA 
+   5  lossevki@UTORONTO.CA 
+   3  odurilak@UTORONTO.CA 
+   5  sivara57@UTORONTO.CA 
+
+
+On CRC Cards
+   1  attarwal@UTORONTO.CA 
+   5  lossevki@UTORONTO.CA 
+   3  odurilak@UTORONTO.CA 
+   3  sivara57@UTORONTO.CA 
+
+
+On DailyScrumMeetings
+   1  attarwal@UTORONTO.CA 
+   1  kabaniza@UTORONTO.CA 
+   6  lossevki@UTORONTO.CA 
+   6  odurilak@UTORONTO.CA 
+   8  sivara57@UTORONTO.CA 
+
+
+On ProductBacklog
+   1  attarwal@UTORONTO.CA 
+   1  kabaniza@UTORONTO.CA 
+   2  lossevki@UTORONTO.CA 
+   3  odurilak@UTORONTO.CA 
+   4  sivara57@UTORONTO.CA 
+
+
+On source
+   1  attarwal@UTORONTO.CA 
+   4  kabaniza@UTORONTO.CA 
+  21  lossevki@UTORONTO.CA 
+  30  odurilak@UTORONTO.CA 
+  44  sivara57@UTORONTO.CA 

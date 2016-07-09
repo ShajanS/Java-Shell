@@ -1,0 +1,12 @@
+What did I do last time?
+-Finished grep command
+-Fixed bugs when using grep's -r flag
+-Began framework to redirect output of any command to a file
+
+What will I do next?
+-Finish redirection
+-Implement parameter validation for commands
+-Unit testing
+
+What am I stuck on?
+-Nothing in particular

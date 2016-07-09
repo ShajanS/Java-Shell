@@ -1,0 +1,9 @@
+Class Name: CommandHandler
+
+Responsibilities:
+-Figure out where command output is meant to go (a file or standard output)
+-Give back appropriate output to the user
+-Provide common functionality used by several commands i.e. splitting a string into paths
+
+Collaborators:
+-FileSystem

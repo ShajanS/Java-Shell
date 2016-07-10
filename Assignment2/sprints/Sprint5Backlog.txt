@@ -1,0 +1,46 @@
+Sprint 5 Backlog
+July 9-July 15
+
+User Stories carried over from the previous sprint:
+a) I should be able to use !n to run the nth command run this session (2 hours)
+
+User Stories we will be addressing in this sprint:
+b) I should be able to recursively list the contents of one or more directories (5 hours)
+c) I should be able to move an item into a different folder (3 hours)
+d) I should be able to rename a file (3 hours)
+e) I should be able to output the contents of multiple files to the console (2 hours)
+f) I should be able to retrieve a file from the internet (5 hours)
+g) I should be able to redirect the output of a command into a file. (3 hours)
+
+Specific tasks to be accomplished:
+a-1. Find what the nth command to be entered was
+a-2. Process the command
+b-1. For any directory whose contents are output by ls, if one of those items is a directory then output its contents as well
+c-1. Get the object at the first specified path, if it exists
+c-2. If the second specified path is a directory, move it into that directory
+c-3. If not, that will be the object's new name
+c-4. Remove the original object
+d-1. Essentially the same as above
+e-1. Make cat loop over the paths it is given and return all their contents. If a path does not exist, use an error message in its place instead
+f-1. Check if the url is valid
+f-2. Retrieve the contents of the file at the given url if so
+f-3. Write these to the specified file
+g-1. Check whether the parameters for a command contain redirection symbols
+g-2. If so, perform the appropriate action with the command's output
+g-3. If the redirection location does not exist, print an error message
+h-1. Have commands make sure their parameters have the correct syntax
+i-1. Unit tests for new commands and functionality
+
+These tasks are assigned as follows:
+
+User: Kirill Lossev
+Tasks: f-1, f-2, f-3, g-1, g-2, g-3
+
+User: 
+Tasks: 
+
+User: 
+Tasks: 
+
+User: 
+Tasks:  

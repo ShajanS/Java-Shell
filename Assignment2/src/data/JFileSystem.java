@@ -92,6 +92,38 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
+   * @see FileSystem#isDirectory(String)
+   */
+  @Override
+  public boolean isDirectory(String path) throws InvalidPathException {
+    // Try to get the directory specified by the path
+    // If this is possible, make it the current directory.
+    try {
+      getDirectory(path);
+      return true;
+    } catch (InvalidPathException e) {
+      // If not, throw an exception
+      return false;
+    }
+  }
+
+  /**
+   * @see FileSystem#isFile(String)
+   */
+  @Override
+  public boolean isFile(String path) throws InvalidPathException {
+    // Try to get the directory specified by the path
+    // If this is possible, make it the current directory.
+    try {
+      getFile(path);
+      return true;
+    } catch (InvalidPathException e) {
+      // If not, throw an exception
+      return false;
+    }
+  }
+
+  /**
    * @see FileSystem#getCurrentDirectoryPath()
    */
   @Override
@@ -107,7 +139,7 @@ public class JFileSystem implements FileSystem {
    * @return The file at this path
    * @throws InvalidPathException if the file is unreachable
    */
-  private File getFile(String path) throws InvalidPathException {
+  public File getFile(String path) throws InvalidPathException {
     Directory dirToCheck;
     // If there are slashes in the path, get the dir the file should be in
     if (path.contains("/")) {

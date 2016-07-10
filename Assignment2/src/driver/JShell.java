@@ -124,6 +124,7 @@ public class JShell {
     commandMap.put("ls", "commands.Ls");
     commandMap.put("grep", "commands.Grep");
     commandMap.put("Mv", "commands.Mv");
+    commandMap.put("!", "command.Recall");
     return commandMap;
   }
 

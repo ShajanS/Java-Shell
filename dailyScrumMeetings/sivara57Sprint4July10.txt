@@ -1,0 +1,9 @@
+What did I do last time?
+- Worked on the recall command
+
+What will I work on next?
+- Finish the recall command
+- Get started on the unit testing for recall command
+
+What am I stuck on?
+- being able to call other commands from one command class

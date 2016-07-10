@@ -31,6 +31,7 @@ public interface FileSystem {
    * @return The contents of this file
    * @throws InvalidPathException
    */
+
   public String getFileContents(String path) throws InvalidPathException;
 
   /**
@@ -82,11 +83,28 @@ public interface FileSystem {
    * @return The top directory of the directory stack
    */
   public String popFromDirStack();
-  
+
   /**
    * Gets a File object at given path
+   * 
    * @param path of the File
    * @throws InvalidPathException If the file cannot be reached
    */
   public File getFile(String path) throws InvalidPathException;
+
+  /**
+   * Checks if path is a Directory or not
+   * 
+   * @param path the path that will be checked
+   * @throws InvalidPathException If path cannot be reached
+   */
+  boolean isDirectory(String path) throws InvalidPathException;
+
+  /**
+   * Checks if path is a File or not
+   * 
+   * @param path the path that will be checked
+   * @throws InvalidPathException If path cannot be reached
+   */
+  boolean isFile(String path) throws InvalidPathException;
 }

@@ -60,6 +60,15 @@ public class Directory {
   }
 
   /**
+   * Setter for this directory's parent
+   * 
+   * @param parent The new parent which it should be set to
+   */
+  public void setParent(Directory parent) {
+    this.parent = parent;
+  }
+
+  /**
    * Adds a directory to this one as a subdirectory
    * 
    * @param dirToAdd The directory to add to this one

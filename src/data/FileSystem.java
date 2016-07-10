@@ -82,4 +82,11 @@ public interface FileSystem {
    * @return The top directory of the directory stack
    */
   public String popFromDirStack();
+  
+  /**
+   * Gets a File object at given path
+   * @param path of the File
+   * @throws InvalidPathException If the file cannot be reached
+   */
+  public File getFile(String path) throws InvalidPathException;
 }

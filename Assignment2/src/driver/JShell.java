@@ -126,6 +126,7 @@ public class JShell {
     commandMap.put("Mv", "commands.Mv");
     commandMap.put("!", "commands.Recall");
     commandMap.put("Cp", "commands.Cp");
+    commandMap.put("curl", "commands.Curl");
     return commandMap;
   }
 

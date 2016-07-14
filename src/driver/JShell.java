@@ -31,6 +31,8 @@ package driver;
 
 import java.util.Scanner;
 
+import javax.activation.CommandMap;
+
 import commands.Command;
 
 public class JShell {
@@ -62,7 +64,12 @@ public class JShell {
       // Trim the input string
       String inputString = in.nextLine().trim();
       // Add the input to the command history
-      fs.addCommandToHistory(inputString);
+      if (inputString.startsWith("!")) {
+        continue;
+      }
+      else{
+        fs.addCommandToHistory(inputString);
+      }
       // Split the input into the command and parameters
       String[] splitInput = splitInputIntoCommandAndParams(inputString);
       // If the command is in the command map, return its output with the

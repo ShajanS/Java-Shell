@@ -35,6 +35,7 @@ import javax.activation.CommandMap;
 
 import commands.Command;
 
+@SuppressWarnings("unused")
 public class JShell {
 
   // The filesystem to use
@@ -65,7 +66,6 @@ public class JShell {
       String inputString = in.nextLine().trim();
       // Add the input to the command history
       if (inputString.startsWith("!")) {
-        continue;
       }
       else{
         fs.addCommandToHistory(inputString);

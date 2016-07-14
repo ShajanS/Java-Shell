@@ -116,5 +116,24 @@ public class CommandHandler {
     }
     return result;
   }
+  
+  public static String[] splitInputIntoCommandAndParams(String input) {
+    // Get the substring from the start of the input to the 1st space,
+    // or the whole string if there are no spaces
+    // Also, get the string of parameters. This is everything after the
+    // first space, or an empty string if there isn't one
+    int firstSpaceIndex = input.indexOf(' ');
+    int paramStart = firstSpaceIndex + 1;
+    if (firstSpaceIndex == -1) {
+      firstSpaceIndex = input.length();
+      paramStart = input.length();
+    }
+    String firstToken = input.substring(0, firstSpaceIndex);
+    String params = input.substring(paramStart);
+    // Put these pieces in an array and return them
+    String[] result = {firstToken, params};
+    return result;
+  }
+  
 
 }

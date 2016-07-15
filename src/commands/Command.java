@@ -14,5 +14,6 @@ public interface Command {
    * @param params The parameters for the command
    * @return The output of the command
    */
-  public String execute(data.FileSystem fs, String params);
+  public String execute(data.FileSystem fs, String params)
+      throws data.InvalidArgumentException;
 }

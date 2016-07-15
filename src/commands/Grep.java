@@ -34,7 +34,7 @@ public class Grep implements Command {
       }
     } catch (PatternSyntaxException e){
       // If a valid regex is not formed, return an error message
-      return "Error - Invalid regex";
+      return "Error - Invalid regex\n";
     }
     // Get the list of paths from the parameters
     ArrayList<String> paths = CommandHandler.getPaths(params);

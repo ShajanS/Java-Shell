@@ -42,7 +42,7 @@ public class CommandHandler {
       }
       // Get the rest of the string, trim it, and
       // set the output location to it
-      outputLocation = redirectInfo.substring(pathStart);
+      outputLocation = redirectInfo.substring(pathStart).trim();
     } else{
       // If not, set to standard output mode,
       outputMode = STDOUT_MODE;

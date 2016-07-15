@@ -34,6 +34,7 @@ import java.util.Scanner;
 import javax.activation.CommandMap;
 
 import commands.Command;
+import data.InvalidArgumentException;
 
 @SuppressWarnings("unused")
 public class JShell {
@@ -42,6 +43,8 @@ public class JShell {
   private data.FileSystem fs;
   // A hashmap to map commands to the names of the classes that run them
   java.util.HashMap<String, String> commandMap;
+  // The CommandHandler to control where output ends up
+  commands.CommandHandler ch = new commands.CommandHandler();
 
   public boolean continueLoop;
 
@@ -72,6 +75,9 @@ public class JShell {
       }
       // Split the input into the command and parameters
       String[] splitInput = splitInputIntoCommandAndParams(inputString);
+      // Give the parameters to the command handler to determine where its
+      // output should go
+      splitInput[1] = ch.determineOutputDirection(splitInput[1]);
       // If the command is in the command map, return its output with the
       // parameters given as its parameter
       if (commandMap.containsKey(splitInput[0])) {
@@ -80,6 +86,12 @@ public class JShell {
         try {
           commObj = (Command) Class.forName(commandName).newInstance();
           outputString = commObj.execute(fs, splitInput[1]);
+          // Give the string to the output handler, and print whatever it
+          // returns
+          System.out.print(ch.handleOutput(fs, outputString));
+        } catch (InvalidArgumentException e) {
+          // If the command throws an exception, print its message.
+          System.out.println(e.getMessage());
         } catch (InstantiationException e) {
           // TODO Auto-generated catch block
           e.printStackTrace();
@@ -101,8 +113,7 @@ public class JShell {
         outputString =
             "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n";
       }
-      // Print the string returned by the method.
-      System.out.print(outputString);
+      
     }
     // Close the Scanner. Note: once the loop is implemented, this must be
     // outside of it.

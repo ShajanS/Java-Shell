@@ -87,32 +87,17 @@ public class JShell {
       // output should go
       splitInput[1] = ch.determineOutputDirection(splitInput[1]);
       
-      //STILL TESTING PHASE for !number method
-      
-      if (splitInput[0].startsWith("!")){
-        if (whiteSpaceCheck(splitInput[0]) == true){
-          checkType = false;
-        }
-        while (checkType){
-          String checkString = splitInput[0];
-          for (int i = 1; i < checkString.length(); i++){
-            if (Character.isDigit(i)){
-              checkType = true;
-            }
-            else{
-              checkType = false;
-            }
-          }
-        }
-        if (checkType = true){
-          String checkString = splitInput[0];
-          String [] parts = checkString.split("!");
-          splitInput[1] = parts[1];
-        }
-        else {
-          return;
-        }
+      // Regex for !number method
+      // If user input starts with a !
+      if (inputString.startsWith("!")){
+        String [] parts = inputString.split("!");
         splitInput[0] = "!";
+        splitInput[1] = parts[1];
+        if (splitInput[1].startsWith(" ") == true){
+          fs.addCommandToHistory(inputString);
+          splitInput[1] = "unkown";
+          splitInput[0] = "unknow";
+        }
       }
       
       // If the command is in the command map, return its output with the

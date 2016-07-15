@@ -30,6 +30,7 @@
 package driver;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import javax.activation.CommandMap;
 
@@ -41,7 +42,7 @@ import data.InvalidArgumentException;
  * typing in commands.
  */
 @SuppressWarnings("unused")
-public class JShell {
+public class JShell { 
 
   // The filesystem to use
   private data.FileSystem fs;
@@ -51,12 +52,15 @@ public class JShell {
   commands.CommandHandler ch = new commands.CommandHandler();
 
   public boolean continueLoop;
+  public boolean checkType;
 
   /**
    * The constructor for the JShell
    */
   private JShell() {
     continueLoop = true;
+    checkType = true;
+
     Scanner in = new Scanner(System.in);
 
     // Get the filesystem
@@ -82,6 +86,35 @@ public class JShell {
       // Give the parameters to the command handler to determine where its
       // output should go
       splitInput[1] = ch.determineOutputDirection(splitInput[1]);
+      
+      //STILL TESTING PHASE for !number method
+      
+      if (splitInput[0].startsWith("!")){
+        if (whiteSpaceCheck(splitInput[0]) == true){
+          checkType = false;
+        }
+        while (checkType){
+          String checkString = splitInput[0];
+          for (int i = 1; i < checkString.length(); i++){
+            if (Character.isDigit(i)){
+              checkType = true;
+            }
+            else{
+              checkType = false;
+            }
+          }
+        }
+        if (checkType = true){
+          String checkString = splitInput[0];
+          String [] parts = checkString.split("!");
+          splitInput[1] = parts[1];
+        }
+        else {
+          return;
+        }
+        splitInput[0] = "!";
+      }
+      
       // If the command is in the command map, return its output with the
       // parameters given as its parameter
       if (commandMap.containsKey(splitInput[0])) {
@@ -146,7 +179,7 @@ public class JShell {
     commandMap.put("ls", "commands.Ls");
     commandMap.put("grep", "commands.Grep");
     commandMap.put("Mv", "commands.Mv");
-    commandMap.put("!", "commands.Recall");
+    commandMap.put("!", "commands.HistoryRecall");
     commandMap.put("Cp", "commands.Cp");
     commandMap.put("curl", "commands.Curl");
     return commandMap;
@@ -177,6 +210,16 @@ public class JShell {
     return result;
   }
 
+  private static boolean whiteSpaceCheck(String inputPart){
+    if(inputPart != null){
+      for(int i = 0; i < inputPart.length(); i++){
+        if(Character.isWhitespace(inputPart.charAt(i))){
+          return true;
+        } 
+      }
+    }
+    return false;
+  }
 
   /**
    * The main function for JShell and the entry point into the program, simply

@@ -2,10 +2,12 @@ package commands;
 
 import java.util.ArrayList;
 
+import data.InvalidArgumentException;
+
 
 public class HistoryRecall implements Command {
   
-  public String execute(data.FileSystem fs, String params) {
+  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException {
     String commandreturnString = "";
     commandMap = populateCommandMap();
     // split the input string at every whitespace and store each word(filename)
@@ -18,7 +20,7 @@ public class HistoryRecall implements Command {
       @SuppressWarnings("unused")
       int numberCheck = Integer.parseInt(searchArg);
     } catch (NumberFormatException e) {
-      return "Invalid argument error";
+      return "Invalid argument error\n";
     }
     
     int number = Integer.parseInt(searchArg);

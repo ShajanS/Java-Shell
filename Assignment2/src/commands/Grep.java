@@ -65,11 +65,11 @@ public class Grep implements Command {
         // For each line,
         int lineNum = 1;
         for (String line : lines){
-          // See if the line matches the regex. If so,
+          // See if the line contains the regex. If so,
           // add it to the result string + a newline
           // along with its line number
           Matcher matcher = pattern.matcher(line);
-          if (matcher.matches()){
+          if (matcher.find()){
             result += "[" + lineNum++ + "] " + line + "\n";
           }
         }
@@ -103,13 +103,13 @@ public class Grep implements Command {
           String fileContents = fs.getFileContents(fullPath);
           // Split it by newlines
           String[] lines = fileContents.split("\n");
-          // For each line, if it matches the regex,
+          // For each line, if it contains the regex,
           // Add the file path, line number, the line, and a newline
           // of the result string
           int lineNum = 1;
           for (String line : lines){
             Matcher matcher = pattern.matcher(line);
-            if (matcher.matches()){
+            if (matcher.find()){
               result += "[" + lineNum++ + "] " + fullPath + ": " + line + "\n";
             }
           }

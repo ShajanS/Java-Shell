@@ -16,7 +16,7 @@ import data.InvalidPathException;
  */
 public class Curl implements Command {
 
-  /** (non-Javadoc)
+  /**
    * @param fs The filesystem to operate on
    * @param params The URL to get the contents at
    * @return A newline on success

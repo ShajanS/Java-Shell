@@ -145,10 +145,11 @@ public class JShell {
       else if (inputString.equals("exit")) {
         outputString = "";
         continueLoop = false;
+        in.close();
       } else {
-        // If not, return an error message.
-        outputString =
-            "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n";
+        // If not, print an error message.
+        System.out.println(
+            "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n");
       }
       
     }

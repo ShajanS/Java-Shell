@@ -23,6 +23,11 @@ public class Mkdir implements Command {
     // Loop over the elements of the list,
     try {
       for (String dirToMake : args) {
+        // Check if the name is valid. If not, throw an exception.
+        if (!nameIsValid(dirToMake)){
+          throw new data.InvalidArgumentException("Path contains illegal "
+              + "characters.\n");
+        }
         // If the string contains a slash, get the substring up to the last one
         // This is the parent directory
         String parentName;
@@ -45,6 +50,20 @@ public class Mkdir implements Command {
     }
     // If everything goes smoothly, return a newline
     return "\n";
+  }
+  
+  private boolean nameIsValid(String name){
+    boolean result = true;
+    // The name is invalid if it contains special characters
+    String[] specialChars = {"!", "@", "&", "*", "(", ")", "?", ":", "[", "]",
+        "\"", "<", ">", "\'", "`", "|", "=", "{", "}", "\\", ",", ";"};
+    for (String specialChar : specialChars){
+      if (name.contains(specialChar)){
+        result = false;
+        break;
+      }
+    }
+    return result;
   }
 
 }

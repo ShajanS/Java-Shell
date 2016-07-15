@@ -7,12 +7,30 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.regex.PatternSyntaxException;
 import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * @author Kirill Lossev
+ * The class for the grep command, which searches files for lines matching
+ * a given regex.
+ */
 public class Grep implements Command {
   
 
+  /**
+   * The main method to execute the command
+   * @param fs The filesystem to search
+   * @param params The optional -r flag, the regex to match, and the
+   *               paths to search.
+   */
   @Override
-  public String execute(FileSystem fs, String params) throws InvalidArgumentException {
+  public String execute(FileSystem fs, String params)
+      throws InvalidArgumentException {
+    // Check if the parameter has valid syntax. If not, give back an error
+    // message
+    if (!validateSyntax(params)){
+      throw new InvalidArgumentException("Error - Missing arguments.\n");
+    }
     String result = "";
     Pattern pattern;
     // Get the first token from the parameters. This will either be the
@@ -51,8 +69,16 @@ public class Grep implements Command {
     return result;
   }
   
-  // Handles grepping a list of files
-  private String grepFiles(FileSystem fs, ArrayList<String> paths,
+  
+  /**
+   * Handles the grep command being called on files, without the -r flag
+   * @param fs The filesystem to search
+   * @param paths A List of file paths to search
+   * @param pattern The regex pattern object to use
+   * @return A string listing all lines matching the regex in the file
+   * @throws InvalidArgumentException If a file is unreachable
+   */
+  private String grepFiles(FileSystem fs, List<String> paths,
       Pattern pattern) throws InvalidArgumentException{
     String result = "";
     // For each path,
@@ -82,8 +108,17 @@ public class Grep implements Command {
 
   }
   
-  private String grepDirectories(FileSystem fs, ArrayList<String> paths,
-      Pattern pattern){
+  /**
+   * Handles the grep command if the -r flag is given
+   * @param fs The filesystem to search
+   * @param paths A List of paths to search
+   * @param pattern The regex Pattern object to use 
+   * @return A string listing all lines in all files in the given directories
+   *         matching the regex
+   * @throws InvalidArgumentException If a path is unreachable
+   */
+  private String grepDirectories(FileSystem fs, List<String> paths,
+      Pattern pattern) throws InvalidArgumentException{
     String result = "";
     // For each path,
     for (String path : paths){
@@ -127,11 +162,38 @@ public class Grep implements Command {
       
       } catch(data.InvalidPathException e){
       // If this fails, return an error message.
-        return "Error - Invalid path\n";
+        throw new InvalidArgumentException("Error - Invalid path\n");
       }
     }
     return result;
   }
   
+  /**
+   * Checks if the syntax of the parameters given to the command are valid
+   * @param params The parameters given to grep
+   * @return True iff there are enough tokens in the params for the
+   *         command to be able to run
+   */
+  private boolean validateSyntax(String params){
+    // Split the parameters by spaces
+    String[] tokens = params.trim().split(" ");
+    // Loop over the array and count the number of nonempty strings
+    int nonEmptyCount = 0;
+    for (String token : tokens){
+      if (!token.isEmpty()){
+        nonEmptyCount++;
+      }
+    }
+    boolean result;
+    // If the first token is -R, there must be at least 3 tokens for the
+    // syntax to be valid
+    if(tokens.length >= 1 && tokens[0].equalsIgnoreCase("-r")){
+      result = (nonEmptyCount >= 3);
+    } else{
+    // If not, there must be at least two.
+      result = (nonEmptyCount >= 2);
+    }
+    return result;
+  }
   
 }

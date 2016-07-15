@@ -1,7 +1,12 @@
 package commands;
 
+import data.InvalidArgumentException;
 import data.InvalidPathException;
 
+/**
+ * @author Kirill Lossev
+ * The class for the cd command, which changes the working directory.
+ */
 public class Cd implements Command {
 
   /**
@@ -10,16 +15,19 @@ public class Cd implements Command {
    * 
    * @param fs The filesystem whose current directory to change
    * @param params The path of the directory to change to
-   * @return An error if the directory cannot be found, a newline otherwise
+   * @return A newline on success
+   * @throws InvalidArgumentException if the path is invalid
    */
-  public String execute(data.FileSystem fs, String params) {
+  public String execute(data.FileSystem fs, String params)
+      throws InvalidArgumentException {
     String result = "\n";
     // Make the given parameter the current directory of the filesystem
     try {
       fs.makeCurrentDirectory(params);
     } catch (InvalidPathException e) {
       // If it cannot be found, return an error message
-      result = "Error - Directory does not exist\n";
+      throw new data.InvalidArgumentException("Error - "
+          + "Directory does not exist\n");
     }
     return result;
   }

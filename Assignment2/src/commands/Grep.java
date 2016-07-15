@@ -1,6 +1,8 @@
 package commands;
 
 import data.FileSystem;
+import data.InvalidArgumentException;
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.regex.PatternSyntaxException;
@@ -10,7 +12,7 @@ public class Grep implements Command {
   
 
   @Override
-  public String execute(FileSystem fs, String params) {
+  public String execute(FileSystem fs, String params) throws InvalidArgumentException {
     String result = "";
     Pattern pattern;
     // Get the first token from the parameters. This will either be the
@@ -34,7 +36,7 @@ public class Grep implements Command {
       }
     } catch (PatternSyntaxException e){
       // If a valid regex is not formed, return an error message
-      return "Error - Invalid regex\n";
+      throw new data.InvalidArgumentException("Error - Invalid regex\n");
     }
     // Get the list of paths from the parameters
     ArrayList<String> paths = CommandHandler.getPaths(params);
@@ -51,7 +53,7 @@ public class Grep implements Command {
   
   // Handles grepping a list of files
   private String grepFiles(FileSystem fs, ArrayList<String> paths,
-      Pattern pattern){
+      Pattern pattern) throws InvalidArgumentException{
     String result = "";
     // For each path,
     for (String path : paths){
@@ -73,7 +75,7 @@ public class Grep implements Command {
         }
       } catch (data.InvalidPathException e){        
       // If this fails, return an error message
-        return "Error - Invalid path\n";
+        throw new data.InvalidArgumentException("Error - Invalid path\n");
       }
     }
     return result;

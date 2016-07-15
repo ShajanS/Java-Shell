@@ -1,5 +1,10 @@
 package data;
 
+/**
+ * @author Kirill Lossev
+ * The interface for a file system, a group of files and directories
+ * organised in a tree structure.
+ */
 public interface FileSystem {
 
   /**

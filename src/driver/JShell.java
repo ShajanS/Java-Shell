@@ -36,6 +36,10 @@ import javax.activation.CommandMap;
 import commands.Command;
 import data.InvalidArgumentException;
 
+/**
+ * The JShell, which allows a user to manipulate a file system by
+ * typing in commands.
+ */
 @SuppressWarnings("unused")
 public class JShell {
 

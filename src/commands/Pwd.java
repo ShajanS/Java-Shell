@@ -1,5 +1,9 @@
 package commands;
 
+/**
+ * @author Kirill Lossev
+ * The class for the pwd command, which returns the current working directory
+ */
 public class Pwd implements Command {
 
   /**

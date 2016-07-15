@@ -1,5 +1,12 @@
 package commands;
 
+import data.InvalidArgumentException;
+
+/**
+ * @author Kirill Lossev
+ * The class for the mkdir command, which creates a new directory on the
+ * filesystem.
+ */
 public class Mkdir implements Command {
 
   /**
@@ -7,9 +14,10 @@ public class Mkdir implements Command {
    * 
    * @param fs The filesystem in which to make the directory
    * @param params The list of directories to create
-   * @return An error if a directory cannot be created, a newline otherwise
+   * @return A newline on success
+   * @throws InvalidArgumentException if creating a directory fails
    */
-  public String execute(data.FileSystem fs, String params) {
+  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException {
     // Get the list of directory names to make
     java.util.ArrayList<String> args = CommandHandler.getPaths(params);
     // Loop over the elements of the list,
@@ -33,7 +41,7 @@ public class Mkdir implements Command {
       }
     } catch (data.InvalidPathException e) {
       // If an exception is thrown, return an error
-      return "Error - invalid path\n";
+      throw new data.InvalidArgumentException("Error - invalid path\n");
     }
     // If everything goes smoothly, return a newline
     return "\n";

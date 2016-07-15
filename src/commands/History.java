@@ -1,5 +1,12 @@
 package commands;
 
+import data.InvalidArgumentException;
+
+/**
+ * @author Kirill Lossev
+ * The class for the history command, which returns previous commands
+ * entered by the user
+ */
 public class History implements Command {
 
   /**
@@ -9,8 +16,9 @@ public class History implements Command {
    * @param fs The filesystem whose commands will be returned
    * @param params How many commands to return, or all of them if this is empty
    * @return A list of the last n commands given to the filesystem
+   * @throws InvalidArgumentException if the parameter is not a number.
    */
-  public String execute(data.FileSystem fs, String params) {
+  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException {
     // Create the result string
     String result = "";
     // Get the command history from the shell
@@ -29,7 +37,7 @@ public class History implements Command {
       }
     } else {
       // Otherwise, return an error message
-      result = "Error - Invalid Parameter\n";
+      throw new data.InvalidArgumentException("Error - Invalid Parameter\n");
     }
     return result;
 

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * @author Kirill Lossev
+ * The class representing a directory, which can hold files and other
+ * directories.
+ */
 public class Directory {
 
   // This directory's parent directory

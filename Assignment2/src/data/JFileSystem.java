@@ -3,6 +3,10 @@ package data;
 import java.util.ArrayList;
 import java.util.Stack;
 
+/**
+ * @author Kirill Lossev
+ * An implementation of FileSystem to be used with JShell
+ */
 public class JFileSystem implements FileSystem {
 
   // The instance variables, to keep track of session data
@@ -34,7 +38,11 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#getDirectory(String)
+   * Returns the Directory object at the specified path
+   * 
+   * @param path The path of the directory
+   * @return The Directory object at this path
+   * @throws InvalidPathException
    */
   @Override
   public Directory getDirectory(String path) throws InvalidPathException {
@@ -76,7 +84,10 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#makeCurrentDirectory(String)
+   * Sets the directory at the specified path as the current directory
+   * 
+   * @param path The path of the directory to switch to
+   * @throws InvalidPathException
    */
   @Override
   public void makeCurrentDirectory(String path) throws InvalidPathException {
@@ -92,7 +103,10 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#isDirectory(String)
+   * Checks if path is a Directory or not
+   * 
+   * @param path the path that will be checked
+   * @throws InvalidPathException If path cannot be reached
    */
   @Override
   public boolean isDirectory(String path) throws InvalidPathException {
@@ -108,7 +122,10 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#isFile(String)
+   * Checks if path is a File or not
+   * 
+   * @param path the path that will be checked
+   * @throws InvalidPathException If path cannot be reached
    */
   @Override
   public boolean isFile(String path) throws InvalidPathException {
@@ -124,7 +141,7 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#getCurrentDirectoryPath()
+   * @return The absolute path of the current working directory
    */
   @Override
   public String getCurrentDirectoryPath() {
@@ -160,7 +177,11 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#getFileContents(String)
+   * Returns the contents of the file at the specified path
+   * 
+   * @param path The path of the file
+   * @return The contents of this file
+   * @throws InvalidPathException
    */
   @Override
   public String getFileContents(String path) throws InvalidPathException {
@@ -175,7 +196,12 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#overwriteFile(String, String)
+   * Overwrites the file at the given path, or creates a new one if it does not
+   * exist
+   * 
+   * @param path The path of the file
+   * @param newContents The string to overwrite this file with
+   * @throws InvalidPathException If the file cannot be reached
    */
   @Override
   public void overwriteFile(String path, String newContents)
@@ -208,7 +234,12 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#appendToFile(String, String)
+   * Appends to the file at the given path, or creates a new one if it does not
+   * exist
+   * 
+   * @param path The path of the file
+   * @param newContents The string to append to this file
+   * @throws InvalidPathException If the file cannot be reached
    */
   @Override
   public void appendToFile(String path, String newContents)
@@ -241,7 +272,9 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#addCommandToHistory(String)
+   * Adds a command to the command history
+   * 
+   * @param command The command to add
    */
   @Override
   public void addCommandToHistory(String command) {
@@ -250,7 +283,9 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#getCommandHistory()
+   * Returns the command history, a list of all commands entered this session
+   * 
+   * @return The command history
    */
   @Override
   public ArrayList<String> getCommandHistory() {
@@ -264,7 +299,9 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#pushToDirStack(String)
+   * Pushes a directory to the directory stack
+   * 
+   * @param path The path of the directory stack
    */
   @Override
   public void pushToDirStack(String path) {
@@ -272,7 +309,9 @@ public class JFileSystem implements FileSystem {
   }
 
   /**
-   * @see FileSystem#popFromDirStack()
+   * Gets the directory path at the top of the directory stack
+   * 
+   * @return The top directory of the directory stack
    */
   @Override
   public String popFromDirStack() {

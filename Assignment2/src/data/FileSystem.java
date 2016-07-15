@@ -23,6 +23,11 @@ public interface FileSystem {
    * @throws InvalidPathException
    */
   public void makeCurrentDirectory(String path) throws InvalidPathException;
+  
+  /**
+   * Returns true iff the object at the given path is a file
+   * @return True iff the object at the given path is a file
+   */
 
   /**
    * @return The absolute path of the current working directory

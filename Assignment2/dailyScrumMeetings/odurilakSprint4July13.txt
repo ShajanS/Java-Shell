@@ -1,0 +1,11 @@
+What did I do last time?
+-Completed Mv command
+-Added a call to getFile in JFileSystem using FileSystem
+-Completed Cp command
+-Added a way to check if a File/Directory is a File or Directory
+
+What will I do next?
+-Nothing at the momment
+
+What am I stuck on:
+-Nothing

@@ -7,6 +7,10 @@ import data.File;
 import data.FileSystem;
 import data.InvalidPathException;
 
+/**
+ * @author Kirill Lossev
+ * A mock file system meant to make testing of commands easier
+ */
 public class MockFileSystem implements FileSystem {
 
   public java.util.HashMap<String, Directory> directories;
@@ -31,7 +35,11 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#getDirectory(java.lang.String)
+   * Returns the Directory object at the specified path
+   * 
+   * @param path The path of the directory
+   * @return The Directory object at this path
+   * @throws InvalidPathException
    */
   @Override
   public Directory getDirectory(String path) throws InvalidPathException {
@@ -54,7 +62,10 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#makeCurrentDirectory(java.lang.String)
+   * Sets the directory at the specified path as the current directory
+   * 
+   * @param path The path of the directory to switch to
+   * @throws InvalidPathException
    */
   @Override
   public void makeCurrentDirectory(String path) throws InvalidPathException {
@@ -78,7 +89,7 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#getCurrentDirectoryPath()
+   * @return The absolute path of the current working directory
    */
   @Override
   public String getCurrentDirectoryPath() {
@@ -87,7 +98,11 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#getFileContents(java.lang.String)
+   * Returns the contents of the file at the specified path
+   * 
+   * @param path The path of the file
+   * @return The contents of this file
+   * @throws InvalidPathException
    */
   @Override
   public String getFileContents(String path) throws InvalidPathException {
@@ -101,7 +116,12 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#overwriteFile(java.lang.String, java.lang.String)
+   * Overwrites the file at the given path, or creates a new one if it does not
+   * exist
+   * 
+   * @param path The path of the file
+   * @param newContents The string to overwrite this file with
+   * @throws InvalidPathException If the file cannot be reached
    */
   @Override
   public void overwriteFile(String path, String newContents)
@@ -114,7 +134,12 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#appendToFile(java.lang.String, java.lang.String)
+   * Appends to the file at the given path, or creates a new one if it does not
+   * exist
+   * 
+   * @param path The path of the file
+   * @param newContents The string to append to this file
+   * @throws InvalidPathException If the file cannot be reached
    */
   @Override
   public void appendToFile(String path, String newContents)
@@ -124,7 +149,9 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#addCommandToHistory(java.lang.String)
+   * Adds a command to the command history
+   * 
+   * @param command The command to add
    */
   @Override
   public void addCommandToHistory(String command) {
@@ -133,7 +160,9 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#getCommandHistory()
+   * Returns the command history, a list of all commands entered this session
+   * 
+   * @return The command history
    */
   @Override
   public ArrayList<String> getCommandHistory() {
@@ -142,7 +171,9 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#pushToDirStack(java.lang.String)
+   * Pushes a directory to the directory stack
+   * 
+   * @param path The path of the directory stack
    */
   @Override
   public void pushToDirStack(String path) {
@@ -151,13 +182,21 @@ public class MockFileSystem implements FileSystem {
   }
 
   /**
-   * @see data.FileSystem#popFromDirStack()
+   * Gets the directory path at the top of the directory stack
+   * 
+   * @return The top directory of the directory stack
    */
   @Override
   public String popFromDirStack() {
     return dirStack.pop();
   }
 
+  /**
+   * Gets a File object at given path
+   * 
+   * @param path of the File
+   * @throws InvalidPathException If the file cannot be reached
+   */
   @Override
   public File getFile(String path) throws InvalidPathException {
     // If a file with this name exists, return a file with the
@@ -170,12 +209,24 @@ public class MockFileSystem implements FileSystem {
     }
   }
 
+  /**
+   * Checks if path is a Directory or not
+   * 
+   * @param path the path that will be checked
+   * @throws InvalidPathException If path cannot be reached
+   */
   @Override
   public boolean isDirectory(String path) throws InvalidPathException {
     // If the path is in the directory list, return true. If not, return false
     return directories.containsKey(path);
   }
 
+  /**
+   * Checks if path is a File or not
+   * 
+   * @param path the path that will be checked
+   * @throws InvalidPathException If path cannot be reached
+   */
   @Override
   public boolean isFile(String path) throws InvalidPathException {
     // If the path is in the file list, return true. If not, return false

@@ -6,15 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author Kirill Lossev
- * Unit tests for the pwd command
+ * @author Kirill Lossev Unit tests for the pwd command
  */
 public class PwdTest {
 
   private commands.Pwd pwd = new commands.Pwd();
   private MockFileSystem fs;
 
- 
+
   /**
    * Sets up the test by creating a mockfilesystem
    */
@@ -25,8 +24,8 @@ public class PwdTest {
   }
 
   /**
-   * Testing the method. This command does not take any user input
-   * so there is no reason it should fail.
+   * Testing the method. This command does not take any user input so there is
+   * no reason it should fail.
    */
   @Test
   public void test() {

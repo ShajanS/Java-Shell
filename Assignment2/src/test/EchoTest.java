@@ -9,8 +9,7 @@ import data.InvalidArgumentException;
 import org.junit.Before;
 
 /**
- * @author Kirill Lossev
- * Test cases for the echo command
+ * @author Kirill Lossev Test cases for the echo command
  */
 public class EchoTest {
 
@@ -40,17 +39,18 @@ public class EchoTest {
       assertEquals(echo.execute(fs, "\"    test 2\""), "    test 2\n");
       assertEquals(echo.execute(fs, "\"  test  3  \""), "  test  3  \n");
       assertEquals(echo.execute(fs, "\"  \"test 4\" \""), "  \"test 4\" \n");
-      assertEquals(echo.execute(fs, "\"\"   test 5  \"\""), "\"   test 5  \"\n");
+      assertEquals(echo.execute(fs, "\"\"   test 5  \"\""),
+          "\"   test 5  \"\n");
     } catch (InvalidArgumentException e) {
       fail();
-    }    
+    }
   }
-  
+
   /**
    * Testing that improperly formatted strings throw errors
    */
   @Test
-  public void testEchoBadlyFormatted(){
+  public void testEchoBadlyFormatted() {
     // Each of these should cause an error
     try {
       echo.execute(fs, "no quotes");

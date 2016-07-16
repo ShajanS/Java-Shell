@@ -8,8 +8,8 @@ import data.FileSystem;
 import data.InvalidPathException;
 
 /**
- * @author Kirill Lossev
- * A mock file system meant to make testing of commands easier
+ * @author Kirill Lossev A mock file system meant to make testing of commands
+ *         easier
  */
 public class MockFileSystem implements FileSystem {
 
@@ -43,6 +43,10 @@ public class MockFileSystem implements FileSystem {
    */
   @Override
   public Directory getDirectory(String path) throws InvalidPathException {
+    // If the path is /, return the root directory
+    if (path.equals("/")) {
+      return directories.get("");
+    }
     // If the path starts with .., replace it with the path of currDir's parent
     if (path.startsWith("..")) {
       path = currDir.substring(0, currDir.lastIndexOf('/') + 1)
@@ -143,7 +147,7 @@ public class MockFileSystem implements FileSystem {
       throws InvalidPathException {
     // If the file exists already, get its contents, put a newline
     // after them, then append the new contents to them
-    if (files.containsKey(path)){
+    if (files.containsKey(path)) {
       newContents = files.get(path) + "\n" + newContents;
     }
     // Overwrite the file with the result
@@ -203,10 +207,10 @@ public class MockFileSystem implements FileSystem {
   public File getFile(String path) throws InvalidPathException {
     // If a file with this name exists, return a file with the
     // same contents
-    if (files.containsKey(path)){
+    if (files.containsKey(path)) {
       return new data.File(path, null, files.get(path));
-    } else{
-    // If not, throw the exception
+    } else {
+      // If not, throw the exception
       throw new InvalidPathException();
     }
   }

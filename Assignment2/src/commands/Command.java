@@ -26,5 +26,5 @@ public interface Command {
    * @throws InvalidPathException 
    */
   public String execute(data.FileSystem fs, String params)
-      throws data.InvalidArgumentException, InvalidPathException;
+      throws data.InvalidArgumentException;
 }

@@ -14,12 +14,13 @@ public class Man implements Command {
   /**
    * Outputs man pages(documentation) for the desired command
    * 
-   * @param fs The filesystem in which to make the directory
+   * @param fs The filesystem in which to output documentation 
    * @param params The command name
    * @return An error if the command cannot be found, and if found output the
    *         documentation
    */
-  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException{
+  public String execute(data.FileSystem fs, String params) 
+      throws InvalidArgumentException{
     params = params.trim();
     String result = "";
     // Formating of the output result
@@ -88,7 +89,8 @@ public class Man implements Command {
     cmdman.put("cat",
         "\n\tOutputs the contents of desired file(s) in series"
             + "\n\n\tArgument REQ: cat[FILE1]"
-            + "\n\tArgument REQ (File(s)): cat[FILE1][FILE2]...");
+            + "\n\tArgument REQ (File(s)): cat[FILE1][FILE2]..."
+            + "\n\tArgument REQ (File(s)): cat[FILE1][DIR]...");
     // pushd command
     cmdman.put("pushd",
         "\n\tSaves the current working directory by +"
@@ -101,6 +103,27 @@ public class Man implements Command {
     // man command
     cmdman.put("man", "\n\tPrints the man pages(documentation) for commands"
         + "\n\n\tArgument REQ: man[CMD]");
+    // !number command
+    cmdman.put("!", "\n\tRecalls any previous history entries by its number "
+        + "preceded by an exclamation point (!)"
+        + "\n\n\tArgument REQ: ![NUMBER]");
+    // Grep command
+    cmdman.put("grep", "\n\t Searches files for lines matching with inputed "
+        + "regex. If -R is not provided print any lines associated with the "
+        + "regex. If -R is provided restrict search to the parameter given "
+        + "\n\n\tArgument REQ: grep[-R] REGEXPATH");
+    // Mv command
+    cmdman.put("mv", "\n\tMoves item from OLDPATH to NEWPATH, if NEWPATH is "
+        + "DIR; move to DIR"
+        + "\n\n\tArgument REQ: mv[OLDPATH][NEWPATH]");
+    // Curl command
+    cmdman.put("curl", "\n\tRetrieve the file at that URL and add "
+        + "it to the current working directory."
+        + "\n\n\tArgument REQ: curl[URL]");
+    // Cp command
+    cmdman.put("cp", "\n\tCopies item from OLDPATH to NEWPATH, if OLDPATH is "
+        + "DIR; Copy items recursivley"
+        + "\n\n\tArgument REQ: cp[OLDPATH][NEWPATH]");
 
   }
 

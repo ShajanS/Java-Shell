@@ -1,5 +1,7 @@
 package commands;
 
+import data.InvalidPathException;
+
 /**
  * @author Kirill Lossev
  * The interface for the command classes, which all take a filesystem 
@@ -21,7 +23,8 @@ public interface Command {
    * @return The output of the command
    * @throws data.InvalidArgumentException if the command cannot run with the
    *                                       given arguments.
+   * @throws InvalidPathException 
    */
   public String execute(data.FileSystem fs, String params)
-      throws data.InvalidArgumentException;
+      throws data.InvalidArgumentException, InvalidPathException;
 }

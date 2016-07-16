@@ -23,7 +23,7 @@ public class Echo implements Command {
     if (validateParams(params)){
       return params.substring(1, params.length()-1) + "\n";
     } else{
-      throw new data.InvalidArgumentException("Error - Malformed parameter");
+      throw new data.InvalidArgumentException("Error - Malformed parameter\n");
     }
   }
   

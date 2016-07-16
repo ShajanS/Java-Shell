@@ -3,10 +3,13 @@ package commands;
 
 import java.util.ArrayList;
 
+import data.InvalidArgumentException;
+import data.InvalidPathException;
+
 
 public class Recall implements Command {
   
-  public String execute(data.FileSystem fs, String params) {
+  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException, InvalidPathException {
     String commandreturnString = "";
     commandMap = populateCommandMap();
     // split the input string at every whitespace and store each word(filename)

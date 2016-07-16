@@ -3,19 +3,21 @@ package test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import data.InvalidArgumentException;
 import data.JFileSystem;
 
 
 
 public class CatTest {
-
+  
   commands.Cat cat = new commands.Cat();
   commands.Echo echo = new commands.Echo();
   JFileSystem sys;
 
 
   @Before
-  public void setUp() {
+  public void setUp() throws InvalidArgumentException{
     // access the JFileSystem allocated in data to accommodate the
     // command calls and command setup for this unit testing
     sys = new JFileSystem();
@@ -28,7 +30,12 @@ public class CatTest {
   @Test
   public void testExecuteSingleFile() {
     // passing the command to retrieve a file which is present in the directory
-    assertEquals(cat.execute(sys, "file3.txt"), "Contents in file 3 \n");
+    try {
+      assertEquals(cat.execute(sys, "file3.txt"), "Contents in file 3 \n");
+    } catch (InvalidArgumentException e) {
+      // TODO Auto-generated catch block
+      fail();
+    }
   }
 
   @Test
@@ -36,19 +43,28 @@ public class CatTest {
     // passing the command to retrieve multiple files which is present
     // in the directory
     // format between the two files should be spaced out appropriately
-    assertEquals(cat.execute(sys, "file3.txt file2.txt"),
-        "Contents in file 3 \n\n\n" + "Contents in file 2 \n");
+    try{
+      assertEquals(cat.execute(sys, "file3.txt file2.txt"),
+          "Contents in file 3 \n\n\n" + "Contents in file 2 \n");   
+    } catch (InvalidArgumentException e) {
+      fail();
+    }
+
   }
 
   @Test
   public void testExecuteNoFile() {
     // passing the command to retrieve a files which is not present
     // in the directory, and error message should be displayed accordingly
-    assertEquals(cat.execute(sys, ""), "File(s) not found\n");
+    try{
+      assertEquals(cat.execute(sys, ""), "File(s) not found\n");
+    } catch (InvalidArgumentException e) {
+      fail();
+    }
   }
 
   @Test
-  public void testExecuteNewAppendedFile() {
+  public void testExecuteNewAppendedFile(){
     // passing the command to retrieve a file which is present but also
     // has been appended new content to add to the file
     echo.execute(sys, "New line Hello World >> file.txt");

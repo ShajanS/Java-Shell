@@ -9,13 +9,20 @@ import org.junit.Test;
 
 import data.InvalidArgumentException;
 
+/**
+ * @author Kirill Lossev
+ * Testing the mkdir command
+ */
 public class MkdirTest {
 
-  commands.Mkdir mkdir = new commands.Mkdir();
-  MockFileSystem fs;
+  private commands.Mkdir mkdir = new commands.Mkdir();
+  private MockFileSystem fs;
 
+  /**
+   * Sets up the test by creating a mockfilesystem containing a directory
+   */
   @Before
-  public void setUp() throws Exception {
+  public void setUp(){
     // Create a new MFS and give it a new, empty directory whose parent is
     // the root (empty named) directory
     fs = new MockFileSystem();
@@ -24,6 +31,9 @@ public class MkdirTest {
     fs.directories.put("testdir", testDir);
   }
 
+  /**
+   * Testing the method when given a relative path
+   */
   @Test
   public void testMakeWithRelativePath() {
     // Mkdir with a string without slashes should return a newline
@@ -53,6 +63,9 @@ public class MkdirTest {
     }
   }
 
+  /**
+   * Testing the method when given an absolute path
+   */
   @Test
   public void testMakeWithAbsolutePath() {
     // Set the current directory to one that is not root i.e. testdir
@@ -84,6 +97,9 @@ public class MkdirTest {
 
   }
 
+  /**
+   * Testing the method when given a path involving the parent (..)
+   */
   @Test
   public void testMakeWithDotPath() {
     // Set the current directory to one that is not root i.e. testdir
@@ -105,6 +121,9 @@ public class MkdirTest {
 
   }
 
+  /**
+   * Testing with a path that should not be able to be made
+   */
   @Test()
   public void testImproperPath() {
     // Try to create a directory inside a nonexistent directory

@@ -5,17 +5,29 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * @author Kirill Lossev
+ * Unit tests for the pwd command
+ */
 public class PwdTest {
 
-  commands.Pwd pwd = new commands.Pwd();
-  MockFileSystem fs;
+  private commands.Pwd pwd = new commands.Pwd();
+  private MockFileSystem fs;
 
+ 
+  /**
+   * Sets up the test by creating a mockfilesystem
+   */
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     // Initialize the MFS
     fs = new MockFileSystem();
   }
 
+  /**
+   * Testing the method. This command does not take any user input
+   * so there is no reason it should fail.
+   */
   @Test
   public void test() {
     // pwd should return whatever the MFS's current directory string + newline

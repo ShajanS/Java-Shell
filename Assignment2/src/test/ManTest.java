@@ -6,7 +6,10 @@ import org.junit.Test;
 
 import data.InvalidArgumentException;
 
-
+/**
+ * @author Shajan Sivarajah
+ * Tests for the man command
+ */
 public class ManTest {
 
   commands.Man man = new commands.Man();

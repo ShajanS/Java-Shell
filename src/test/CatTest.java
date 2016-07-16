@@ -7,7 +7,10 @@ import org.junit.Test;
 import data.InvalidPathException;
 import data.JFileSystem;
 
-
+/**
+ * @author Shajan Sivarajah
+ * Tests for the cat command
+ */
 
 public class CatTest {
   

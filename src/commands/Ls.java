@@ -5,7 +5,11 @@ import java.util.List;
 import data.Directory;
 import data.InvalidArgumentException;
 import data.InvalidPathException;
-
+/**
+ * 
+ * @author Zain Kabani
+ * lists subdirectories
+ */
 public class Ls implements Command {
 
   /**

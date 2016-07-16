@@ -16,20 +16,37 @@ public class Ls implements Command {
    * @return the formatted string, or an error if the directory or file cannot
    *         be found
    * @throws InvalidArgumentException
+   * @throws InvalidPathException
    */
   public String execute(data.FileSystem fs, String params)
       throws InvalidArgumentException {
-    String result = "\n";
-    List<String> temp = test(fs, params);
-    for (String apple : temp) {
-      result += apple + "\n";
+    String result = "";
+    List<String> temp = new ArrayList<>();
+    try {
+      temp = test(fs, params);
+    } catch (InvalidPathException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
     }
-    return result;
+    for (String apple : temp) {
+      result += "\n" + apple;
+    }
+    return result + "\n\n";
 
   }
 
-  public List<String> test(data.FileSystem fs, String params)
-      throws InvalidArgumentException {
+  /**
+   * Lists all directories and files under current or given directory
+   * 
+   * @param fs The filesystem
+   * @param params The path of the directory or file
+   * @return array list that has all the directories and subdirectories if
+   *         required
+   * @throws InvalidArgumentException
+   * @throws InvalidPathException
+   */
+  private List<String> test(data.FileSystem fs, String params)
+      throws InvalidArgumentException, InvalidPathException {
     List<String> dirAndFil = new ArrayList<>();
     if (params.isEmpty()) {
       dirAndFil.addAll(runWithoutParams(fs));
@@ -48,12 +65,14 @@ public class Ls implements Command {
           }
         }
       } else {
-        if (param.length == 2) {
-          
+        if (param.length == 1) {
+          dirAndFil.addAll(recursiveCall(fs, fs.getCurrentDirectoryPath()));
+        } else if (param.length == 2) {
+          dirAndFil.addAll(recursiveCall(fs, param[1]));
         } else {
           for (String par : param) {
             if (par != param[0])
-            dirAndFil.addAll(test(fs, "-r" + par));
+              dirAndFil.addAll(test(fs, "-r " + par));
           }
         }
 
@@ -63,24 +82,47 @@ public class Ls implements Command {
 
     return dirAndFil;
   }
-
-  /*
-   * public List <String> test(data.FileSystem fs, String params) throws
-   * InvalidArgumentException { List <String> dirAndFil = new ArrayList<>(); if
-   * (params.isEmpty()) { dirAndFil.addAll(runWithoutParams(fs)); } else {
-   * String [] param = params.split("\\s+"); if (param.length == 1) { if
-   * (!checkParamsForR(param[0])) { if (checkIfDirectory(fs, param[0])) {
-   * dirAndFil.addAll(runWithParams(fs, param[0])); } else if (checkIfFile(fs,
-   * params)) { dirAndFil.add(getLastElement(param[0])); } else if
-   * (checkParamsForR(param[0])) { } } else if (param.length > 1) { if
-   * (!checkParamsForR(param[0])) { for (String par : param) {
-   * dirAndFil.addAll(test(fs, par)); } } else { for (String par : param) { if
-   * (par != param[0]) { dirAndFil.addAll(test(fs, "-r" + par)); } } } } } }
-   * return dirAndFil; }
+  
+  /**
+   * recursively calls the subdirectories of the directory
+   * 
+   * @param fs The filesystem
+   * @param params The path of the directory or file
+   * @return array list that has all the directories and sub-directories if
+   *         required
+   * @throws InvalidArgumentException
+   * @throws InvalidPathException
    */
 
+  private List<String> recursiveCall(data.FileSystem fs, String param)
+      throws InvalidArgumentException, InvalidPathException {
+    List<String> dirAndFil = new ArrayList<>();
+    List<String> holder = new ArrayList<>();
+    data.FileSystem holding;
+    if (checkIfFile(fs, param)) {
+      dirAndFil.add(getLastElement(param));
+    } else {
+      if (checkIfDirectory(fs, param)) {
+        dirAndFil.addAll(runWithParams(fs, param));
+        for (String temp : dirAndFil) {
+          holding = fs;
+          fs.makeCurrentDirectory(param + "/" + temp);
+          holder.addAll(test(fs, ("-r " + param + "/" + temp)));
+          fs = holding;
+        }
+      }
 
-
+    }
+    return dirAndFil;
+  }
+  /**
+   * check if path leads to directory
+   * 
+   * @param fs The filesystem
+   * @param params The path of the directory or file
+   * @return wether or not the path is a driectory (t/f)
+   * @throws InvalidPathException
+   */
   private boolean checkIfDirectory(data.FileSystem fs, String path) {
     boolean typeD = true;
     try {
@@ -102,10 +144,17 @@ public class Ls implements Command {
   }
 
   private String getLastElement(String path) {
-    String result = path.substring(path.lastIndexOf('/') + 1) + "\n";
+    String result = path.substring(path.lastIndexOf('/') + 1);
     return result;
   }
 
+  /**
+   * Checks if -r or -R are the first params
+   * 
+   * @param String param
+   * @return The formatted string list or, an error if the directory cannot be
+   *         found
+   */
   private boolean checkParamsForR(String param) {
     boolean assume = false;
     if (param.equals("-R") || param.equals("-r")) {
@@ -119,7 +168,8 @@ public class Ls implements Command {
    * 
    * @param fs The filesystem
    * @param params The path of the directory
-   * @return The formatted string or, an error if the directory cannot be found
+   * @return The formatted string list or, an error if the directory cannot be
+   *         found
    * @throws InvalidArgumentException
    */
   private List<String> runWithoutParams(data.FileSystem fs)
@@ -135,7 +185,8 @@ public class Ls implements Command {
    * 
    * @param fs The filesystem
    * @param params The path of the directory
-   * @return The formatted string or, an error if the directory cannot be found
+   * @return The formatted string list or, an error if the directory cannot be
+   *         found
    * @throws InvalidArgumentException
    */
   private List<String> runWithParams(data.FileSystem fs, String params)
@@ -148,7 +199,8 @@ public class Ls implements Command {
    * 
    * @param fs The filesystem
    * @param path the path of the specified directory
-   * @return The formatted string or, an error if the directory cannot be found
+   * @return The formatted string list or, an error if the directory cannot be
+   *         found
    * @throws InvalidArgumentException
    */
   private List<String> getFormattedContents(data.FileSystem fs, String path)

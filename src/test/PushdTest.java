@@ -2,13 +2,12 @@ package test;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.Before;
 import org.junit.Test;
+
 /**
  * 
- * @author Sai
- * test for the push command
+ * @author Sai test for the push command
  */
 public class PushdTest {
 

@@ -5,9 +5,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
- * @author Kirill Lossev
- * The class representing a directory, which can hold files and other
- * directories.
+ * @author Kirill Lossev The class representing a directory, which can hold
+ *         files and other directories.
  */
 public class Directory {
 
@@ -250,7 +249,7 @@ public class Directory {
    */
   public ArrayList<String> getSubdirNames() {
     ArrayList<String> result = new ArrayList<String>();
-    for (String name : subdirs.keySet()){
+    for (String name : subdirs.keySet()) {
       result.add(name);
     }
     return result;
@@ -261,7 +260,7 @@ public class Directory {
    */
   public ArrayList<String> getFiles() {
     ArrayList<String> result = new ArrayList<String>();
-    for (String name : files.keySet()){
+    for (String name : files.keySet()) {
       result.add(name);
     }
     return result;

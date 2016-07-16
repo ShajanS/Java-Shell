@@ -4,8 +4,8 @@ import data.InvalidArgumentException;
 import data.InvalidPathException;
 
 /**
- * @author Kirill Lossev
- * The class for the cd command, which changes the working directory.
+ * @author Kirill Lossev The class for the cd command, which changes the working
+ *         directory.
  */
 public class Cd implements Command {
 
@@ -26,8 +26,8 @@ public class Cd implements Command {
       fs.makeCurrentDirectory(params);
     } catch (InvalidPathException e) {
       // If it cannot be found, return an error message
-      throw new data.InvalidArgumentException("Error - "
-          + "Directory does not exist\n");
+      throw new data.InvalidArgumentException(
+          "Error - " + "Directory does not exist\n");
     }
     return result;
   }

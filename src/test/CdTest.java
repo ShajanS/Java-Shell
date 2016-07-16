@@ -8,8 +8,7 @@ import org.junit.Test;
 import data.InvalidArgumentException;
 
 /**
- * @author Kirill Lossev
- * Test cases for the Cd class
+ * @author Kirill Lossev Test cases for the Cd class
  */
 public class CdTest {
 
@@ -42,8 +41,8 @@ public class CdTest {
       assertEquals(fs.currDir, "testdir");
     } catch (InvalidArgumentException e) {
       // This shouldn't cause an error
-     fail("Error when changing to a valid directory");
-    }    
+      fail("Error when changing to a valid directory");
+    }
   }
 
   /**

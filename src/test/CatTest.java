@@ -8,12 +8,11 @@ import data.InvalidPathException;
 import data.JFileSystem;
 
 /**
- * @author Shajan Sivarajah
- * Tests for the cat command
+ * @author Shajan Sivarajah Tests for the cat command
  */
 
 public class CatTest {
-  
+
   commands.Cat cat = new commands.Cat();
   commands.Echo echo = new commands.Echo();
   JFileSystem sys;
@@ -63,14 +62,12 @@ public class CatTest {
     // in the directory
     // format between the two files should be spaced out appropriately
     try {
-      assertEquals(sys.getFileContents("file3.txt"),
-          "Contents in file 3");
-      assertEquals(sys.getFileContents("file2.txt"),
-          "Contents in file 2");
+      assertEquals(sys.getFileContents("file3.txt"), "Contents in file 3");
+      assertEquals(sys.getFileContents("file2.txt"), "Contents in file 2");
     } catch (InvalidPathException e) {
       // TODO Auto-generated catch block
       fail();
-    } 
+    }
 
 
   }
@@ -79,13 +76,13 @@ public class CatTest {
   public void testExecuteNoFile() {
     // passing the command to retrieve a files which is not present
     // in the directory, and error message should be displayed accordingly
-      try {
-        sys.getFileContents(" ");
-        fail();
-      } catch (InvalidPathException e) {
-        // TODO Auto-generated catch block
-        assertEquals(e.getMessage(), "No such file");
-      }
+    try {
+      sys.getFileContents(" ");
+      fail();
+    } catch (InvalidPathException e) {
+      // TODO Auto-generated catch block
+      assertEquals(e.getMessage(), "No such file");
+    }
 
   }
 

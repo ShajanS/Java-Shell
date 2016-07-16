@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import data.InvalidArgumentException;
+
 public class LsTest {
 
   commands.Ls ls = new commands.Ls();
@@ -33,15 +35,23 @@ public class LsTest {
   public void testNoParams() {
     // ls should return a list, in alphabetical order, of everything in root
     String expected = "\nfileA\nsubA\nsubB\ntestdir\n";
-    assertEquals(expected, ls.execute(fs, ""));
+    try {
+      assertEquals(expected, ls.execute(fs, ""));
+    } catch (InvalidArgumentException e) {
+      fail();
+    }
   }
 
   @Test
   public void testDirParam() {
     // When given testdir as a parameter, ls should return the contents
     // of that directory
-    String expected = "\ntestdir:\nfileB\nsubC\n\n";
-    assertEquals(expected, ls.execute(fs, "testdir"));
+    String expected = "\ntestdir:\nfileB\nsubC\n";
+    try {
+      assertEquals(expected, ls.execute(fs, "testdir"));
+    } catch (InvalidArgumentException e) {
+      fail();
+    }
   }
 
   @Test
@@ -49,7 +59,11 @@ public class LsTest {
     // When given a filename in the current dir, ls should return the
     // filename
     String expected = "fileB\n";
-    assertEquals(expected, ls.execute(fs, "fileB"));
+    try {
+      assertEquals(expected, ls.execute(fs, "fileB"));
+    } catch (InvalidArgumentException e) {
+      fail();
+    }
   }
 
   @Test
@@ -57,13 +71,21 @@ public class LsTest {
     // When given a filename in a different dir, the name of that
     // file should be returned
     String expected = "fileB\n";
-    assertEquals(expected, ls.execute(fs, "testdir/fileB"));
+    try {
+      assertEquals(expected, ls.execute(fs, "testdir/fileB"));
+    } catch (InvalidArgumentException e) {
+      fail();
+    }
   }
 
   public void testBadPath() {
     // When given a nonexistent path, ls should return an error
     String expected = "No such path exists\n";
-    assertEquals(expected, ls.execute(fs, "BAD PATH"));
+    try {
+      assertEquals(expected, ls.execute(fs, "BAD PATH"));
+    } catch (InvalidArgumentException e) {
+      fail();
+    }
   }
 
 }

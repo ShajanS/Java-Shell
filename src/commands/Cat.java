@@ -1,11 +1,17 @@
 package commands;
 
 
+import data.InvalidArgumentException;
 import data.InvalidPathException;
 
+/**
+ * 
+ * @author Shajan Sivarjah
+ * This class if for the Cat command and it 
+ * Outputs the contents of desired text files
+ */
 public class Cat implements Command {
   // error message string
-  private String emptyArgs = "File(s) not found\n";
   // cat command output string
   String result = "";
 
@@ -18,7 +24,7 @@ public class Cat implements Command {
    * @return An error if a file cannot be found, and if found output the the
    *         content
    */
-  public String execute(data.FileSystem fs, String params) {
+  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException {
     String argNames = params;
     // split the input string at every whitespace and store each word(filename)
     // in an array
@@ -26,8 +32,8 @@ public class Cat implements Command {
 
     // if no file names are given raise error message
     if (fileNames.length == 0) {
-      // raise error
-      result = emptyArgs;
+      throw new InvalidArgumentException("Error - File(s) not found.\n");
+      
     } else {
       // Obtain the object under path in fileSystem
       // If it's null then it would fall into the else block
@@ -57,7 +63,7 @@ public class Cat implements Command {
       } catch (InvalidPathException e) {
         // TODO Auto-generated catch block
         // raise error if file name given is not present
-        result = emptyArgs;
+        throw new InvalidArgumentException("Error - File(s) not found.\n");
       }
     }
     // return result

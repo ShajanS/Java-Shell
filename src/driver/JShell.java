@@ -30,9 +30,6 @@
 package driver;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
-
-import javax.activation.CommandMap;
 
 import commands.Command;
 import data.InvalidArgumentException;
@@ -50,99 +47,93 @@ public class JShell {
   // The CommandHandler to control where output ends up
   commands.CommandHandler ch = new commands.CommandHandler();
 
-  public boolean continueLoop;
-  public boolean checkType;
+  private boolean continueLoop;
 
   /**
    * The constructor for the JShell
    */
   private JShell() {
     continueLoop = true;
-    checkType = true;
-
-    Scanner in = new Scanner(System.in);
 
     // Get the filesystem
     fs = data.JFileSystem.getFileSysReference();
 
     // Populate the command map
     commandMap = populateCommandMap();
-
-    String outputString = "";
-    // Until the exit command is used,
-    while (continueLoop) {
-      // Get input from the user
-      // Trim the input string
-      String inputString = in.nextLine().trim();
-      // Add the input to the command history
-      // if input starts with "!" disregard adding the input to history
-      if (inputString.startsWith("!")) {
-      }
-      else{
-        fs.addCommandToHistory(inputString);
-      }
-      // Split the input into the command and parameters
-      String[] splitInput = splitInputIntoCommandAndParams(inputString);
-      // Give the parameters to the command handler to determine where its
-      // output should go
-      splitInput[1] = ch.determineOutputDirection(splitInput[1]);
-      
-      // Regex for !number method
-      // If user input starts with a !
-      if (inputString.startsWith("!")){
-        String [] parts = inputString.split("!");
-        splitInput[0] = "!";
-        splitInput[1] = parts[1];
-        if (splitInput[1].startsWith(" ") == true){
-          // if a the user input starts with ! followed by an invalid argument
-          // set params to create and error message 
-          fs.addCommandToHistory(inputString);
-          splitInput[1] = "unkown";
-          splitInput[0] = "unknow";
-        }
-      }
-      
-      // If the command is in the command map, return its output with the
-      // parameters given as its parameter
-      if (commandMap.containsKey(splitInput[0])) {
-        String commandName = commandMap.get(splitInput[0]);
-        commands.Command commObj;
-        try {
-          commObj = (Command) Class.forName(commandName).newInstance();
-          outputString = commObj.execute(fs, splitInput[1]);
-          // Give the string to the output handler, and print whatever it
-          // returns
-          System.out.print(ch.handleOutput(fs, outputString));
-        } catch (InvalidArgumentException e) {
-          // If the command throws an exception, print its message.
-          System.out.println(e.getMessage());
-        } catch (InstantiationException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-        } catch (IllegalAccessException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-        }
-      }
-      // If the substring starts with exit
-      // break the loop
-      else if (inputString.equals("exit")) {
-        outputString = "";
-        continueLoop = false;
-        in.close();
-      } else {
-        // If not, print an error message.
-        System.out.println(
-            "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n");
-      }
-      
+  }
+  
+  /**
+   * Takes input from some source and attempts to run it as a command
+   * @param inputString
+   */
+  public void takeInput(String inputString){
+    String outputString;  
+    // Get input from the user
+    // Trim the input string
+    inputString = inputString.trim();
+    // Add the input to the command history
+    // if input starts with "!" disregard adding the input to history
+    if (inputString.startsWith("!")) {
     }
-    // Close the Scanner. Note: once the loop is implemented, this must be
-    // outside of it.
-    in.close();
+    else{
+      fs.addCommandToHistory(inputString);
+    }
+    // Split the input into the command and parameters
+    String[] splitInput = splitInputIntoCommandAndParams(inputString);
+    // Give the parameters to the command handler to determine where its
+    // output should go
+    splitInput[1] = ch.determineOutputDirection(splitInput[1]);
+    
+    // Regex for !number method
+    // If user input starts with a !
+    if (inputString.startsWith("!")){
+      String [] parts = inputString.split("!");
+      splitInput[0] = "!";
+      splitInput[1] = parts[1];
+      if (splitInput[1].startsWith(" ") == true){
+        // if a the user input starts with ! followed by an invalid argument
+        // set params to create and error message 
+        fs.addCommandToHistory(inputString);
+        splitInput[1] = "unkown";
+        splitInput[0] = "unknow";
+      }
+    }
+    
+    // If the command is in the command map, return its output with the
+    // parameters given as its parameter
+    if (commandMap.containsKey(splitInput[0])) {
+      String commandName = commandMap.get(splitInput[0]);
+      commands.Command commObj;
+      try {
+        commObj = (Command) Class.forName(commandName).newInstance();
+        outputString = commObj.execute(fs, splitInput[1]);
+        // Give the string to the output handler, and print whatever it
+        // returns
+        System.out.print(ch.handleOutput(fs, outputString));
+      } catch (InvalidArgumentException e) {
+        // If the command throws an exception, print its message.
+        System.out.println(e.getMessage());
+      } catch (InstantiationException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (IllegalAccessException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (ClassNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+    // If the substring starts with exit
+    // break the loop
+    else if (inputString.equals("exit")) {
+      outputString = "";
+      continueLoop = false;
+    } else {
+      // If not, print an error message.
+      System.out.println(
+          "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n");      
+    }
   }
 
   /**
@@ -199,14 +190,19 @@ public class JShell {
   }
 
   /**
-   * The main function for JShell and the entry point into the program, simply
-   * creates a new JShell.
+   * The main function for JShell and the entry point into the program,
+   * creates a new JShell and gives it input through a scanner until the
+   * exit command is used
    * 
    * @param args Command-line arguments
    */
   public static void main(String[] args) {
-    new JShell();
-
+    JShell shell = new JShell();
+    Scanner in = new Scanner(System.in);
+    while (shell.continueLoop){
+      shell.takeInput(in.nextLine());
+    }
+    in.close();
   }
 
 }

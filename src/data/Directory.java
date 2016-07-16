@@ -58,9 +58,7 @@ public class Directory {
    * @param parent The parent of the new directory
    */
   public Directory(String name, Directory parent) {
-    this.name = name;
-    subdirs = new HashMap<String, Directory>();
-    files = new HashMap<String, File>();
+    this(name);
     this.parent = parent;
   }
 

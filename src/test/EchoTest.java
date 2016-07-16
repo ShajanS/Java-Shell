@@ -14,8 +14,8 @@ import org.junit.Before;
  */
 public class EchoTest {
 
-  commands.Echo echo = new commands.Echo();
-  MockFileSystem fs;
+  private commands.Echo echo = new commands.Echo();
+  private MockFileSystem fs;
 
   /**
    * The setup method, creates a new filesystem.

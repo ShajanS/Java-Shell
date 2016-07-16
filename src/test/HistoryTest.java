@@ -14,8 +14,8 @@ import org.junit.Before;
  */
 public class HistoryTest {
 
-  commands.History history = new commands.History();
-  MockFileSystem fs;
+  private commands.History history = new commands.History();
+  private MockFileSystem fs;
 
   /**
    * Setup method, creates a mockfilesystem and adds some history data to it
@@ -30,6 +30,9 @@ public class HistoryTest {
     fs.commandHistory.add("third");
   }
 
+  /**
+   * Test the method when given an integer
+   */
   @Test
   public void testExecuteWithIntegers() {
     // None of these should cause errors
@@ -55,6 +58,9 @@ public class HistoryTest {
     }
   }
   
+  /**
+   * Test the method when given a non-integer
+   */
   @Test
   public void testExecuteWithNonIntegers(){
     // When given a parameter which is not an integer, an error should be

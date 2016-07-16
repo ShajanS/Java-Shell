@@ -13,8 +13,8 @@ import data.InvalidArgumentException;
  */
 public class CdTest {
 
-  commands.Cd cd = new commands.Cd();
-  MockFileSystem fs;
+  private commands.Cd cd = new commands.Cd();
+  private MockFileSystem fs;
 
   /**
    * The set up method, creates a mockfilesystem with some directories inside

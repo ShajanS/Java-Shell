@@ -106,9 +106,9 @@ public class MockFileSystem implements FileSystem {
    */
   @Override
   public String getFileContents(String path) throws InvalidPathException {
-    // If given a valid path (the string "VALID PATH"), return some sting
+    // If given a valid path, return the contents
     if (files.containsKey(path)) {
-      return "A winner is you!";
+      return files.get(path);
     } else {
       // Otherwise, throw an exception
       throw new InvalidPathException("No such file");
@@ -126,11 +126,8 @@ public class MockFileSystem implements FileSystem {
   @Override
   public void overwriteFile(String path, String newContents)
       throws InvalidPathException {
-    // If given an invalid path (i.e. not the string "VALID PATH"),
-    // throw an exception
-    if (!path.equals("VALID PATH")) {
-      throw new InvalidPathException("Could not resolve path");
-    }
+    // Map the path to the contents in the file list
+    files.put(path, newContents);
   }
 
   /**
@@ -144,7 +141,12 @@ public class MockFileSystem implements FileSystem {
   @Override
   public void appendToFile(String path, String newContents)
       throws InvalidPathException {
-    // This should essentially do what overwriteFile does
+    // If the file exists already, get its contents, put a newline
+    // after them, then append the new contents to them
+    if (files.containsKey(path)){
+      newContents = files.get(path) + "\n" + newContents;
+    }
+    // Overwrite the file with the result
     overwriteFile(path, newContents);
   }
 

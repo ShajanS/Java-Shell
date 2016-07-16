@@ -6,24 +6,23 @@ import data.InvalidArgumentException;
 
 /**
  * 
- * @author Shajan Sivarajh
- * This class if for the !number command and it 
- * recalls any of previous history by its number
+ * @author Shajan Sivarajh This class if for the !number command and it recalls
+ *         any of previous history by its number
  */
 public class HistoryRecall implements Command {
-  
+
   // set up command map with the names that run them for the method to use
   java.util.HashMap<String, String> commandMap;
-  
+
   /**
-   * recalls any of previous history by its number 
+   * recalls any of previous history by its number
    * 
    * @param fs The filesystem to excute commands
    * @param params The wanted command from history list numerical value
-   * @return An error if the wanted history value cannot be found, 
-   *         and if found output the desired commands output
+   * @return An error if the wanted history value cannot be found, and if found
+   *         output the desired commands output
    */
-  public String execute(data.FileSystem fs, String params) 
+  public String execute(data.FileSystem fs, String params)
       throws InvalidArgumentException {
     // Return string
     String commandreturnString = "";
@@ -35,7 +34,7 @@ public class HistoryRecall implements Command {
     // get the list of command history
     ArrayList<String> cmdNames = fs.getCommandHistory();
     String searchArg = argNames[0];
-    
+
     // try and test to see if argument given is a valid number
     // if no return error message
     try {
@@ -44,25 +43,25 @@ public class HistoryRecall implements Command {
     } catch (NumberFormatException e) {
       throw new InvalidArgumentException("Error - Invalid arguments.\n");
     }
-    
+
     int number = Integer.parseInt(searchArg);
-    
+
     // if argument is not with in the history list
-    if (number > cmdNames.size()){
+    if (number > cmdNames.size()) {
       // return error message
-      throw new 
-      InvalidArgumentException("Error - Method value not found in history.\n");
+      throw new InvalidArgumentException(
+          "Error - Method value not found in history.\n");
     }
     // if argument is with in the values for the history list
     // get the desired command entered at that time
-    else{
+    else {
       String reqMethod = cmdNames.get(number - 1);
 
       // add the recall of the command to the shell's history
       fs.addCommandToHistory(reqMethod);
       // split the input into command key name and command argument
       // using helper function splitInputIntoCommandAndParams
-      String [] exParams = 
+      String[] exParams =
           CommandHandler.splitInputIntoCommandAndParams(reqMethod);
       // use the parameters and call the desired command
       if (commandMap.containsKey(exParams[0])) {
@@ -85,9 +84,9 @@ public class HistoryRecall implements Command {
       // return output of the desired command
       return commandreturnString;
     }
-    
+
   }
-  
+
   /**
    * Populates the map of command keywords to command classes
    * 
@@ -115,5 +114,5 @@ public class HistoryRecall implements Command {
     commandMap.put("curl", "commands.Curl");
     return commandMap;
   }
-  
+
 }

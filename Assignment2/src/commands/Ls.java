@@ -82,7 +82,7 @@ public class Ls implements Command {
 
     return dirAndFil;
   }
-  
+
   /**
    * recursively calls the subdirectories of the directory
    * 
@@ -115,6 +115,7 @@ public class Ls implements Command {
     }
     return dirAndFil;
   }
+
   /**
    * check if path leads to directory
    * 
@@ -132,6 +133,7 @@ public class Ls implements Command {
     }
     return typeD;
   }
+
   /**
    * check if path leads to file
    * 
@@ -149,6 +151,7 @@ public class Ls implements Command {
     }
     return typeF;
   }
+
   /**
    * check if path leads to directory
    * 

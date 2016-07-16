@@ -5,9 +5,8 @@ import data.InvalidPathException;
 
 /**
  * 
- * @author Shajan Sivarjah
- * This class if for the Cat command and it 
- * Outputs the contents of desired text files
+ * @author Shajan Sivarjah This class if for the Cat command and it Outputs the
+ *         contents of desired text files
  */
 public class Cat implements Command {
   // error message string
@@ -15,15 +14,14 @@ public class Cat implements Command {
   String result = "";
 
   /**
-   * Outputs the contents of desired text files 
-   * (absolute path)
+   * Outputs the contents of desired text files (absolute path)
    * 
    * @param fs The filesystem in which to make the directory
    * @param params The list of file names to output (can be in a diff dir)
    * @return An error if a file cannot be found, and if found output the the
    *         content
    */
-  public String execute(data.FileSystem fs, String params) 
+  public String execute(data.FileSystem fs, String params)
       throws InvalidArgumentException {
     String argNames = params;
     // split the input string at every whitespace and store each word(filename)
@@ -33,7 +31,7 @@ public class Cat implements Command {
     // if no file names are given raise error message
     if (fileNames.length == 0) {
       throw new InvalidArgumentException("Error - File(s) not found.\n");
-      
+
     } else {
       // Obtain the object under path in fileSystem
       // If it's null then it would fall into the else block
@@ -42,7 +40,7 @@ public class Cat implements Command {
         // iterate through the file names given
         for (int file = 0; file < fileNames.length; file++) {
           // get the file contents for each file
-          if (fs.isFile(fileNames[file]) == true){
+          if (fs.isFile(fileNames[file]) == true) {
             String currentFile = fs.getFileContents(fileNames[file]);
             int length = fileNames.length;
             // add one new line break if its the last file
@@ -59,11 +57,10 @@ public class Cat implements Command {
             else {
               result = result.concat(currentFile) + "\n";
             }
-          }
-          else{
+          } else {
             // if file doesn't exist return error message on the specific file
-            System.out.println("Error - Invalid File #" 
-          + (file + 1) + ": " + fileNames[file]);
+            System.out.println(
+                "Error - Invalid File #" + (file + 1) + ": " + fileNames[file]);
           }
 
         }
@@ -71,7 +68,7 @@ public class Cat implements Command {
         // TODO Auto-generated catch block
         // raise error if file name given is not present
         throw new InvalidArgumentException("Error - File(s) not found.\n");
-        
+
       }
     }
     // return result

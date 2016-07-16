@@ -3,9 +3,8 @@ package commands;
 import data.InvalidArgumentException;
 
 /**
- * @author Kirill Lossev
- * The class for the history command, which returns previous commands
- * entered by the user
+ * @author Kirill Lossev The class for the history command, which returns
+ *         previous commands entered by the user
  */
 public class History implements Command {
 
@@ -18,7 +17,8 @@ public class History implements Command {
    * @return A list of the last n commands given to the filesystem
    * @throws InvalidArgumentException if the parameter is not a number.
    */
-  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException {
+  public String execute(data.FileSystem fs, String params)
+      throws InvalidArgumentException {
     // Create the result string
     String result = "";
     // Get the command history from the shell

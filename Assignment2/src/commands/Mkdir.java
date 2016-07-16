@@ -3,9 +3,8 @@ package commands;
 import data.InvalidArgumentException;
 
 /**
- * @author Kirill Lossev
- * The class for the mkdir command, which creates a new directory on the
- * filesystem.
+ * @author Kirill Lossev The class for the mkdir command, which creates a new
+ *         directory on the filesystem.
  */
 public class Mkdir implements Command {
 
@@ -17,16 +16,17 @@ public class Mkdir implements Command {
    * @return A newline on success
    * @throws InvalidArgumentException if creating a directory fails
    */
-  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException {
+  public String execute(data.FileSystem fs, String params)
+      throws InvalidArgumentException {
     // Get the list of directory names to make
     java.util.ArrayList<String> args = CommandHandler.getPaths(params);
     // Loop over the elements of the list,
     try {
       for (String dirToMake : args) {
         // Check if the name is valid. If not, throw an exception.
-        if (!nameIsValid(dirToMake)){
-          throw new data.InvalidArgumentException("Path contains illegal "
-              + "characters.\n");
+        if (!nameIsValid(dirToMake)) {
+          throw new data.InvalidArgumentException(
+              "Path contains illegal " + "characters.\n");
         }
         // If the string contains a slash, get the substring up to the last one
         // This is the parent directory
@@ -51,14 +51,14 @@ public class Mkdir implements Command {
     // If everything goes smoothly, return a newline
     return "\n";
   }
-  
-  private boolean nameIsValid(String name){
+
+  private boolean nameIsValid(String name) {
     boolean result = true;
     // The name is invalid if it contains special characters
     String[] specialChars = {"!", "@", "&", "*", "(", ")", "?", ":", "[", "]",
         "\"", "<", ">", "\'", "`", "|", "=", "{", "}", "\\", ",", ";"};
-    for (String specialChar : specialChars){
-      if (name.contains(specialChar)){
+    for (String specialChar : specialChars) {
+      if (name.contains(specialChar)) {
         result = false;
         break;
       }

@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /**
- * @author Kirill Lossev
- * An implementation of FileSystem to be used with JShell
+ * @author Kirill Lossev An implementation of FileSystem to be used with JShell
  */
 public class JFileSystem implements FileSystem {
 

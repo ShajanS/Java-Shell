@@ -41,7 +41,6 @@ import data.InvalidArgumentException;
  * The JShell, which allows a user to manipulate a file system by
  * typing in commands.
  */
-@SuppressWarnings("unused")
 public class JShell { 
 
   // The filesystem to use
@@ -76,6 +75,7 @@ public class JShell {
       // Trim the input string
       String inputString = in.nextLine().trim();
       // Add the input to the command history
+      // if input starts with "!" disregard adding the input to history
       if (inputString.startsWith("!")) {
       }
       else{
@@ -94,6 +94,8 @@ public class JShell {
         splitInput[0] = "!";
         splitInput[1] = parts[1];
         if (splitInput[1].startsWith(" ") == true){
+          // if a the user input starts with ! followed by an invalid argument
+          // set params to create and error message 
           fs.addCommandToHistory(inputString);
           splitInput[1] = "unkown";
           splitInput[0] = "unknow";
@@ -194,17 +196,6 @@ public class JShell {
     // Put these pieces in an array and return them
     String[] result = {firstToken, params};
     return result;
-  }
-
-  private static boolean whiteSpaceCheck(String inputPart){
-    if(inputPart != null){
-      for(int i = 0; i < inputPart.length(); i++){
-        if(Character.isWhitespace(inputPart.charAt(i))){
-          return true;
-        } 
-      }
-    }
-    return false;
   }
 
   /**

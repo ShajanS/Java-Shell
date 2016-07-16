@@ -2,6 +2,14 @@ package commands;
 
 import java.util.Hashtable;
 
+import data.InvalidArgumentException;
+
+/**
+ * 
+ * @author Shajan Sivarajah
+ * This class is for the Man command and 
+ * it Outputs man pages(documentation) for the desired command
+ */
 public class Man implements Command {
   /**
    * Outputs man pages(documentation) for the desired command
@@ -11,7 +19,7 @@ public class Man implements Command {
    * @return An error if the command cannot be found, and if found output the
    *         documentation
    */
-  public String execute(data.FileSystem fs, String params) {
+  public String execute(data.FileSystem fs, String params) throws InvalidArgumentException{
     params = params.trim();
     String result = "";
     // Formating of the output result
@@ -21,19 +29,19 @@ public class Man implements Command {
     }
     // if no arguments are given raise error
     else {
-      result = ("Invalid Arguments\n");
+      throw new InvalidArgumentException("Error - Invalid arguments.\n");
     }
 
     return result;
   }
 
-  // Create a hashtable to store all the documentation linked to each command
+  // Create a hashmap to store all the documentation linked to each command
   private Hashtable<String, String> cmdman = new Hashtable<String, String>();
 
   /**
    * Hashtable holding all documentation linked to each command
    */
-  // populate the hashtable will the commands
+  // populate the hashmap will the commands
   public Man() {
     // exit command
     cmdman.put("exit", "\n\texits the program");

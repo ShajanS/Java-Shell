@@ -1,6 +1,9 @@
 package commands;
 
+import java.util.ArrayList;
+import java.util.List;
 import data.Directory;
+import data.InvalidArgumentException;
 import data.InvalidPathException;
 
 public class Ls implements Command {
@@ -12,45 +15,71 @@ public class Ls implements Command {
    * @param params The path of the directory or file
    * @return the formatted string, or an error if the directory or file cannot
    *         be found
+   * @throws InvalidArgumentException
    */
-  public String execute(data.FileSystem fs, String params) {
+  public String execute(data.FileSystem fs, String params)
+      throws InvalidArgumentException {
     String result = "\n";
+    List<String> temp = test(fs, params);
+    for (String apple : temp) {
+      result += apple + "\n";
+    }
+    return result;
+
+  }
+
+  public List<String> test(data.FileSystem fs, String params)
+      throws InvalidArgumentException {
+    List<String> dirAndFil = new ArrayList<>();
     if (params.isEmpty()) {
-      result = runWithoutParams(fs);
+      dirAndFil.addAll(runWithoutParams(fs));
     } else {
-      String [] param = params.split("\\s+");
-      if (param.length == 1) {
-        if (!checkParamsForR(param[0])) {
+      String[] param = params.split("\\s+");
+      if (!checkParamsForR(param[0])) {
+        if (param.length == 1) {
           if (checkIfDirectory(fs, param[0])) {
-            result += runWithParams(fs, param[0]);
+            dirAndFil.addAll(runWithParams(fs, param[0]));
           } else if (checkIfFile(fs, params)) {
-            result += getLastElement(param[0]);
-          } else {
-            return "\n Error: No such path exists\n";
-          }
-        } else if (checkParamsForR(param[0])) {
-          //RECURSIVE PART HERE
-            
-          
-        }
-      } else if (param.length > 1) {
-        if (!checkParamsForR(param[0])) {
-          for (String par : param) {
-            result += execute(fs, par);
+            dirAndFil.add(getLastElement(param[0]));
           }
         } else {
           for (String par : param) {
-            if (par != param[0]) {
-              result += execute(fs, "-r" + par);
-            }
+            dirAndFil.addAll(test(fs, par));
           }
-        } 
+        }
+      } else {
+        if (param.length == 2) {
+          
+        } else {
+          for (String par : param) {
+            if (par != param[0])
+            dirAndFil.addAll(test(fs, "-r" + par));
+          }
+        }
+
       }
     }
-    
-    
-    return result + "\n";
+
+
+    return dirAndFil;
   }
+
+  /*
+   * public List <String> test(data.FileSystem fs, String params) throws
+   * InvalidArgumentException { List <String> dirAndFil = new ArrayList<>(); if
+   * (params.isEmpty()) { dirAndFil.addAll(runWithoutParams(fs)); } else {
+   * String [] param = params.split("\\s+"); if (param.length == 1) { if
+   * (!checkParamsForR(param[0])) { if (checkIfDirectory(fs, param[0])) {
+   * dirAndFil.addAll(runWithParams(fs, param[0])); } else if (checkIfFile(fs,
+   * params)) { dirAndFil.add(getLastElement(param[0])); } else if
+   * (checkParamsForR(param[0])) { } } else if (param.length > 1) { if
+   * (!checkParamsForR(param[0])) { for (String par : param) {
+   * dirAndFil.addAll(test(fs, par)); } } else { for (String par : param) { if
+   * (par != param[0]) { dirAndFil.addAll(test(fs, "-r" + par)); } } } } } }
+   * return dirAndFil; }
+   */
+
+
 
   private boolean checkIfDirectory(data.FileSystem fs, String path) {
     boolean typeD = true;
@@ -91,8 +120,10 @@ public class Ls implements Command {
    * @param fs The filesystem
    * @param params The path of the directory
    * @return The formatted string or, an error if the directory cannot be found
+   * @throws InvalidArgumentException
    */
-  private String runWithoutParams(data.FileSystem fs) {
+  private List<String> runWithoutParams(data.FileSystem fs)
+      throws InvalidArgumentException {
     // get current directory's path into string
     String path = fs.getCurrentDirectoryPath();
     // function that formats the directory at given path
@@ -105,8 +136,10 @@ public class Ls implements Command {
    * @param fs The filesystem
    * @param params The path of the directory
    * @return The formatted string or, an error if the directory cannot be found
+   * @throws InvalidArgumentException
    */
-  private String runWithParams(data.FileSystem fs, String params) {
+  private List<String> runWithParams(data.FileSystem fs, String params)
+      throws InvalidArgumentException {
     return getFormattedContents(fs, params);
   }
 
@@ -116,9 +149,11 @@ public class Ls implements Command {
    * @param fs The filesystem
    * @param path the path of the specified directory
    * @return The formatted string or, an error if the directory cannot be found
+   * @throws InvalidArgumentException
    */
-  private String getFormattedContents(data.FileSystem fs, String path) {
-    String result = "\n";
+  private List<String> getFormattedContents(data.FileSystem fs, String path)
+      throws InvalidArgumentException {
+    List<String> result = new ArrayList<>();
     // to catch any errors in path or type of path
     try {
       // get directory object
@@ -127,10 +162,11 @@ public class Ls implements Command {
       String[] contents = d.getContents();
       // add them to the string
       for (String element : contents) {
-        result += element + "\n";
+        result.add(element);
       }
-    } catch (InvalidPathException e) {
-      result = "Error - Directory does not exist\n";
+    } catch (data.InvalidPathException e) {
+      // If an exception is thrown, return an error
+      throw new data.InvalidArgumentException("Error - invalid path\n");
     }
     return result;
   }

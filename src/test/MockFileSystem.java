@@ -3,12 +3,14 @@ package test;
 import java.util.ArrayList;
 
 import data.Directory;
+import data.File;
 import data.FileSystem;
 import data.InvalidPathException;
 
 public class MockFileSystem implements FileSystem {
 
   public java.util.HashMap<String, Directory> directories;
+  public java.util.HashMap<String, String> files;
   public ArrayList<String> commandHistory;
   public java.util.Stack<String> dirStack;
 
@@ -22,6 +24,7 @@ public class MockFileSystem implements FileSystem {
     directories = new java.util.HashMap<String, Directory>();
     // There should be a directory with a blank name, acting as the root dir
     directories.put("", new data.Directory(""));
+    files = new java.util.HashMap<String, String>();
     commandHistory = new ArrayList<String>();
     dirStack = new java.util.Stack<String>();
     currDir = "";
@@ -89,7 +92,7 @@ public class MockFileSystem implements FileSystem {
   @Override
   public String getFileContents(String path) throws InvalidPathException {
     // If given a valid path (the string "VALID PATH"), return some sting
-    if (path.equals("VALID PATH")) {
+    if (files.containsKey(path)) {
       return "A winner is you!";
     } else {
       // Otherwise, throw an exception
@@ -153,6 +156,30 @@ public class MockFileSystem implements FileSystem {
   @Override
   public String popFromDirStack() {
     return dirStack.pop();
+  }
+
+  @Override
+  public File getFile(String path) throws InvalidPathException {
+    // If a file with this name exists, return a file with the
+    // same contents
+    if (files.containsKey(path)){
+      return new data.File(path, null, files.get(path));
+    } else{
+    // If not, throw the exception
+      throw new InvalidPathException();
+    }
+  }
+
+  @Override
+  public boolean isDirectory(String path) throws InvalidPathException {
+    // If the path is in the directory list, return true. If not, return false
+    return directories.containsKey(path);
+  }
+
+  @Override
+  public boolean isFile(String path) throws InvalidPathException {
+    // If the path is in the file list, return true. If not, return false
+    return files.containsKey(path);
   }
 
 }

@@ -3,13 +3,23 @@ package test;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import data.InvalidArgumentException;
+
 import org.junit.Before;
 
+/**
+ * @author Kirill Lossev
+ * Test cases for the history command
+ */
 public class HistoryTest {
 
   commands.History history = new commands.History();
   MockFileSystem fs;
 
+  /**
+   * Setup method, creates a mockfilesystem and adds some history data to it
+   */
   @Before
   public void setUp() {
     // Create a new filesystem
@@ -21,19 +31,46 @@ public class HistoryTest {
   }
 
   @Test
-  public void testExecute() {
+  public void testExecuteWithIntegers() {
+    // None of these should cause errors
     // When given a blank parameter, all commands should be returned
-    assertEquals(history.execute(fs, ""), "1. first\n2. second\n3. third\n");
+    try {
+      assertEquals(history.execute(fs, ""), "1. first\n2. second\n3. third\n");
+    } catch (InvalidArgumentException e) {
+      fail("Error with no parameter");
+    }
     // When given an integer n less than the size of the history, only the last
     // n commands should be returned
-    assertEquals(history.execute(fs, "2"), "2. second\n3. third\n");
+    try {
+      assertEquals(history.execute(fs, "2"), "2. second\n3. third\n");
+    } catch (InvalidArgumentException e) {
+      fail("Error with parameter < history length");
+    }
     // When given an integer n greater than the size of the history, all the
     // commands should be returned
-    assertEquals(history.execute(fs, "4"), "1. first\n2. second\n3. third\n");
+    try {
+      assertEquals(history.execute(fs, "4"), "1. first\n2. second\n3. third\n");
+    } catch (InvalidArgumentException e) {
+      fail("Error with parameter > history length");
+    }
+  }
+  
+  @Test
+  public void testExecuteWithNonIntegers(){
     // When given a parameter which is not an integer, an error should be
     // returned
-    assertEquals(history.execute(fs, "3.14"), "Error - Invalid Parameter\n");
-    assertEquals(history.execute(fs, "hello"), "Error - Invalid Parameter\n");
+    try {
+      history.execute(fs, "3.14");
+      fail("Float not causing error");
+    } catch (InvalidArgumentException e) {
+      assertEquals(e.getMessage(), "Error - Invalid Parameter\n");
+    }
+    try {
+      history.execute(fs, "hello");
+      fail("String not causing error");
+    } catch (InvalidArgumentException e) {
+      assertEquals(e.getMessage(), "Error - Invalid Parameter\n");
+    }
   }
 
 }

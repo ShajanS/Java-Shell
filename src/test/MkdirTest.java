@@ -7,6 +7,8 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
+import data.InvalidArgumentException;
+
 public class MkdirTest {
 
   commands.Mkdir mkdir = new commands.Mkdir();
@@ -25,7 +27,11 @@ public class MkdirTest {
   @Test
   public void testMakeWithRelativePath() {
     // Mkdir with a string without slashes should return a newline
-    assertEquals(mkdir.execute(fs, "testA"), "\n");
+    try {
+      assertEquals(mkdir.execute(fs, "testA"), "\n");
+    } catch (InvalidArgumentException e1) {
+      fail("Failure when creating a valid new directory");
+    }
     // The filesystem's current directory (root) should have a directory with
     // that name inside.
     try {
@@ -42,7 +48,7 @@ public class MkdirTest {
       } catch (data.InvalidPathException e) {
         fail("Second test directory was not created");
       }
-    } catch (data.InvalidPathException e) {
+    } catch (data.InvalidPathException | InvalidArgumentException e) {
       fail("First test directory was not created");
     }
   }
@@ -54,7 +60,11 @@ public class MkdirTest {
     // Try to have mkdir create a directory immediately inside root
     // It should return a newline, and there should be a directory
     // with the given name inside root
-    assertEquals(mkdir.execute(fs, "/testA"), "\n");
+    try {
+      assertEquals(mkdir.execute(fs, "/testA"), "\n");
+    } catch (InvalidArgumentException e1) {
+      fail("Failure when creating dir with absolute path");
+    }
     try {
       data.Directory dirA = fs.directories.get("").getDirectory("testA");
       // Add an entry for that directory in the MFS
@@ -68,7 +78,7 @@ public class MkdirTest {
       } catch (data.InvalidPathException e) {
         fail("Second test directory was not created");
       }
-    } catch (data.InvalidPathException e) {
+    } catch (data.InvalidPathException | InvalidArgumentException e) {
       fail("First test directory was not created");
     }
 
@@ -82,7 +92,11 @@ public class MkdirTest {
     // using .. to go up to root
     // It should return a newline, and there should be a directory
     // with the given name inside root
-    assertEquals(mkdir.execute(fs, "../testA"), "\n");
+    try {
+      assertEquals(mkdir.execute(fs, "../testA"), "\n");
+    } catch (InvalidArgumentException e1) {
+      fail("Failure when creating directory in parent");
+    }
     try {
       fs.directories.get("").getDirectory("testA");
     } catch (data.InvalidPathException e) {
@@ -96,7 +110,11 @@ public class MkdirTest {
     // Try to create a directory inside a nonexistent directory
     // Mkdir should return an error message, and neither root nor
     // testdir should have any directories within them
-    assertEquals(mkdir.execute(fs, "doesnt/exist"), "Error - invalid path\n");
+    try {
+      mkdir.execute(fs, "doesnt/exist");
+    } catch (InvalidArgumentException e) {
+      assertEquals(e.getMessage(), "Error - invalid path\n");
+    }
     assertTrue(
         Arrays.equals(fs.directories.get("").getContents(), new String[0]));
     assertTrue(Arrays.equals(fs.directories.get("testdir").getContents(),

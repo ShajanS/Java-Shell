@@ -132,7 +132,14 @@ public class Ls implements Command {
     }
     return typeD;
   }
-
+  /**
+   * check if path leads to file
+   * 
+   * @param fs The filesystem
+   * @param params The path of the directory or file
+   * @return wether or not the path is a file (t/f)
+   * @throws InvalidPathException
+   */
   private boolean checkIfFile(data.FileSystem fs, String path) {
     boolean typeF = true;
     try {
@@ -142,7 +149,12 @@ public class Ls implements Command {
     }
     return typeF;
   }
-
+  /**
+   * check if path leads to directory
+   * 
+   * @param params The path of the directory or file
+   * @return gets last element in path
+   */
   private String getLastElement(String path) {
     String result = path.substring(path.lastIndexOf('/') + 1);
     return result;

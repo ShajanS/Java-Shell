@@ -10,8 +10,7 @@ import org.junit.Test;
 import data.InvalidArgumentException;
 
 /**
- * @author Kirill Lossev
- * Testing the mkdir command
+ * @author Kirill Lossev Testing the mkdir command
  */
 public class MkdirTest {
 
@@ -22,7 +21,7 @@ public class MkdirTest {
    * Sets up the test by creating a mockfilesystem containing a directory
    */
   @Before
-  public void setUp(){
+  public void setUp() {
     // Create a new MFS and give it a new, empty directory whose parent is
     // the root (empty named) directory
     fs = new MockFileSystem();

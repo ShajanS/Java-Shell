@@ -9,8 +9,7 @@ import data.InvalidArgumentException;
 import org.junit.Before;
 
 /**
- * @author Kirill Lossev
- * Test cases for the history command
+ * @author Kirill Lossev Test cases for the history command
  */
 public class HistoryTest {
 
@@ -57,12 +56,12 @@ public class HistoryTest {
       fail("Error with parameter > history length");
     }
   }
-  
+
   /**
    * Test the method when given a non-integer
    */
   @Test
-  public void testExecuteWithNonIntegers(){
+  public void testExecuteWithNonIntegers() {
     // When given a parameter which is not an integer, an error should be
     // returned
     try {

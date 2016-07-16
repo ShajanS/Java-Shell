@@ -35,10 +35,10 @@ import commands.Command;
 import data.InvalidArgumentException;
 
 /**
- * The JShell, which allows a user to manipulate a file system by
- * typing in commands.
+ * The JShell, which allows a user to manipulate a file system by typing in
+ * commands.
  */
-public class JShell { 
+public class JShell {
 
   // The filesystem to use
   private data.FileSystem fs;
@@ -61,21 +61,21 @@ public class JShell {
     // Populate the command map
     commandMap = populateCommandMap();
   }
-  
+
   /**
    * Takes input from some source and attempts to run it as a command
+   * 
    * @param inputString
    */
-  public void takeInput(String inputString){
-    String outputString;  
+  public void takeInput(String inputString) {
+    String outputString;
     // Get input from the user
     // Trim the input string
     inputString = inputString.trim();
     // Add the input to the command history
     // if input starts with "!" disregard adding the input to history
     if (inputString.startsWith("!")) {
-    }
-    else{
+    } else {
       fs.addCommandToHistory(inputString);
     }
     // Split the input into the command and parameters
@@ -83,22 +83,22 @@ public class JShell {
     // Give the parameters to the command handler to determine where its
     // output should go
     splitInput[1] = ch.determineOutputDirection(splitInput[1]);
-    
+
     // Regex for !number method
     // If user input starts with a !
-    if (inputString.startsWith("!")){
-      String [] parts = inputString.split("!");
+    if (inputString.startsWith("!")) {
+      String[] parts = inputString.split("!");
       splitInput[0] = "!";
       splitInput[1] = parts[1];
-      if (splitInput[1].startsWith(" ") == true){
+      if (splitInput[1].startsWith(" ") == true) {
         // if a the user input starts with ! followed by an invalid argument
-        // set params to create and error message 
+        // set params to create and error message
         fs.addCommandToHistory(inputString);
         splitInput[1] = "unkown";
         splitInput[0] = "unknow";
       }
     }
-    
+
     // If the command is in the command map, return its output with the
     // parameters given as its parameter
     if (commandMap.containsKey(splitInput[0])) {
@@ -132,7 +132,7 @@ public class JShell {
     } else {
       // If not, print an error message.
       System.out.println(
-          "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n");      
+          "ERROR: Invalid Command Name -> " + "'" + inputString + "'" + "\n");
     }
   }
 
@@ -190,16 +190,16 @@ public class JShell {
   }
 
   /**
-   * The main function for JShell and the entry point into the program,
-   * creates a new JShell and gives it input through a scanner until the
-   * exit command is used
+   * The main function for JShell and the entry point into the program, creates
+   * a new JShell and gives it input through a scanner until the exit command is
+   * used
    * 
    * @param args Command-line arguments
    */
   public static void main(String[] args) {
     JShell shell = new JShell();
     Scanner in = new Scanner(System.in);
-    while (shell.continueLoop){
+    while (shell.continueLoop) {
       shell.takeInput(in.nextLine());
     }
     in.close();

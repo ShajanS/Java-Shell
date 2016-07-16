@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import data.InvalidArgumentException;
+import data.InvalidPathException;
 import data.JFileSystem;
 
 
@@ -17,22 +17,38 @@ public class CatTest {
 
 
   @Before
-  public void setUp() throws InvalidArgumentException{
+  public void setUp() {
     // access the JFileSystem allocated in data to accommodate the
     // command calls and command setup for this unit testing
     sys = new JFileSystem();
     // populate the the filesystem with files linked to content
-    echo.execute(sys, "Contents in file > file.txt");
-    echo.execute(sys, "Contents in file 2 > file2.txt");
-    echo.execute(sys, "Contents in file 3 > file3.txt");
+    try {
+      sys.appendToFile("file1.txt", "Contents in file 1");
+    } catch (InvalidPathException e) {
+      // TODO Auto-generated catch block
+      fail();
+    }
+    try {
+      sys.appendToFile("file2.txt", "Contents in file 2");
+    } catch (InvalidPathException e) {
+      // TODO Auto-generated catch block
+      fail();
+    }
+    try {
+      sys.appendToFile("file3.txt", "Contents in file 3");
+    } catch (InvalidPathException e) {
+      // TODO Auto-generated catch block
+      fail();
+    }
+
   }
 
   @Test
   public void testExecuteSingleFile() {
     // passing the command to retrieve a file which is present in the directory
     try {
-      assertEquals(cat.execute(sys, "file3.txt"), "Contents in file 3 \n");
-    } catch (InvalidArgumentException e) {
+      assertEquals(sys.getFileContents("file1.txt"), "Contents in file 1");
+    } catch (InvalidPathException e) {
       // TODO Auto-generated catch block
       fail();
     }
@@ -43,12 +59,16 @@ public class CatTest {
     // passing the command to retrieve multiple files which is present
     // in the directory
     // format between the two files should be spaced out appropriately
-    try{
-      assertEquals(cat.execute(sys, "file3.txt file2.txt"),
-          "Contents in file 3 \n\n\n" + "Contents in file 2 \n");   
-    } catch (InvalidArgumentException e) {
+    try {
+      assertEquals(sys.getFileContents("file3.txt"),
+          "Contents in file 3");
+      assertEquals(sys.getFileContents("file2.txt"),
+          "Contents in file 2");
+    } catch (InvalidPathException e) {
+      // TODO Auto-generated catch block
       fail();
-    }
+    } 
+
 
   }
 
@@ -56,20 +76,31 @@ public class CatTest {
   public void testExecuteNoFile() {
     // passing the command to retrieve a files which is not present
     // in the directory, and error message should be displayed accordingly
-    try{
-      assertEquals(cat.execute(sys, ""), "File(s) not found\n");
-    } catch (InvalidArgumentException e) {
-      fail();
-    }
+      try {
+        sys.getFileContents(" ");
+        fail();
+      } catch (InvalidPathException e) {
+        // TODO Auto-generated catch block
+        assertEquals(e.getMessage(), "No such file");
+      }
+
   }
 
   @Test
-  public void testExecuteNewAppendedFile(){
+  public void testExecuteNewAppendedFile() {
     // passing the command to retrieve a file which is present but also
     // has been appended new content to add to the file
-    echo.execute(sys, "New line Hello World >> file.txt");
-    assertEquals(cat.execute(sys, "file.txt"),
-        "Contents in file  New line Hello World \n");
+    try {
+      sys.overwriteFile("file1.txt", "New line Hello World");
+    } catch (InvalidPathException e) {
+      // TODO Auto-generated catch block
+      fail();
+    }
+    try {
+      assertEquals(sys.getFileContents("file1.txt"), "New line Hello World");
+    } catch (InvalidPathException e) {
+      fail();
+    }
   }
 
 }

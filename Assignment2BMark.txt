@@ -1,0 +1,123 @@
+==== A2 phase II marking ====
+
+Group number: 0309
+UTORID usernames of members: kabaniza, lossevki, odurilak, sivara57
+TA: Akshay Nair <akshay.nair@mail.utoronto.ca>
+
+Total deductions: 3 (Grade: B+)
+
+Mark distribution:
+kubaniza: -1 (not completing CATME) (Grade: B)
+lossevki: (Grade: B+)
+odurilak: (Grade: B+)
+sivara57: (Grade: B+)
+
+============================
+
+Your team's Phase II grade is based on this scale:
+
+    http://www.artsandscience.utoronto.ca/ofr/calendar/rules.htm#grading
+
+The way we graded is as follows: your team starts with an A+. When errors and
+problems are found, you will lose 0, 1, 2, or 3 letter steps, depending on the
+severity. As an example, if you lost two steps, your team would earn an A-:
+
+     A+ -> A
+     A -> A-
+
+==== Product and Sprint backlogs ==== [up to -6]
+
+Mark: 0
+
+Mark reductions: None
+
+Other comments:
+- Better than before.
+
+==== Java Style ==== [not counted in mark]
+
+Mark: 0
+
+Mark reductions: None
+
+Positive feedback:
+- I like how you split up the packages.
+
+==== Design ==== [not counted in mark]
+
+Mark: -0.5
+
+Mark reductions:
+- You have command hash tables in three different places (Man, Recall, JShell). You should really only have one. (-0.5)
+
+Positive feedback:
+- Same as 2A
+- Good job on improving.
+
+Other comments:
+- Same as 2A. You should really consider these.
+
+==== Javadoc ==== [not counted in mark]
+
+Mark: -2
+
+Mark reductions:
+- Missing Javadoc on some classes (-0.5)
+- Many methods are missing Javadoc (-1.5)
+
+==== Testing ==== [up to -6] 
+
+Mark: 0
+
+Mark reductions: None
+
+Positive feedback:
+- Very thorough now.
+
+==== Correctness ==== [up to -6]
+
+Mark: -3
+
+Mark reductions:
+- Doesn't compile on lab machines, fix is simple. (-0.5)
+- "ls -R" throws an error when a file is in the system. (-0.5)
+- "cp", "mv" not implemented, though the code is there (-0.5)
+
+Test cases:
+  The weighing of test cases are done in the following way:
+    70% for Assignment2B test cases (27 test cases are 2B)
+    30% for Assignment2A test cases (13 test cases are 2A)
+  Every 0.08 deduction in failed test cases amounts to one deduction.
+
+Failed test cases (((1/13 * 0.3) + (4/27 * 0.7)) / 0.08 = 1.5):
+
+1) Making a directory with invalid name (2A)
+    > mkdir “Hello” Hello$ .
+    > ls
+    Expected: “Hello”, Hello$ and . should not be created since they use special characters.
+    Actual: All are created.
+
+2) Listing multiple files (2B)
+    > ls file.txt /new3/ . new -R
+    Expected: Print file.txt, an error for invalid directory, the current directory contents and the contents of new. Then -R should give an error (as stated in the handout)
+    Actual: Infinite loop.
+
+3) Invalid truncating of !number (2B)
+    > !1000000 > errfile
+    > !0 >> errfile
+    > cat errfile
+    Expected: It shouldn’t crash the program, preferably should show an error TO CONSOLE (errfile should not be created)
+    Actual: !0 crashes.
+
+4) Invalid regex (2B)
+    > grep git[a-z]* /github.txt
+    Expected: It should throw an error since the regex was not enclosed in double quotes.
+    Actual: Accepts it.
+
+5) Man with !number (2B)
+    > man !2
+    Expected: It should pull up the man page of popd.
+    Actual: Error.
+
+Other comments:
+- See my 2A comments here. It still applies. Your constructor in File is wrong.

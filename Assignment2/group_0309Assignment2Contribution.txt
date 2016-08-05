@@ -3,16 +3,24 @@
 
 
 PART 1) +++SVN CHECKOUT ON YOUR ASSIGNMENT1+++
+A    Assignment2/.settings
+A    Assignment2/.settings/org.eclipse.jdt.core.prefs
+A    Assignment2/.classpath
+A    Assignment2/group_0309Assignment2Contribution.txt
+A    Assignment2/sprints
+A    Assignment2/sprints/Sprint1Backlog.txt
+A    Assignment2/sprints/Sprint2Backlog.txt
+A    Assignment2/sprints/Sprint3Backlog.txt
+A    Assignment2/sprints/Sprint4Backlog.txt
+A    Assignment2/sprints/Sprint5Backlog.txt
+A    Assignment2/sprints/readMeSprints.txt
+A    Assignment2/productBacklog
+A    Assignment2/productBacklog/productBacklogFor2A.txt
+A    Assignment2/productBacklog/productBacklogFor2B.txt
+A    Assignment2/productBacklog/readMeProductBacklog.txt
+A    Assignment2/.project
+A    Assignment2/Assignment2AMark.txt
 A    Assignment2/crcCards
-A    Assignment2/crcCards/MockFileSystem.txt
-A    Assignment2/crcCards/JFileSystem.txt
-A    Assignment2/crcCards/History.txt
-A    Assignment2/crcCards/Directory.txt
-A    Assignment2/crcCards/ExceptionInvalidCommand.txt
-A    Assignment2/crcCards/Mkdir.txt
-A    Assignment2/crcCards/Cat.txt
-A    Assignment2/crcCards/ExceptionInvalidArgument.txt
-A    Assignment2/crcCards/readMeForCrcCards.txt
 A    Assignment2/crcCards/Man.txt
 A    Assignment2/crcCards/Command.txt
 A    Assignment2/crcCards/Echo.txt
@@ -23,77 +31,346 @@ A    Assignment2/crcCards/Pushd.txt
 A    Assignment2/crcCards/FileSystem.txt
 A    Assignment2/crcCards/Cd.txt
 A    Assignment2/crcCards/Pwd.txt
+A    Assignment2/crcCards/Grep.txt
+A    Assignment2/crcCards/JFileSystem.txt
+A    Assignment2/crcCards/CommandHandler
+A    Assignment2/crcCards/MockFileSystem.txt
+A    Assignment2/crcCards/History.txt
+A    Assignment2/crcCards/Directory.txt
+A    Assignment2/crcCards/ExceptionInvalidCommand.txt
+A    Assignment2/crcCards/Curl.txt
+A    Assignment2/crcCards/Mkdir.txt
+A    Assignment2/crcCards/Cat.txt
+A    Assignment2/crcCards/ExceptionInvalidArgument.txt
+A    Assignment2/crcCards/readMeForCrcCards.txt
 A    Assignment2/readMeAssignment2A.txt
 A    Assignment2/src
+A    Assignment2/src/data
+A    Assignment2/src/data/InvalidPathException.java
+A    Assignment2/src/data/Directory.java
+A    Assignment2/src/data/FileSystem.java
+A    Assignment2/src/data/InvalidCommandException.java
+A    Assignment2/src/data/InvalidArgumentException.java
+A    Assignment2/src/data/JFileSystem.java
+A    Assignment2/src/data/File.java
+A    Assignment2/src/driver
+A    Assignment2/src/driver/JShell.java
 A    Assignment2/src/test
+A    Assignment2/src/test/PushdTest.java
+A    Assignment2/src/test/CurlTest.java
+A    Assignment2/src/test/CdTest.java
+A    Assignment2/src/test/MkdirTest.java
+A    Assignment2/src/test/CatTest.java
 A    Assignment2/src/test/PwdTest.java
 A    Assignment2/src/test/ManTest.java
+A    Assignment2/src/test/GrepTest.java
 A    Assignment2/src/test/EchoTest.java
 A    Assignment2/src/test/LsTest.java
 A    Assignment2/src/test/MockFileSystem.java
 A    Assignment2/src/test/HistoryTest.java
 A    Assignment2/src/test/PopdTest.java
-A    Assignment2/src/test/PushdTest.java
-A    Assignment2/src/test/CdTest.java
-A    Assignment2/src/test/MkdirTest.java
-A    Assignment2/src/test/CatTest.java
 A    Assignment2/src/commands
-A    Assignment2/src/commands/Cd.java
+A    Assignment2/src/commands/History.java
+A    Assignment2/src/commands/Recall.java
+A    Assignment2/src/commands/Cp.java
+A    Assignment2/src/commands/Popd.java
+A    Assignment2/src/commands/Curl.java
 A    Assignment2/src/commands/Mkdir.java
 A    Assignment2/src/commands/Cat.java
-A    Assignment2/src/commands/Pwd.java
 A    Assignment2/src/commands/Man.java
+A    Assignment2/src/commands/CommandHandler.java
 A    Assignment2/src/commands/Command.java
 A    Assignment2/src/commands/Echo.java
 A    Assignment2/src/commands/Ls.java
-A    Assignment2/src/commands/History.java
-A    Assignment2/src/commands/Popd.java
+A    Assignment2/src/commands/Mv.java
 A    Assignment2/src/commands/Pushd.java
-A    Assignment2/src/data
-A    Assignment2/src/data/InvalidArgumentException.java
-A    Assignment2/src/data/JFileSystem.java
-A    Assignment2/src/data/File.java
-A    Assignment2/src/data/InvalidPathException.java
-A    Assignment2/src/data/Directory.java
-A    Assignment2/src/data/FileSystem.java
-A    Assignment2/src/data/InvalidCommandException.java
-A    Assignment2/src/driver
-A    Assignment2/src/driver/JShell.java
+A    Assignment2/src/commands/HistoryRecall.java
+A    Assignment2/src/commands/Cd.java
+A    Assignment2/src/commands/Pwd.java
+A    Assignment2/src/commands/Grep.java
 A    Assignment2/dailyScrumMeetings
+A    Assignment2/dailyScrumMeetings/lossevkiSprint1June10.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint1June10.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint4July13.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint4July04.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint1June13.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint1June13.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint3June22.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint3June22.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint2June16.txt
+A    Assignment2/dailyScrumMeetings/odurilakSprint4July09.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint3June26.txt
 A    Assignment2/dailyScrumMeetings/sivara57Sprint3June25.txt
 A    Assignment2/dailyScrumMeetings/lossevkiSprint2June19.txt
 A    Assignment2/dailyScrumMeetings/sivara57Sprint3June26.txt
 A    Assignment2/dailyScrumMeetings/odurilakSprint1June10.txt
-A    Assignment2/dailyScrumMeetings/sivara57Sprint2June19.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint4July8.txt
 A    Assignment2/dailyScrumMeetings/kabanizaSprinjune10.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint2June19.txt
 A    Assignment2/dailyScrumMeetings/odurilakSprint1June13.txt
 A    Assignment2/dailyScrumMeetings/odurilakSprint3June22.txt
 A    Assignment2/dailyScrumMeetings/odurilakSprint2June16.txt
-A    Assignment2/dailyScrumMeetings/readMeDailyScrumMeetings.txt
 A    Assignment2/dailyScrumMeetings/odurilakSprint3June25.txt
+A    Assignment2/dailyScrumMeetings/readMeDailyScrumMeetings.txt
 A    Assignment2/dailyScrumMeetings/odurilakSprint2June19.txt
-A    Assignment2/dailyScrumMeetings/lossevkiSprint1June10.txt
-A    Assignment2/dailyScrumMeetings/sivara57Sprint1June10.txt
-A    Assignment2/dailyScrumMeetings/lossevkiSprint1June13.txt
-A    Assignment2/dailyScrumMeetings/lossevkiSprint3June22.txt
-A    Assignment2/dailyScrumMeetings/sivara57Sprint1June13.txt
-A    Assignment2/dailyScrumMeetings/sivara57Sprint3June22.txt
-A    Assignment2/dailyScrumMeetings/lossevkiSprint2June16.txt
-A    Assignment2/dailyScrumMeetings/lossevkiSprint3June26.txt
-A    Assignment2/sprints
-A    Assignment2/sprints/readMeSprints.txt
-A    Assignment2/sprints/Sprint1Backlog.txt
-A    Assignment2/sprints/Sprint2Backlog.txt
-A    Assignment2/sprints/Sprint3Backlog.txt
-A    Assignment2/productBacklog
-A    Assignment2/productBacklog/productBacklogFor2A.txt
-A    Assignment2/productBacklog/readMeProductBacklog.txt
-Checked out revision 152.
+A    Assignment2/dailyScrumMeetings/lossevkiSprint4July11.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint4July10.txt
+A    Assignment2/dailyScrumMeetings/lossevkiSprint4July04.txt
+A    Assignment2/dailyScrumMeetings/sivara57Sprint4July04.txt
+Checked out revision 213.
 
 
 
 PART 2) +++SVN COMMIT LOGS ARE+++
 Marks Deductions here (-.5 max): 
+------------------------------------------------------------------------
+r213 | kabaniza@UTORONTO.CA | 2016-07-15 23:59:54 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added class javadoc
+------------------------------------------------------------------------
+r212 | sivara57@UTORONTO.CA | 2016-07-15 23:55:35 -0400 (Fri, 15 Jul 2016) | 1 line
+
+formated google doc req
+------------------------------------------------------------------------
+r211 | lossevki@UTORONTO.CA | 2016-07-15 23:54:45 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Minor bug fixes in lstest, though it is not completely fixed
+------------------------------------------------------------------------
+r210 | sivara57@UTORONTO.CA | 2016-07-15 23:53:47 -0400 (Fri, 15 Jul 2016) | 1 line
+
+javadoc for classes
+------------------------------------------------------------------------
+r209 | kabaniza@UTORONTO.CA | 2016-07-15 23:51:41 -0400 (Fri, 15 Jul 2016) | 1 line
+
+finalized
+------------------------------------------------------------------------
+r208 | lossevki@UTORONTO.CA | 2016-07-15 23:50:12 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added tests for grep, formatting and bug fixes
+------------------------------------------------------------------------
+r207 | kabaniza@UTORONTO.CA | 2016-07-15 23:48:08 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added some changes and comments
+------------------------------------------------------------------------
+r206 | kabaniza@UTORONTO.CA | 2016-07-15 23:35:12 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added invalid path exception
+------------------------------------------------------------------------
+r205 | sivara57@UTORONTO.CA | 2016-07-15 23:29:46 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Update ManTEST
+------------------------------------------------------------------------
+r204 | sivara57@UTORONTO.CA | 2016-07-15 23:25:42 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Updated CATTest 
+------------------------------------------------------------------------
+r203 | kabaniza@UTORONTO.CA | 2016-07-15 23:23:21 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added invalid path exception
+------------------------------------------------------------------------
+r202 | sivara57@UTORONTO.CA | 2016-07-15 22:51:23 -0400 (Fri, 15 Jul 2016) | 1 line
+
+added new entries to man docs
+------------------------------------------------------------------------
+r201 | lossevki@UTORONTO.CA | 2016-07-15 22:43:29 -0400 (Fri, 15 Jul 2016) | 2 lines
+
+Updated Javadocs for test cases, fixed bug in MockFileSystem, added tests for curl
+
+------------------------------------------------------------------------
+r200 | kabaniza@UTORONTO.CA | 2016-07-15 22:39:47 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Changed ls, to use a helper function that returns an ArrayList, Zain
+------------------------------------------------------------------------
+r199 | sivara57@UTORONTO.CA | 2016-07-15 22:28:29 -0400 (Fri, 15 Jul 2016) | 1 line
+
+cat test update
+------------------------------------------------------------------------
+r198 | sivara57@UTORONTO.CA | 2016-07-15 21:52:45 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Implemented new error message system for cat
+------------------------------------------------------------------------
+r197 | lossevki@UTORONTO.CA | 2016-07-15 21:26:24 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Updated javadocs in FileSystem and MockFileSystem, refactored JShell and directory
+------------------------------------------------------------------------
+r196 | lossevki@UTORONTO.CA | 2016-07-15 20:59:13 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Fixed some broken unit tests, bugfix in echo command
+------------------------------------------------------------------------
+r195 | sivara57@UTORONTO.CA | 2016-07-15 20:23:15 -0400 (Fri, 15 Jul 2016) | 1 line
+
+added comments, fixed javadocs and tweaked methods(HistoryRecall, Cat, Man) to implement better exception system 
+------------------------------------------------------------------------
+r194 | sivara57@UTORONTO.CA | 2016-07-15 19:21:31 -0400 (Fri, 15 Jul 2016) | 1 line
+
+fixed input implementation for !number method
+------------------------------------------------------------------------
+r193 | sivara57@UTORONTO.CA | 2016-07-15 19:20:24 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Simplified !number method regex
+------------------------------------------------------------------------
+r192 | lossevki@UTORONTO.CA | 2016-07-15 17:16:20 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Updated Javadocs for FileSystem and JFileSystem
+------------------------------------------------------------------------
+r191 | lossevki@UTORONTO.CA | 2016-07-15 17:07:04 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Enhanced input checking for grep and mkdir
+------------------------------------------------------------------------
+r190 | kabaniza@UTORONTO.CA | 2016-07-15 15:05:24 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Made notes
+------------------------------------------------------------------------
+r189 | odurilak@UTORONTO.CA | 2016-07-15 14:36:24 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Completed Sprint4 July 13, Sai
+------------------------------------------------------------------------
+r188 | kabaniza@UTORONTO.CA | 2016-07-15 14:35:24 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Made changes to LS to help implement recursive listing, Zain
+------------------------------------------------------------------------
+r187 | lossevki@UTORONTO.CA | 2016-07-15 14:01:38 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Bug fixes in Curl, Grep, and JShell
+------------------------------------------------------------------------
+r186 | sivara57@UTORONTO.CA | 2016-07-14 22:17:03 -0400 (Thu, 14 Jul 2016) | 1 line
+
+implemented the !number regex req in jshell
+------------------------------------------------------------------------
+r185 | lossevki@UTORONTO.CA | 2016-07-14 21:06:02 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Updated Javadocs
+------------------------------------------------------------------------
+r184 | lossevki@UTORONTO.CA | 2016-07-14 20:02:11 -0400 (Thu, 14 Jul 2016) | 3 lines
+
+JShell now redirects output of any command to a file.
+-Bug fixes in CommandHandler and grep
+-Removed now redundant method in echo
+------------------------------------------------------------------------
+r183 | sivara57@UTORONTO.CA | 2016-07-14 15:53:36 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Renamed file fixed conflict
+------------------------------------------------------------------------
+r182 | sivara57@UTORONTO.CA | 2016-07-14 14:52:44 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Fixed !number history implementation 
+------------------------------------------------------------------------
+r181 | sivara57@UTORONTO.CA | 2016-07-14 14:51:30 -0400 (Thu, 14 Jul 2016) | 1 line
+
+moved a method for better ease for access 
+------------------------------------------------------------------------
+r180 | sivara57@UTORONTO.CA | 2016-07-14 14:48:35 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Temp working copy of !number command
+------------------------------------------------------------------------
+r179 | sivara57@UTORONTO.CA | 2016-07-14 14:41:59 -0400 (Thu, 14 Jul 2016) | 1 line
+
+added history call implementation for !number
+------------------------------------------------------------------------
+r178 | lossevki@UTORONTO.CA | 2016-07-13 00:19:47 -0400 (Wed, 13 Jul 2016) | 1 line
+
+Implemented curl command
+------------------------------------------------------------------------
+r177 | lossevki@UTORONTO.CA | 2016-07-12 00:02:09 -0400 (Tue, 12 Jul 2016) | 1 line
+
+Nearly completed system to redirect any command's output.
+------------------------------------------------------------------------
+r176 | sivara57@UTORONTO.CA | 2016-07-10 16:43:51 -0400 (Sun, 10 Jul 2016) | 1 line
+
+added recall command to command map
+------------------------------------------------------------------------
+r175 | odurilak@UTORONTO.CA | 2016-07-10 14:56:09 -0400 (Sun, 10 Jul 2016) | 1 line
+
+Added Cp to commandMap, Sai
+------------------------------------------------------------------------
+r174 | odurilak@UTORONTO.CA | 2016-07-10 14:55:54 -0400 (Sun, 10 Jul 2016) | 1 line
+
+Added and completed Cp.java, Sai
+------------------------------------------------------------------------
+r173 | odurilak@UTORONTO.CA | 2016-07-10 14:44:55 -0400 (Sun, 10 Jul 2016) | 1 line
+
+Finished Mv.java, Sai
+------------------------------------------------------------------------
+r172 | sivara57@UTORONTO.CA | 2016-07-10 01:43:01 -0400 (Sun, 10 Jul 2016) | 1 line
+
+added recall to hashtable for commands
+------------------------------------------------------------------------
+r171 | sivara57@UTORONTO.CA | 2016-07-10 01:37:12 -0400 (Sun, 10 Jul 2016) | 1 line
+
+dailyscrummeetings
+------------------------------------------------------------------------
+r170 | sivara57@UTORONTO.CA | 2016-07-10 01:31:36 -0400 (Sun, 10 Jul 2016) | 1 line
+
+sprint5
+------------------------------------------------------------------------
+r169 | lossevki@UTORONTO.CA | 2016-07-10 00:10:01 -0400 (Sun, 10 Jul 2016) | 1 line
+
+Sprint 5 backlog
+------------------------------------------------------------------------
+r168 | odurilak@UTORONTO.CA | 2016-07-09 23:52:48 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Added sprint4 july 9th scrum meeting, Sai
+------------------------------------------------------------------------
+r167 | odurilak@UTORONTO.CA | 2016-07-09 23:30:10 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Added getFile method to FileSystem.java, Sai
+------------------------------------------------------------------------
+r166 | odurilak@UTORONTO.CA | 2016-07-09 23:27:07 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Added Mv to commandMap, Sai
+------------------------------------------------------------------------
+r165 | odurilak@UTORONTO.CA | 2016-07-09 23:26:03 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Added and completed Mv.java, Sai
+------------------------------------------------------------------------
+r164 | lossevki@UTORONTO.CA | 2016-07-09 01:01:38 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Finished grep, refactored mkdir, started on framework to redirect command output
+------------------------------------------------------------------------
+r163 | nairaks1@UTORONTO.CA | 2016-07-08 23:44:49 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Assignment2A marked
+------------------------------------------------------------------------
+r162 | lossevki@UTORONTO.CA | 2016-07-08 00:18:29 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Fixed bug when using grep with -r flag, added line numbers to output.
+------------------------------------------------------------------------
+r161 | sivara57@UTORONTO.CA | 2016-07-06 13:21:30 -0400 (Wed, 06 Jul 2016) | 2 lines
+
+basic outline of Recall Command 
+
+------------------------------------------------------------------------
+r160 | lossevki@UTORONTO.CA | 2016-07-05 23:11:50 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Bug fixes in Echo and File, Directory given new functionality, grep now recognises the -r flag.
+------------------------------------------------------------------------
+r159 | lossevki@UTORONTO.CA | 2016-07-05 18:50:53 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Updated sprint backlog
+------------------------------------------------------------------------
+r158 | odurilak@UTORONTO.CA | 2016-07-05 00:26:04 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Added Scrum Meeting for July 4th, Sai
+------------------------------------------------------------------------
+r157 | odurilak@UTORONTO.CA | 2016-07-05 00:22:32 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Assigned tasks for Sprint 4, Sai
+------------------------------------------------------------------------
+r156 | lossevki@UTORONTO.CA | 2016-07-04 23:40:47 -0400 (Mon, 04 Jul 2016) | 1 line
+
+Started on grep command
+------------------------------------------------------------------------
+r155 | sivara57@UTORONTO.CA | 2016-07-04 01:55:27 -0400 (Mon, 04 Jul 2016) | 1 line
+
+sprint4sivara57
+------------------------------------------------------------------------
+r154 | lossevki@UTORONTO.CA | 2016-07-02 16:37:55 -0400 (Sat, 02 Jul 2016) | 1 line
+
+Start of sprint 4 backlog
+------------------------------------------------------------------------
+r153 | lossevki@UTORONTO.CA | 2016-07-01 15:17:19 -0400 (Fri, 01 Jul 2016) | 1 line
+
+Product backlog for A2B
 ------------------------------------------------------------------------
 r152 | kabaniza@UTORONTO.CA | 2016-06-27 23:55:53 -0400 (Mon, 27 Jun 2016) | 1 line
 
@@ -714,49 +991,49 @@ r1 | markus | 2016-06-05 18:21:21 -0400 (Sun, 05 Jun 2016) | 1 line
 
 Part 3) +++Work Distribution of Team Members+++
 +++ON ALL SOURCE FILES+++
-  26 attarwal@U
- 102 kabaniza@U
-1532 lossevki@U
- 227 odurilak@U
- 304 sivara57@U
+  25 attarwal@U
+ 253 kabaniza@U
+2470 lossevki@U
+ 370 odurilak@U
+ 693 sivara57@U
 +++ON CRC CARDS+++
    9 attarwal@U
-  96 lossevki@U
+ 114 lossevki@U
   23 odurilak@U
   53 sivara57@U
 +++ON DAILYSCRUMMEETINGS+++
   33 attarwal@U
    9 kabaniza@U
-  67 lossevki@U
-  54 odurilak@U
-  59 sivara57@U
+  99 lossevki@U
+  84 odurilak@U
+  76 sivara57@U
 +++ON PRODUCT BACKLOG +++
   11 attarwal@U
    9 kabaniza@U
-   9 lossevki@U
+  28 lossevki@U
   19 odurilak@U
   12 sivara57@U
 +++ON SPRINTS+++
   68 attarwal@U
    6 kabaniza@U
- 114 lossevki@U
-   8 odurilak@U
-   6 sivara57@U
-3595
+ 187 lossevki@U
+  11 odurilak@U
+  10 sivara57@U
+28906
 Part 4) SVN Commits
 
 
 On Sprints
    1  attarwal@UTORONTO.CA 
    1  kabaniza@UTORONTO.CA 
-   5  lossevki@UTORONTO.CA 
-   3  odurilak@UTORONTO.CA 
-   5  sivara57@UTORONTO.CA 
+   8  lossevki@UTORONTO.CA 
+   4  odurilak@UTORONTO.CA 
+   7  sivara57@UTORONTO.CA 
 
 
 On CRC Cards
    1  attarwal@UTORONTO.CA 
-   5  lossevki@UTORONTO.CA 
+   8  lossevki@UTORONTO.CA 
    3  odurilak@UTORONTO.CA 
    3  sivara57@UTORONTO.CA 
 
@@ -764,22 +1041,22 @@ On CRC Cards
 On DailyScrumMeetings
    1  attarwal@UTORONTO.CA 
    1  kabaniza@UTORONTO.CA 
-   6  lossevki@UTORONTO.CA 
-   6  odurilak@UTORONTO.CA 
-   8  sivara57@UTORONTO.CA 
+   9  lossevki@UTORONTO.CA 
+   9  odurilak@UTORONTO.CA 
+   9  sivara57@UTORONTO.CA 
 
 
 On ProductBacklog
    1  attarwal@UTORONTO.CA 
    1  kabaniza@UTORONTO.CA 
-   2  lossevki@UTORONTO.CA 
+   3  lossevki@UTORONTO.CA 
    3  odurilak@UTORONTO.CA 
    4  sivara57@UTORONTO.CA 
 
 
 On source
    1  attarwal@UTORONTO.CA 
-   4  kabaniza@UTORONTO.CA 
-  21  lossevki@UTORONTO.CA 
-  30  odurilak@UTORONTO.CA 
-  44  sivara57@UTORONTO.CA 
+  12  kabaniza@UTORONTO.CA 
+  37  lossevki@UTORONTO.CA 
+  36  odurilak@UTORONTO.CA 
+  63  sivara57@UTORONTO.CA 
